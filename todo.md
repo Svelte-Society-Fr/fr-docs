@@ -1,0 +1,1055 @@
+# TODO
+
+0 / 614
+
+ - docs
+   - [] 00-introduction.md
+   - [] 01-getting-started.md
+   - [] 02-component-format.md
+   - [] 03-template-syntax.md
+   - [] 04-run-time.md
+   - [] 05-compile-time.md
+   - [] 06-accessibility-warnings.md
+ - examples
+   - 00-introduction
+     - 00-hello-world
+       - [] App.svelte
+       - [] meta.json
+     - 01-dynamic-attributes
+       - [] App.svelte
+       - [] meta.json
+     - 02-styling
+       - [] App.svelte
+       - [] meta.json
+     - 03-nested-components
+       - [] App.svelte
+       - [] Nested.svelte
+       - [] meta.json
+     - 04-html-tags
+       - [] App.svelte
+       - [] meta.json
+     - [] meta.json
+   - 01-reactivity
+     - 00-reactive-assignments
+       - [] App.svelte
+       - [] meta.json
+     - 01-reactive-declarations
+       - [] App.svelte
+       - [] meta.json
+     - 02-reactive-statements
+       - [] App.svelte
+       - [] meta.json
+     - [] meta.json
+   - 02-props
+     - 00-declaring-props
+       - [] App.svelte
+       - [] Nested.svelte
+       - [] meta.json
+     - 01-default-values
+       - [] App.svelte
+       - [] Nested.svelte
+       - [] meta.json
+     - 02-spread-props
+       - [] App.svelte
+       - [] Info.svelte
+       - [] meta.json
+     - [] meta.json
+   - 03-logic
+     - 00-if-blocks
+       - [] App.svelte
+       - [] meta.json
+     - 01-else-blocks
+       - [] App.svelte
+       - [] meta.json
+     - 02-else-if-blocks
+       - [] App.svelte
+       - [] meta.json
+     - 03-each-blocks
+       - [] App.svelte
+       - [] meta.json
+     - 04-keyed-each-blocks
+       - [] App.svelte
+       - [] Thing.svelte
+       - [] meta.json
+     - 05-await-blocks
+       - [] App.svelte
+       - [] meta.json
+     - [] meta.json
+   - 04-events
+     - 00-dom-events
+       - [] App.svelte
+       - [] meta.json
+     - 01-inline-handlers
+       - [] App.svelte
+       - [] meta.json
+     - 02-event-modifiers
+       - [] App.svelte
+       - [] meta.json
+     - 03-component-events
+       - [] App.svelte
+       - [] Inner.svelte
+       - [] meta.json
+     - 04-event-forwarding
+       - [] App.svelte
+       - [] Inner.svelte
+       - [] Outer.svelte
+       - [] meta.json
+     - 05-dom-event-forwarding
+       - [] App.svelte
+       - [] CustomButton.svelte
+       - [] meta.json
+     - [] meta.json
+   - 05-bindings
+     - 00-text-inputs
+       - [] App.svelte
+       - [] meta.json
+     - 01-numeric-inputs
+       - [] App.svelte
+       - [] meta.json
+     - 02-checkbox-inputs
+       - [] App.svelte
+       - [] meta.json
+     - 03-group-inputs
+       - [] App.svelte
+       - [] meta.json
+     - 04-textarea-inputs
+       - [] App.svelte
+       - [] meta.json
+     - 05-file-inputs
+       - [] App.svelte
+       - [] meta.json
+     - 06-select-bindings
+       - [] App.svelte
+       - [] meta.json
+     - 07-multiple-select-bindings
+       - [] App.svelte
+       - [] meta.json
+     - 08-each-block-bindings
+       - [] App.svelte
+       - [] meta.json
+     - 09-media-elements
+       - [] App.svelte
+       - [] meta.json
+     - 10-dimensions
+       - [] App.svelte
+       - [] meta.json
+     - 11-bind-this
+       - [] App.svelte
+       - [] meta.json
+     - 12-component-bindings
+       - [] App.svelte
+       - [] Keypad.svelte
+       - [] meta.json
+     - [] meta.json
+   - 06-lifecycle
+     - 00-onmount
+       - [] App.svelte
+       - [] meta.json
+     - 01-ondestroy
+       - [] App.svelte
+       - [] meta.json
+       - utils.js
+     - 02-update
+       - [] App.svelte
+       - [] meta.json
+     - 03-tick
+       - [] App.svelte
+       - [] meta.json
+     - [] meta.json
+   - 07-stores
+     - 00-writable-stores
+       - [] App.svelte
+       - [] Decrementer.svelte
+       - [] Incrementer.svelte
+       - [] Resetter.svelte
+       - [] meta.json
+       - stores.js
+     - 01-auto-subscriptions
+       - [] App.svelte
+       - [] Decrementer.svelte
+       - [] Incrementer.svelte
+       - [] Resetter.svelte
+       - [] meta.json
+       - stores.js
+     - 02-readable-stores
+       - [] App.svelte
+       - [] meta.json
+       - stores.js
+     - 03-derived-stores
+       - [] App.svelte
+       - [] meta.json
+       - stores.js
+     - 04-custom-stores
+       - [] App.svelte
+       - [] meta.json
+       - stores.js
+     - [] meta.json
+   - 08-motion
+     - 00-tweened
+       - [] App.svelte
+       - [] meta.json
+     - 01-spring
+       - [] App.svelte
+       - [] meta.json
+     - [] meta.json
+   - 09-transitions
+     - 00-transition
+       - [] App.svelte
+       - [] meta.json
+     - 01-adding-parameters-to-transitions
+       - [] App.svelte
+       - [] meta.json
+     - 02-in-and-out
+       - [] App.svelte
+       - [] meta.json
+     - 03-custom-css-transitions
+       - [] App.svelte
+       - [] meta.json
+     - 04-custom-js-transitions
+       - [] App.svelte
+       - [] meta.json
+     - 05-transition-events
+       - [] App.svelte
+       - [] meta.json
+     - 06-deferred-transitions
+       - [] App.svelte
+       - images.js
+       - [] meta.json
+     - [] meta.json
+   - 10-animations
+     - 00-animate
+       - [] App.svelte
+       - [] meta.json
+     - [] meta.json
+   - 11-easing
+     - 00-easing
+       - [] App.svelte
+       - [] Controls.svelte
+       - [] Grid.svelte
+       - eases.js
+       - [] meta.json
+     - [] meta.json
+   - 12-svg
+     - 01-clock
+       - [] App.svelte
+       - [] meta.json
+     - 02-bar-chart
+       - [] App.svelte
+       - [] meta.json
+     - 03-area-chart
+       - [] App.svelte
+       - data.js
+       - [] meta.json
+     - 04-scatterplot
+       - [] App.svelte
+       - [] Scatterplot.svelte
+       - data.js
+       - [] meta.json
+     - 05-svg-transitions
+       - [] App.svelte
+       - custom-transitions.js
+       - [] meta.json
+       - shape.js
+     - [] meta.json
+   - 13-actions
+     - 00-actions
+       - [] App.svelte
+       - click_outside.js
+       - [] meta.json
+     - 01-adding-parameters-to-actions
+       - [] App.svelte
+       - longpress.js
+       - [] meta.json
+     - 03-actions-pannable
+       - [] App.svelte
+       - [] meta.json
+       - pannable.js
+     - [] meta.json
+   - 14-classes
+     - 00-classes
+       - [] App.svelte
+       - [] meta.json
+     - 01-class-shorthand
+       - [] App.svelte
+       - [] meta.json
+     - [] meta.json
+   - 15-composition
+     - 00-slots
+       - [] App.svelte
+       - [] Box.svelte
+       - [] meta.json
+     - 01-slot-fallbacks
+       - [] App.svelte
+       - [] Box.svelte
+       - [] meta.json
+     - 02-named-slots
+       - [] App.svelte
+       - [] ContactCard.svelte
+       - [] meta.json
+     - 03-slot-props
+       - [] App.svelte
+       - [] Hoverable.svelte
+       - [] meta.json
+     - 04-conditional-slots
+       - [] App.svelte
+       - [] Profile.svelte
+       - [] meta.json
+     - 05-modal
+       - [] App.svelte
+       - [] Modal.svelte
+       - [] meta.json
+     - [] meta.json
+   - 16-context
+     - 00-context-api
+       - [] App.svelte
+       - [] Map.svelte
+       - [] MapMarker.svelte
+       - mapbox.js
+       - [] meta.json
+     - [] meta.json
+   - 17-special-elements
+     - 00-svelte-self
+       - [] App.svelte
+       - [] File.svelte
+       - [] Folder.svelte
+       - [] meta.json
+     - 01-svelte-component
+       - [] App.svelte
+       - [] BlueThing.svelte
+       - [] GreenThing.svelte
+       - [] RedThing.svelte
+       - [] meta.json
+     - 02-svelte-element
+       - [] App.svelte
+       - [] meta.json
+     - 03-svelte-window
+       - [] App.svelte
+       - [] meta.json
+     - 04-svelte-window-bindings
+       - [] App.svelte
+       - [] meta.json
+     - 05-svelte-body
+       - [] App.svelte
+       - [] meta.json
+     - 06-svelte-head
+       - [] App.svelte
+       - [] meta.json
+     - [] meta.json
+   - 18-module-context
+     - 01-module-exports
+       - [] App.svelte
+       - [] AudioPlayer.svelte
+       - [] meta.json
+     - [] meta.json
+   - 19-debugging
+     - 00-debug
+       - [] App.svelte
+       - [] meta.json
+     - [] meta.json
+   - 20-7guis
+     - 01-7guis-counter
+       - [] App.svelte
+       - [] meta.json
+     - 02-7guis-temperature
+       - [] App.svelte
+       - [] meta.json
+     - 03-7guis-flight-booker
+       - [] App.svelte
+       - [] meta.json
+     - 04-7guis-timer
+       - [] App.svelte
+       - [] meta.json
+     - 05-7guis-crud
+       - [] App.svelte
+       - [] meta.json
+     - 06-7guis-circles
+       - [] App.svelte
+       - [] meta.json
+     - [] meta.json
+   - 21-miscellaneous
+     - 01-hacker-news
+       - [] App.svelte
+       - [] Comment.svelte
+       - [] Item.svelte
+       - [] List.svelte
+       - [] Summary.svelte
+       - [] meta.json
+     - 02-immutable-data
+       - [] App.svelte
+       - [] ImmutableTodo.svelte
+       - [] MutableTodo.svelte
+       - flash.js
+       - [] meta.json
+     - [] meta.json
+   - 99-embeds
+     - 20181225-blog-svelte-css-in-js
+       - [] App.svelte
+       - [] Hero.svelte
+       - [] meta.json
+       - styles.js
+     - 20190420-blog-write-less-code
+       - [] App.svelte
+       - [] meta.json
+     - [] meta.json
+ - faq
+   - [] 100-im-new-to-svelte.md
+   - [] 110-where-can-i-get-support.md
+   - [] 1100-is-svelte-v2-still-available.md
+   - [] 1200-how-do-i-do-hmr.md
+   - [] 200-are-there-any-third-party-resources.md
+   - [] 400-how-can-i-get-syntax-highlighting.md
+   - [] 425-is-there-a-tool-to-automatically-format.md
+   - [] 450-how-do-i-document-my-components.md
+   - [] 500-what-about-typescript-support.md
+   - [] 600-does-svelte-scale.md
+   - [] 700-is-there-a-component-library.md
+   - [] 800-how-do-i-test-svelte-apps.md
+   - [] 900-is-there-a-router.md
+ - tutorial
+   - 01-introduction
+     - 01-basics
+       - app-a
+         - [] App.svelte
+       - [] text.md
+     - 02-adding-data
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 03-dynamic-attributes
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 04-styling
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 05-nested-components
+       - app-a
+         - [] App.svelte
+         - [] Nested.svelte
+       - app-b
+         - [] App.svelte
+         - [] Nested.svelte
+       - [] text.md
+     - 06-html-tags
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 07-making-an-app
+       - app-a
+         - [] App.svelte
+       - [] text.md
+     - [] meta.json
+   - 02-reactivity
+     - 01-reactive-assignments
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 02-reactive-declarations
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 03-reactive-statements
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 04-updating-arrays-and-objects
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - [] meta.json
+   - 03-props
+     - 01-declaring-props
+       - app-a
+         - [] App.svelte
+         - [] Nested.svelte
+       - app-b
+         - [] App.svelte
+         - [] Nested.svelte
+       - [] text.md
+     - 02-default-values
+       - app-a
+         - [] App.svelte
+         - [] Nested.svelte
+       - app-b
+         - [] App.svelte
+         - [] Nested.svelte
+       - [] text.md
+     - 03-spread-props
+       - app-a
+         - [] App.svelte
+         - [] Info.svelte
+       - app-b
+         - [] App.svelte
+         - [] Info.svelte
+       - [] text.md
+     - [] meta.json
+   - 04-logic
+     - 01-if-blocks
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 02-else-blocks
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 03-else-if-blocks
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 04-each-blocks
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 05-keyed-each-blocks
+       - app-a
+         - [] App.svelte
+         - [] Thing.svelte
+       - app-b
+         - [] App.svelte
+         - [] Thing.svelte
+       - [] text.md
+     - 06-await-blocks
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - [] meta.json
+   - 05-events
+     - 01-dom-events
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 02-inline-handlers
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 03-event-modifiers
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 04-component-events
+       - app-a
+         - [] App.svelte
+         - [] Inner.svelte
+       - app-b
+         - [] App.svelte
+         - [] Inner.svelte
+       - [] text.md
+     - 05-event-forwarding
+       - app-a
+         - [] App.svelte
+         - [] Inner.svelte
+         - [] Outer.svelte
+       - app-b
+         - [] App.svelte
+         - [] Inner.svelte
+         - [] Outer.svelte
+       - [] text.md
+     - 06-dom-event-forwarding
+       - app-a
+         - [] App.svelte
+         - [] CustomButton.svelte
+       - app-b
+         - [] App.svelte
+         - [] CustomButton.svelte
+       - [] text.md
+     - [] meta.json
+   - 06-bindings
+     - 01-text-inputs
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 02-numeric-inputs
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 03-checkbox-inputs
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 04-group-inputs
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 05-textarea-inputs
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 06-select-bindings
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 07-multiple-select-bindings
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 08-contenteditable-bindings
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 09-each-block-bindings
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 10-media-elements
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 11-dimensions
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 12-bind-this
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 13-component-bindings
+       - app-a
+         - [] App.svelte
+         - [] Keypad.svelte
+       - app-b
+         - [] App.svelte
+         - [] Keypad.svelte
+       - [] text.md
+     - 14-component-this
+       - app-a
+         - [] App.svelte
+         - [] InputField.svelte
+       - app-b
+         - [] App.svelte
+         - [] InputField.svelte
+       - [] text.md
+     - [] meta.json
+   - 07-lifecycle
+     - 01-onmount
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 02-ondestroy
+       - app-a
+         - [] App.svelte
+         - [] Timer.svelte
+         - utils.js
+       - app-b
+         - [] App.svelte
+         - [] Timer.svelte
+         - utils.js
+       - [] text.md
+     - 03-update
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 04-tick
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - [] meta.json
+   - 08-stores
+     - 01-writable-stores
+       - app-a
+         - [] App.svelte
+         - [] Decrementer.svelte
+         - [] Incrementer.svelte
+         - [] Resetter.svelte
+         - stores.js
+       - app-b
+         - [] App.svelte
+         - [] Decrementer.svelte
+         - [] Incrementer.svelte
+         - [] Resetter.svelte
+         - stores.js
+       - [] text.md
+     - 02-auto-subscriptions
+       - app-a
+         - [] App.svelte
+         - [] Decrementer.svelte
+         - [] Incrementer.svelte
+         - [] Resetter.svelte
+         - stores.js
+       - app-b
+         - [] App.svelte
+         - [] Decrementer.svelte
+         - [] Incrementer.svelte
+         - [] Resetter.svelte
+         - stores.js
+       - [] text.md
+     - 03-readable-stores
+       - app-a
+         - [] App.svelte
+         - stores.js
+       - app-b
+         - [] App.svelte
+         - stores.js
+       - [] text.md
+     - 04-derived-stores
+       - app-a
+         - [] App.svelte
+         - stores.js
+       - app-b
+         - [] App.svelte
+         - stores.js
+       - [] text.md
+     - 05-custom-stores
+       - app-a
+         - [] App.svelte
+         - stores.js
+       - app-b
+         - [] App.svelte
+         - stores.js
+       - [] text.md
+     - 06-store-bindings
+       - app-a
+         - [] App.svelte
+         - stores.js
+       - app-b
+         - [] App.svelte
+         - stores.js
+       - [] text.md
+     - [] meta.json
+   - 09-motion
+     - 01-tweened
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 02-spring
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - [] meta.json
+   - 10-transitions
+     - 01-transition
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 02-adding-parameters-to-transitions
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 03-in-and-out
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 04-custom-css-transitions
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 05-custom-js-transitions
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 06-transition-events
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 07-local-transitions
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 08-deferred-transitions
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 09-key-blocks
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - [] meta.json
+   - 11-animations
+     - 01-animate
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - [] meta.json
+   - 12-actions
+     - 01-actions
+       - app-a
+         - [] App.svelte
+         - click_outside.js
+       - app-b
+         - [] App.svelte
+         - click_outside.js
+       - [] text.md
+     - 02-adding-parameters-to-actions
+       - app-a
+         - [] App.svelte
+         - longpress.js
+       - app-b
+         - [] App.svelte
+         - longpress.js
+       - [] text.md
+     - [] meta.json
+   - 13-advanced-styling
+     - 01-classes
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 02-class-shorthand
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 03-inline-styles
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 04-style-directive
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - [] meta.json
+   - 14-composition
+     - 01-slots
+       - app-a
+         - [] App.svelte
+         - [] Box.svelte
+       - app-b
+         - [] App.svelte
+         - [] Box.svelte
+       - [] text.md
+     - 02-slot-fallbacks
+       - app-a
+         - [] App.svelte
+         - [] Box.svelte
+       - app-b
+         - [] App.svelte
+         - [] Box.svelte
+       - [] text.md
+     - 03-named-slots
+       - app-a
+         - [] App.svelte
+         - [] ContactCard.svelte
+       - app-b
+         - [] App.svelte
+         - [] ContactCard.svelte
+       - [] text.md
+     - 04-optional-slots
+       - app-a
+         - [] App.svelte
+         - [] Comment.svelte
+         - [] Project.svelte
+       - app-b
+         - [] App.svelte
+         - [] Comment.svelte
+         - [] Project.svelte
+       - [] text.md
+     - 05-slot-props
+       - app-a
+         - [] App.svelte
+         - [] Hoverable.svelte
+       - app-b
+         - [] App.svelte
+         - [] Hoverable.svelte
+       - [] text.md
+     - [] meta.json
+   - 15-context
+     - 01-context-api
+       - app-a
+         - [] App.svelte
+         - [] Map.svelte
+         - [] MapMarker.svelte
+         - mapbox.js
+       - app-b
+         - [] App.svelte
+         - [] Map.svelte
+         - [] MapMarker.svelte
+         - mapbox.js
+       - [] text.md
+     - [] meta.json
+   - 16-special-elements
+     - 01-svelte-self
+       - app-a
+         - [] App.svelte
+         - [] File.svelte
+         - [] Folder.svelte
+       - app-b
+         - [] App.svelte
+         - [] File.svelte
+         - [] Folder.svelte
+       - [] text.md
+     - 02-svelte-component
+       - app-a
+         - [] App.svelte
+         - [] BlueThing.svelte
+         - [] GreenThing.svelte
+         - [] RedThing.svelte
+       - app-b
+         - [] App.svelte
+         - [] BlueThing.svelte
+         - [] GreenThing.svelte
+         - [] RedThing.svelte
+       - [] text.md
+     - 03-svelte-element
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 04-svelte-window
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 05-svelte-window-bindings
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 06-svelte-body
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 07-svelte-head
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - 08-svelte-options
+       - app-a
+         - [] App.svelte
+         - [] Todo.svelte
+         - flash.js
+       - app-b
+         - [] App.svelte
+         - [] Todo.svelte
+         - flash.js
+       - [] text.md
+     - 09-svelte-fragment
+       - app-a
+         - [] App.svelte
+         - [] Box.svelte
+       - app-b
+         - [] App.svelte
+         - [] Box.svelte
+       - [] text.md
+     - [] meta.json
+   - 17-module-context
+     - 01-sharing-code
+       - app-a
+         - [] App.svelte
+         - [] AudioPlayer.svelte
+       - app-b
+         - [] App.svelte
+         - [] AudioPlayer.svelte
+       - [] text.md
+     - 02-module-exports
+       - app-a
+         - [] App.svelte
+         - [] AudioPlayer.svelte
+       - app-b
+         - [] App.svelte
+         - [] AudioPlayer.svelte
+       - [] text.md
+     - [] meta.json
+   - 18-debugging
+     - 01-debug
+       - app-a
+         - [] App.svelte
+       - app-b
+         - [] App.svelte
+       - [] text.md
+     - [] meta.json
+   - 19-next-steps
+     - 01-congratulations
+       - app-a
+         - [] App.svelte
+       - [] text.md
+     - [] meta.json
+

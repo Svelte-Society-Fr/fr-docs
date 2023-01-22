@@ -1,0 +1,26 @@
+{
+  "name": "fr-docs",
+  "version": "1.0.0",
+  "description": "Uses [this action](https://github.com/AlexxNB/track-commits-to-issue) to track commits in Svelte and SvelteKit docs.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "check": "node check.js && git add ./todo.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iOiurson/svelte-fr-docs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iOiurson/svelte-fr-docs/issues"
+  },
+  "homepage": "https://github.com/iOiurson/svelte-fr-docs#readme",
+  "devDependencies": {
+    "husky": "^8.0.3"
+  }
+}
