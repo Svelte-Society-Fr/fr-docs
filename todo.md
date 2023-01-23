@@ -1,6 +1,6 @@
 # TODO
 
-7 / 256 (2.73 %)
+9 / 256 (3.52 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -12,8 +12,8 @@
    - [ ] 03-template-syntax.md
       - [x] Tags
       - [x] Attributes and props
-      - [ ] Text expressions
-      - [ ] Comments
+      - [x] Text expressions
+      - [x] Comments
       - [ ] {#if ...}
       - [ ] {#each ...}
       - [ ] {#await ...}
