@@ -1,8 +1,8 @@
 # TODO
 
-5 / 241
+7 / 256 (2.73 %)
 
-docs
+## docs
    - [x] 00-introduction.md
    - [x] 01-getting-started.md
    - [x] 02-component-format.md
@@ -74,7 +74,7 @@ docs
       - [ ] a11y-structure
       - [ ] a11y-unknown-aria-attribute
       - [ ] a11y-unknown-role
-examples
+## examples
    - [ ] Miscellaneous
       - [ ] Hacker News
       - [ ] Immutable data
@@ -187,7 +187,7 @@ examples
       - [ ] Styling
       - [ ] Nested components
       - [ ] HTML tags
-faq
+## faq
    - [ ] 100-im-new-to-svelte.md
    - [ ] 110-where-can-i-get-support.md
    - [ ] 1100-is-svelte-v2-still-available.md
@@ -201,7 +201,7 @@ faq
    - [ ] 700-is-there-a-component-library.md
    - [ ] 800-how-do-i-test-svelte-apps.md
    - [ ] 900-is-there-a-router.md
-tutorial
+## tutorial
    - [ ] Next steps
       - [ ] Congratulations!
    - [ ] Debugging

@@ -54,13 +54,19 @@ async function _list(path) {
 
           const done = !!sections?.every(s => s.done);
 
+          if (!sections?.length) {
+            nb++;
+            if (done) nbDone++;
+          }
+          // console.log(item.file ?? item.name, done, sections);
+
           return `${tabs} - [${done ? 'x' : ' '}] ${
             item.file ?? item.name
           }\n${sectionLines}`;
         })
         .join('');
 
-      return `${name}\n${lines}`;
+      return `## ${name}\n${lines}`;
     })
     .join('')
     .replaceAll('<', '\\<');
@@ -70,7 +76,7 @@ const str = await _list('svelte');
 
 const output = `# TODO
 
-${nbDone} / ${nb}
+${nbDone} / ${nb} (${((nbDone / nb) * 100).toFixed(2)} %)
 
 ${str}
 `;
