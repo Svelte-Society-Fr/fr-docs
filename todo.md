@@ -1,6 +1,6 @@
 # TODO
 
-3 / 241
+5 / 241
 
 docs
    - [x] 00-introduction.md
@@ -10,8 +10,8 @@ docs
       - [x] \<script context="module">
       - [x] \<style>
    - [ ] 03-template-syntax.md
-      - [ ] Tags
-      - [ ] Attributes and props
+      - [x] Tags
+      - [x] Attributes and props
       - [ ] Text expressions
       - [ ] Comments
       - [ ] {#if ...}
