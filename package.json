@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/iOiurson/svelte-fr-docs#readme",
   "devDependencies": {
-    "husky": "^8.0.3"
+    "husky": "^8.0.3",
+    "transform-docs": "github:sveltejs-translations/transform-docs"
   }
 }

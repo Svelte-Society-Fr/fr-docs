@@ -1,38 +1,72 @@
-import { join } from 'path';
-import { existsSync, readdirSync, writeFileSync } from 'fs';
+import { writeFileSync } from 'fs';
+import { transform } from 'transform-docs';
 
 let nb = 0;
 let nbDone = 0;
 
-function list(path) {
-  const dir = readdirSync(path, { withFileTypes: true });
+async function _list(path) {
+  const data = await transform(`${path}/en`);
+  const translated = await transform(`${path}/fr`);
 
-  return dir
-    .sort((a, b) => (a.name > b.name ? 1 : -1))
+  data
+    .sort((d1, d2) => (d1.type > d2.type ? 1 : -1))
+    .forEach(d =>
+      d.content.list.sort((d1, d2) => (d1.file > d2.file ? 1 : -1)),
+    );
+
+  translated
+    .sort((d1, d2) => (d1.type > d2.type ? 1 : -1))
+    .forEach(d =>
+      d.content.list.sort((d1, d2) => (d1.file > d2.file ? 1 : -1)),
+    );
+
+  return data
     .map(d => {
-      const segments = path.split('/').splice(2);
-      const tabs = segments.reduce(acc => acc + '  ', '');
+      let name = d.type;
 
-      const done = existsSync(join(path.replace('/en', '/fr'), d.name));
+      const frD = translated.find(t => t.type === name);
 
-      if (d.isDirectory()) {
-        return `${tabs} - ${d.name}\n${list(join(path, d.name))}`;
-      }
+      const lines = d.content.list
+        .map(item => {
+          let tabs = '  ';
 
-      if (done) {
-        nbDone++;
-      }
+          const _item = frD?.content.list.find(i => i.file === item.file);
 
-      if (d.name.endsWith('.js')) {
-        return `${tabs} - ${d.name}\n`;
-      }
-      nb++;
-      return `${tabs} - [${done ? 'x' : ' '}] ${d.name}\n`;
+          const subItems = item.sections ?? item.tutorials ?? item.examples;
+          const _subItems =
+            _item?.sections ?? _item?.tutorials ?? _item?.examples;
+
+          const sections = subItems?.map(({ title, name }, i) => {
+            const done = !!_subItems?.find((s, _i) => _i === i);
+
+            nb++;
+            if (done) nbDone++;
+
+            return {
+              title: title ?? name,
+              done,
+            };
+          });
+          const sectionLines =
+            sections
+              ?.map(s => `      - [${s.done ? 'x' : ' '}] ${s.title}\n`)
+              .join('') ?? '';
+
+          const done = !!sections?.every(s => s.done);
+
+          return `${tabs} - [${done ? 'x' : ' '}] ${
+            item.file ?? item.name
+          }\n${sectionLines}`;
+        })
+        .join('');
+
+      return `${name}\n${lines}`;
     })
-    .reduce((acc, e) => acc + e, '');
+    .join('')
+    .replaceAll('<', '\\<');
 }
 
-const str = list('svelte/en');
+const str = await _list('svelte');
 
 const output = `# TODO
 
