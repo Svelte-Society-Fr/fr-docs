@@ -22,7 +22,7 @@ Les trois sections qui le composent - scripts, styles, et markup - sont optionne
 
 ### &lt;script&gt;
 
-Un block `<script>` contient du JavaScript qui est exécuté lorsqu'une instance de composant est créée. Les variables déclarées (ou importées) à la racine du composant sont 'visibles' pour le markup du composant. Il y a quatre règles supplémentaires:
+Un bloc `<script>` contient du JavaScript qui est exécuté lorsqu'une instance de composant est créée. Les variables déclarées (ou importées) à la racine du composant sont 'visibles' pour le markup du composant. Il y a quatre règles supplémentaires:
 
 #### 1. `export` crée une prop de composant
 
@@ -131,7 +131,7 @@ Puisque la réactivité de Svelte est basée sur les assignations, l'utilisation
 
 ---
 
-En Svelte, les blocks `<script>` sont exécutés uniquement lorsque le composant est créé, ce qui signifie que les assignations au sein d'un block `<script>` ne sont pas automatiquement rejouées lorsqu'une prop est mise à jour. Si vous souhaitez suivre les changements d'une prop, allez voir le prochain exemple dans la section qui suit.
+En Svelte, les blocs `<script>` sont exécutés uniquement lorsque le composant est créé, ce qui signifie que les assignations au sein d'un bloc `<script>` ne sont pas automatiquement rejouées lorsqu'une prop est mise à jour. Si vous souhaitez suivre les changements d'une prop, allez voir le prochain exemple dans la section qui suit.
 
 ```sv
 <script>
@@ -146,7 +146,7 @@ En Svelte, les blocks `<script>` sont exécutés uniquement lorsque le composant
 
 ---
 
-Toute expression à la racine du composant (i.e. ni dans un block ni dans une fonction) peut être rendu réactive en la préfixant avec la syntaxe `$:` empruntées aux [labels JS](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/label). Les expressions réactives sont exécutées après tout autre code du script, et avant le rendu du markup du composant, à chaque fois que les valeurs dont elle dépend changent.
+Toute expression à la racine du composant (i.e. ni dans un bloc ni dans une fonction) peut être rendu réactive en la préfixant avec la syntaxe `$:` empruntées aux [labels JS](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/label). Les expressions réactives sont exécutées après tout autre code du script, et avant le rendu du markup du composant, à chaque fois que les valeurs dont elle dépend changent.
 
 ```sv
 <script>
@@ -173,7 +173,7 @@ Toute expression à la racine du composant (i.e. ni dans un block ni dans une fo
 
 ---
 
-Seules les valeurs qui apparaissent directement au sein d'un block `$:` sont des dépendances de l'expression réactive. Par exemple, dans le code ci-dessous `total` sera mise à jour uniquement lorsque `x` change, mais pas lorsque `y` change.
+Seules les valeurs qui apparaissent directement au sein d'un bloc `$:` sont des dépendances de l'expression réactive. Par exemple, dans le code ci-dessous `total` sera mise à jour uniquement lorsque `x` change, mais pas lorsque `y` change.
 
 ```sv
 <script>
@@ -199,7 +199,7 @@ Total: {total}
 
 ---
 
-Il est important de noter que les blocks réactifs sont ordonnés par une analyse statique simple au moment de la compilation, et tout ce que le compilateur considère sont les variables qui sont assignées et utilisées au sein du block lui-même, pas au sein d'éventuelles fonctions appelées par le block. Cela implique que `yDependent` ne sera pas mise à jour quand `x` change dans l'exemple suivant:
+Il est important de noter que les blocs réactifs sont ordonnés par une analyse statique simple au moment de la compilation, et tout ce que le compilateur considère sont les variables qui sont assignées et utilisées au sein du bloc lui-même, pas au sein d'éventuelles fonctions appelées par le bloc. Cela implique que `yDependent` ne sera pas mise à jour quand `x` change dans l'exemple suivant:
 
 ```sv
 <script>
@@ -242,7 +242,7 @@ Un *store* est un objet qui permet un accès réactif à une valeur via un simpl
 
 Les assignations aux variables préfixées avec `$` nécessitent que la variable soit un *writable store*, et cela fera appel à la méthode `.set` du store.
 
-Notez que le store doit être déclaré à la racine du composant — et non au sein d'un block `if` ou d'une fonction, par exemple.
+Notez que le store doit être déclaré à la racine du composant — et non au sein d'un bloc `if` ou d'une fonction, par exemple.
 
 Les variables locales (qui ne représentent pas la valeur d'un store) ne doivent *pas* être préfixées avec `$`.
 
@@ -279,9 +279,9 @@ Pour l'interopérabilité avec les Observables RxJS, la méthode `.subscribe` es
 
 ---
 
-Une balise `<script>` avec un attribut `context="module"` est exécutée une seule fois quand le module est évalué la première fois, au lieu d'une fois pour chaque instance de composant. Les valeurs déclarées au sein de ce block sont accessibles depuis un `<script>` classique (et depuis le markup du composant), mais pas inversement.
+Une balise `<script>` avec un attribut `context="module"` est exécutée une seule fois quand le module est évalué la première fois, au lieu d'une fois pour chaque instance de composant. Les valeurs déclarées au sein de ce bloc sont accessibles depuis un `<script>` classique (et depuis le markup du composant), mais pas inversement.
 
-Vous pouvez `export` des valeurs depuis ce block, et elles seront exposées comme exports du module compilés.
+Vous pouvez `export` des valeurs depuis ce bloc, et elles seront exposées comme exports du module compilés.
 
 Vous ne pouvez pas `export default`, puisque l'export par défaut est le composant lui-même.
 
@@ -309,7 +309,7 @@ Vous ne pouvez pas `export default`, puisque l'export par défaut est le composa
 
 ---
 
-Le CSS au sein d'un block `<style>` sera cantonné (*scoped*) à ce composant.
+Le CSS au sein d'un bloc `<style>` sera cantonné (*scoped*) à ce composant.
 
 Cela est possible grâce à l'ajout d'une classe aux éléments concernés, classe basée sur un hash des styles du composant (par ex. `svelte-123xyz`).
 
@@ -366,7 +366,7 @@ Le préfixe `-global-` sera supprimé à la compilation, et la keyframe pourra a
 
 Il ne peut y avoir qu'une 1 seule balise `<style>` à la racine d'un component.
 
-Toutefois, il est possible d'avoir une balise `<style>` imbriquée dans d'autres éléments ou blocks logiques.
+Toutefois, il est possible d'avoir une balise `<style>` imbriquée dans d'autres éléments ou blocs logiques.
 
 Dans ce cas, la balise `<style>` sera injectée telle quelle dans le DOM, aucun scoping ou formattage ne lui sera appliqué.
 

@@ -1,5 +1,5 @@
 ---
-title: Syntaxe du template
+title: Syntaxe de template
 ---
 
 
@@ -139,7 +139,7 @@ La variable *`$$restProps`* contient uniquement les props qui ne sont *pas* déc
 
 Le texte peut aussi contenir des expressions JavaScript:
 
-> Si vous utilisez la [notation litérale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#literal_notation_and_constructor) des expressions régulières (`RegExp`), vous devrez l'entourer de parenthèses.
+> Si vous utilisez la [notation littérale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#literal_notation_and_constructor) des expressions régulières (`RegExp`), vous devrez l'entourer de parenthèses.
 
 ```sv
 <h1>Bonjour {name}!</h1>
@@ -161,7 +161,7 @@ Vous pouvez utiliser des commentaires HTML à l'intérieur des composants.
 
 ---
 
-Les commentaires qui commencent par `svelte-ignore` désactivent les avertissements du prochain block de markup. En général, ce sont des avertissements d'accessibilité; essayez de ne les désactiver que pour une bonne raison.
+Les commentaires qui commencent par `svelte-ignore` désactivent les avertissements du prochain bloc de markup. En général, ce sont des avertissements d'accessibilité; essayez de ne les désactiver que pour une bonne raison.
 
 ```sv
 <!-- svelte-ignore a11y-autofocus -->
