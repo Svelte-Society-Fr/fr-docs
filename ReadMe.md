@@ -21,6 +21,6 @@ Also, try as much as possible to translate section by section, not leaving a sec
 
 ## Inspiration
 
-This translation project is heavily inspired by [the russian one](https://github.com/sveltejs-translations/content-server), which will probably forked at some point, for it seems to solve a lot of issues.
+This translation project is heavily inspired by [the russian one](https://github.com/sveltejs-translations/content-server), which will probably be forked at some point, for it seems to solve a lot of issues.
 
 Uses [this action](https://github.com/AlexxNB/track-commits-to-issue) to track commits in Svelte and SvelteKit docs.
