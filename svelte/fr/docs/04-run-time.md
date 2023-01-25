@@ -275,7 +275,7 @@ Les événements peuvent être annulables en passant un troisième paramètre à
 </script>
 ```
 
-### `svelte/store`.
+### `svelte/store`
 
 Le module `svelte/store` exporte des fonctions pour créer des stores [de lecture (*readable*)](/docs#run-time-svelte-store-readable), [d'écriture (*writable*)](/docs#run-time-svelte-store-writable) et [dérivés (*derived*)](/docs#run-time-svelte-store-derived).
 
