@@ -1,6 +1,6 @@
 # TODO
 
-9 / 256 (3.52 %)
+12 / 256 (4.69 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -33,9 +33,9 @@
       - [ ] \<svelte:options>
       - [ ] \<svelte:fragment>
    - [ ] 04-run-time.md
-      - [ ] svelte
-      - [ ] svelte/store
-      - [ ] svelte/motion
+      - [x] svelte
+      - [x] svelte/store
+      - [x] svelte/motion
       - [ ] svelte/transition
       - [ ] svelte/animate
       - [ ] svelte/easing
