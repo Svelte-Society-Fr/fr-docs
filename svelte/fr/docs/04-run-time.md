@@ -18,9 +18,9 @@ onMount(callback : () => () => void)
 
 ---
 
-La fonction `onMount` permet d'executer un callback dès que le composant a été monté dans le DOM. Elle doit être appelée pendant l'initialisation du composant (mais elle n'a pas besoin de se trouver *à l'intérieur* du composant ; elle peut être appelée depuis un module externe).
+La fonction `onMount` permet de planifier l'exécution d'un callback dès que le composant a été monté dans le DOM. Elle doit être appelée pendant l'instantiation du composant (mais elle n'a pas besoin d'être définie *à l'intérieur* du composant ; elle peut être appelée depuis un module externe).
 
-`onMount` ne fonctionne pas à l'intérieur d'un [composant côté serveur] (/docs#run-time-server-side-component-api).
+`onMount` n'est pas exécutée pas à l'intérieur d'un [composant côté serveur] (/docs#run-time-server-side-component-api).
 
 ``sv
 <script>
@@ -34,11 +34,11 @@ La fonction `onMount` permet d'executer un callback dès que le composant a ét�
 
 ---
 
-Si une fonction est renvoyée par `onMount`, elle sera appelée lorsque le composant sera démonté.
+Si une fonction est renvoyée par `onMount`, celle-ci sera appelée lorsque le composant sera démonté.
 
 ```sv
 <script>
-	Importez { onMount } from 'svelte';
+	import { onMount } from 'svelte';
 
 	onMount(() => {
 		const interval = setInterval(() => {
@@ -50,7 +50,7 @@ Si une fonction est renvoyée par `onMount`, elle sera appelée lorsque le compo
 </script>
 ```
 
-> Ce comportement ne fonctionne que si la fonction passée à `onMount` renvoie une valeur de manière *synchrone*. Les fonctions `async` renvoient toujours un `Promise`, et en tant que telles ne peuvent pas renvoyer une fonction de manière *synchrone*.
+> Ce comportement ne fonctionne que si la fonction passée à `onMount` renvoie une valeur de manière *synchrone*. Les fonctions `async` renvoient toujours une `Promise`, ce qui implique qu'elles ne peuvent jamais renvoyer une fonction de manière *synchrone*.
 
 #### `beforeUpdate`
 
@@ -60,9 +60,9 @@ beforeUpdate(callback: () => void)
 
 ---
 
-Planifie l'exécution d'un callback immédiatement avant la mise à jour du composant après tout changement d'état.
+Planifie l'exécution d'un callback immédiatement avant la mise à jour du composant, lorsqu'un changement d'état s'est produit.
 
-> La première execution du callback s'exécutera just avant l'appel à `onMount` initial.
+> La première exécution du callback se produit juste avant l'appel du `onMount` initial.
 
 ```sv
 <script>
@@ -84,14 +84,14 @@ afterUpdate(callback: () => void)
 
 Planifie un callback à exécuter immédiatement après la mise à jour du composant.
 
-> La première execution du callback s'exécutera just après l'appel à `onMount` initial.
+> La première exécution du callback se produit juste après l'appel du `onMount` initial.
 
 ```sv
 <script>
 	import { afterUpdate } from 'svelte';
 
 	afterUpdate(() => {
-		console.log('le composant vient d'être mis à jour');
+		console.log("le composant vient d'être mis à jour");
 	});
 </script>
 ```
@@ -106,14 +106,14 @@ onDestroy(callback: () => void)
 
 Planifie un callback à exécuter immédiatement avant que le composant ne soit démonté.
 
-Parmi `onMount`, `beforeUpdate`, `afterUpdate` et `onDestroy`, c'est le seul qui s'exécute dans un composant côté serveur.
+Parmi les callbacks de `onMount`, `beforeUpdate`, `afterUpdate` et `onDestroy`, c'est le seul qui s'exécute dans un composant côté serveur.
 
 ``sv
 <script>
 	import { onDestroy } from 'svelte';
 
 	onDestroy(() => {
-		console.log('le composant est détruit');
+		console.log('le composant va être détruit');
 	});
 </script>
 ```
@@ -148,9 +148,9 @@ setContext(key: any, context: any)
 
 ---
 
-Associe un objet `context` arbitraire avec le composant courant et la `key` spécifiée et retourne cet objet. Le contexte est alors disponible pour les enfants du composant (y compris le contenu en slot) avec `getContext`.
+Associe un objet `context` arbitraire au composant courant et à la `key` spécifiée, puis retourne cet objet. Le contexte est alors accessible pour les enfants du composant (y compris le contenu de slot) avec `getContext`.
 
-Comme les fonctions de cycle de vie, elle doit être appelée pendant l'initialisation du composant.
+Comme les fonctions de cycle de vie, elle doit être appelée pendant l'instantiation du composant.
 
 ```sv
 <script>
@@ -160,7 +160,7 @@ Comme les fonctions de cycle de vie, elle doit être appelée pendant l'initiali
 </script>
 ```
 
-> Le contexte n'est pas intrinsèquement réactif. Si vous avez besoin de valeurs réactives dans le contexte, alors vous pouvez passer un store dans le contexte, qui *va* être réactifs.
+> Le contexte n'est pas intrinsèquement réactif. Si vous avez besoin de valeurs réactives dans le contexte, alors vous pouvez passer un store dans le contexte, store qui *sera* réactif.
 
 #### `getContext`
 
@@ -170,7 +170,7 @@ context: any = getContext(key: any)
 
 ---
 
-Récupère le contexte qui appartient au composant parent le plus proche avec la `clé` spécifiée. Doit être appelé pendant l'initialisation du composant.
+Récupère le contexte qui appartient au composant parent le plus proche avec la `key` spécifiée. Doit être appelé pendant l'instantiation du composant.
 
 ```sv
 <script>
@@ -188,11 +188,11 @@ hasContext: boolean = hasContext(key: any)
 
 ---
 
-Vérifie si une `clé` donnée a été définie dans le contexte d'un composant parent. Doit être appelé pendant l'initialisation du composant.
+Vérifie si une `clé` donnée a été définie dans le contexte d'un composant parent. Doit être appelé pendant l'instantiation du composant.
 
 ```sv
 <script>
-	importez { hasContext } from 'svelte';
+	import { hasContext } from 'svelte';
 
 	if (hasContext('answer')) {
 		// faites quelque chose
@@ -203,18 +203,18 @@ Vérifie si une `clé` donnée a été définie dans le contexte d'un composant 
 #### `getAllContexts`
 
 ``js
-contextes: Map<any, any> = getAllContexts()
+contexts: Map<any, any> = getAllContexts()
 ```
 
 ---
 
-Récupère l'ensemble de la carte des contextes appartenant au composant parent le plus proche. Doit être appelé pendant l'initialisation du composant. Utile, par exemple, si vous créez un composant de manière programmatique et que vous voulez lui passer le contexte existant.
+Récupère l'ensemble des contextes appartenant au composant parent le plus proche. Doit être appelé pendant l'instantiation du composant. Utile, par exemple, si vous créez un composant de manière programmatique et que vous voulez lui passer le contexte existant.
 
 ```sv
 <script>
 	import { getAllContexts } from 'svelte';
 
-	const contextes = getAllContexts();
+	const contexts = getAllContexts();
 </script>
 ```
 
@@ -226,9 +226,9 @@ dispatch: ((name: string, detail?: any, options?: DispatchOptions) => boolean) =
 
 ---
 
-Crée un répartiteur d'événements qui peut être utilisé pour répartir les [événements de composants] (/docs#template-syntaxe-component-directives-on-eventname). Les répartiteurs d'événements sont des fonctions qui peuvent prendre deux arguments : `name` et `detail`.
+Crée un *dispatcher* d'événements qui peut être utilisé pour distribuer les [événements de composants] (/docs#template-syntaxe-component-directives-on-eventname). Les *dispatchers* d'événements sont des fonctions qui peuvent prendre deux arguments : `name` et `detail`.
 
-Les événements de composants créés avec `createEventDispatcher` créent un [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent). Ces événements ne remontent pas la [chaine des événements (bubble)] (https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Event_bubbling_and_capture). L'argument `detail` correspond à la propriété [CustomEvent.detail](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/detail) et peut contenir tout type de données.
+Les événements de composants créés avec `createEventDispatcher` créent un [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent). Ces événements ne suivent pas la [chaîne de *bubbling*](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Event_bubbling_and_capture). L'argument `detail` correspond à la propriété [CustomEvent.detail](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/detail) et peut contenir tout type de données.
 
 ```sv
 <script>
@@ -237,7 +237,7 @@ Les événements de composants créés avec `createEventDispatcher` créent un [
 	const dispatch = createEventDispatcher();
 </script>
 
-<button on:click="{() => dispatch('notify', 'detail value')}">Fire Event</button>
+<button on:click="{() => dispatch('notify', 'detail value')}">Générer un événement</button>
 ```
 
 ---
@@ -247,7 +247,7 @@ Les événements envoyés par les composants enfants peuvent être écoutés par
 ```sv
 <script>
 	function callbackFunction(event) {
-		console.log(`Notify fired ! Detail: ${event.detail}`)
+		console.log(`Événement reçu ! Détail: ${event.detail}`)
 	}
 </script>
 
@@ -256,11 +256,11 @@ Les événements envoyés par les composants enfants peuvent être écoutés par
 
 ---
 
-Les événements peuvent être annulés en passant un troisième paramètre à la fonction dispatch. La fonction renvoie `false` si l'événement est annulé avec `event.preventDefault()`, sinon elle renvoie `true`.
+Les événements peuvent être annulables en passant un troisième paramètre à la fonction dispatch. La fonction renvoie `false` si l'événement est annulé avec `event.preventDefault()`, sinon elle renvoie `true`.
 
 ```sv
 <script>
-	Importez { createEventDispatcher } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher();
 
@@ -269,7 +269,7 @@ Les événements peuvent être annulés en passant un troisième paramètre à l
 		if (shouldContinue) {
 			// personne n'a appelé preventDefault
 		} else {
-			// un auditeur a appelé preventDefault
+			// un listener a appelé preventDefault
 		}
 	}
 </script>
@@ -277,11 +277,11 @@ Les événements peuvent être annulés en passant un troisième paramètre à l
 
 ### `svelte/store`.
 
-Le module `svelte/store` exporte des fonctions pour créer des magasins [readable](/docs#run-time-svelte-store-readable), [writable](/docs#run-time-svelte-store-writable) et [derived](/docs#run-time-svelte-store-derived).
+Le module `svelte/store` exporte des fonctions pour créer des stores [de lecture (*readable*)](/docs#run-time-svelte-store-readable), [d'écriture (*writable*)](/docs#run-time-svelte-store-writable) et [dérivés (*derived*)](/docs#run-time-svelte-store-derived).
 
-Gardez à l'esprit que vous n'êtes pas *obligé* d'utiliser ces fonctions pour profiter de la [syntaxe réactive `$store`](/docs#component-format-script-4-prefix-stores-with-$-to-access-their-values) dans vos composants. Tout objet qui implémente correctement `.subscribe`, unsubscribe, et (optionnellement) `.set` est un store valide, et fonctionnera à la fois avec la syntaxe spéciale, et avec les [magasins `derived`] intégrés de Svelte (/docs#run-time-svelte-store-derived).
+Gardez à l'esprit que vous n'êtes pas *obligé•e* d'utiliser ces fonctions pour profiter de la [syntaxe réactive `$store`](/docs#component-format-script-4-prefix-stores-with-$-to-access-their-values) dans vos composants. Tout objet qui implémente correctement `.subscribe`, `unsubscribe`, et (éventuellement) `.set` est un store valide, et fonctionnera à la fois avec la syntaxe spéciale, et avec les [stores dérivés](/docs#run-time-svelte-store-derived) de Svelte.
 
-Cela permet d'envelopper presque toute autre bibliothèque de gestion d'état réactif pour l'utiliser dans Svelte. Pour en savoir plus sur le [contrat de magasin](/docs#component-format-script-4-prefix-stores-with-$-to-access-their-values-store-contract), voyez à quoi ressemble une implémentation correcte.
+Cela permet d'envelopper presque toute autre bibliothèque de gestion d'état réactif pour l'utiliser dans Svelte. Renseignez-vous sur le [contrat de store](/docs#component-format-script-4-prefix-stores-with-$-to-access-their-values-store-contract) pour voir à quoi ressemble une implémentation fonctionnelle.
 
 #### ``writable``
 
@@ -289,50 +289,50 @@ Cela permet d'envelopper presque toute autre bibliothèque de gestion d'état r�
 store = writable(value?: any)
 ```
 ```js
-store = writable(valeur?: any, start?: (set: (valeur: any) => void) => () => void)
+store = writable(value?: any, start?: (set: (value: any) => void) => () => void)
 ```
 
 ---
 
-Fonction qui crée un magasin dont les valeurs peuvent être définies à partir de composants "extérieurs". Il est créé comme un objet avec des méthodes supplémentaires `set` et `update`.
+Fonction qui crée un store dont les valeurs peuvent être définies à partir de composants "extérieurs". Il est créé comme un objet avec les méthodes supplémentaires `set` et `update`.
 
-`set` est une méthode qui prend un argument qui est la valeur à définir. La valeur du magasin est remplacée par la valeur de l'argument si elle n'est pas déjà égale à la valeur du magasin.
+`set` est une méthode qui prend un argument la valeur à définir. La valeur courante du store est remplacée par la valeur de l'argument si celle-ci n'est pas déjà égale à la valeur courante.
 
-`update` est une méthode qui prend un argument qui est un callback. Le callback prend la valeur existante du magasin comme argument et renvoie la nouvelle valeur à définir pour le magasin.
+`update` est une méthode qui prend un callback comme seul argument. Le callback prend la valeur existante du store comme argument et renvoie la nouvelle valeur à définir pour le store.
 
 ``js
-import { writable } de 'svelte/store';
+import { writable } from 'svelte/store';
 
 const count = writable(0);
 
 count.subscribe(valeur => {
 	console.log(valeur);
-}); // enregistre '0'.
+}); // affiche '0'.
 
-count.set(1); // enregistre '1'.
+count.set(1); // affiche '1'.
 
-count.update(n => n + 1); // journal '2'.
+count.update(n => n + 1); // affiche '2'.
 ```
 
 ---
 
-Si une fonction est passée comme deuxième argument, elle sera appelée lorsque le nombre d'abonnés passera de zéro à un (mais pas de un à deux, etc.). Cette fonction se verra passer une fonction `set` qui changera la valeur du magasin. Elle doit retourner une fonction `stop` qui sera appelée lorsque le nombre d'abonnés passera de un à zéro.
+Si une fonction est passée comme deuxième argument, elle sera appelée lorsque le nombre d'abonnés au store passera de zéro à un (mais pas de un à deux, etc.). Cette fonction a comme argument une fonction `set` qui peut changer la valeur du magasin. Elle doit retourner une fonction `stop` qui sera appelée lorsque le nombre d'abonnés passera de un à zéro.
 
 ```js
-Importez { writable } de 'svelte/store';
+import { writable } from 'svelte/store';
 
 const count = writable(0, () => {
-	console.log('got a subscriber');
-	return () => console.log('no more subscribers');
+	console.log('vous avez un abonné');
+	return () => console.log('vous n'avez plus d'abonnés');
 });
 
 count.set(1); // ne fait rien
 
 const unsubscribe = count.subscribe(value => {
 	console.log(valeur);
-}); // enregistre 'got a subscriber', puis '1'.
+}); // affiche 'vous avez un abonné', puis '1'.
 
-unsubscribe(); // enregistre "plus d'abonnés".
+unsubscribe(); // affiche "vous n'avez plus d'abonnés".
 ```
 
 Notez que la valeur d'un `writable` est perdue lorsqu'il est détruit, par exemple lorsque la page est rafraîchie. Cependant, vous pouvez écrire votre propre logique pour synchroniser la valeur, par exemple dans le `localStorage`.
@@ -340,15 +340,15 @@ Notez que la valeur d'un `writable` est perdue lorsqu'il est détruit, par exemp
 #### ``readable``
 
 ``js
-store = readable(valeur?: any, start?: (set: (valeur: any) => void) => () => void)
+store = readable(value?: any, start?: (set: (value: any) => void) => () => void)
 ```
 
 ---
 
-Crée un magasin dont la valeur ne peut pas être définie de l'extérieur, le premier argument est la valeur initiale du magasin, et le second argument de `readable` est le même que le second argument de `writable`.
+Crée un store dont la valeur ne peut pas être modifiée de l'extérieur. Le premier argument est la valeur initiale du store, le second argument est le même que le second argument de `writable`.
 
 ```js
-Importez { readable } de 'svelte/store';
+import { readable } from 'svelte/store';
 
 const time = readable(null, set => {
 	set(new Date());
@@ -377,24 +377,24 @@ store = derived([a, ...b], callback: ([a: any, ...b: any[]], set: (value: any) =
 ```
 ---
 
-Dérive un magasin à partir d'un ou plusieurs autres magasins. La callback s'exécute initialement lorsque le premier abonné s'abonne, puis à chaque fois que les dépendances du magasin changent.
+Dérive un store à partir d'un ou plusieurs autres stores. Le callback s'exécute initialement lorsque le premier abonné s'abonne, puis à chaque fois que les dépendances du store changent.
 
-Dans la version la plus simple, `derived` prend un seul magasin, et le callback renvoie une valeur dérivée.
+Dans la version la plus simple, `derived` prend un seul store, et le callback renvoie une valeur dérivée.
 
 ``js
-Importez { derived } de 'svelte/store';
+import { derived } from 'svelte/store';
 
 const doubled = derived(a, $a => $a * 2);
 ```
 
 ---
 
-La callback peut définir une valeur de manière asynchrone en acceptant un second argument, `set`, et en l'appelant au moment opportun.
+Le callback peut définir une valeur de manière asynchrone en acceptant un second argument, `set`, et en l'appelant au moment opportun.
 
-Dans ce cas, vous pouvez également passer un troisième argument à `derived` - la valeur initiale du magasin dérivé avant le premier appel de `set`.
+Dans ce cas, vous pouvez également passer un troisième argument à `derived` - la valeur initiale du store dérivé avant le premier appel de `set`.
 
 ``js
-Importez { derived } de 'svelte/store';
+import { derived } from 'svelte/store';
 
 const delayed = derived(a, ($a, set) => {
 	setTimeout(() => set($a), 1000);
@@ -403,7 +403,7 @@ const delayed = derived(a, ($a, set) => {
 
 ---
 
-Si vous renvoyez une fonction à partir du callback, elle sera appelée lorsque a) la callback s'exécute à nouveau, ou b) le dernier abonné se désabonne.
+Si vous renvoyez une fonction à partir du callback, elle sera appelée lorsque a) le callback s'exécute à nouveau, ou b) le dernier abonné se désabonne.
 
 ```js
 import { derived } from 'svelte/store';
@@ -421,7 +421,7 @@ const tick = derived(frequency, ($frequency, set) => {
 
 ---
 
-Dans les deux cas, un tableau d'arguments peut être passé comme premier argument au lieu d'un seul magasin.
+Dans les deux cas, un tableau d'arguments peut être passé comme premier argument au lieu d'un seul store.
 
 ```js
 import { derived } from 'svelte/store';
@@ -436,17 +436,17 @@ const delayed = derived([a, b], ([$a, $b], set) => {
 #### ``get``
 
 ``js
-valeur: any = get(store)
+value: any = get(store)
 ```
 
 ---
 
-De manière général, vous devez lire la valeur d'un magasin en vous y abonnant et en utilisant la valeur lorsqu'elle change au fil du temps. Occasionnellement, vous pouvez avoir besoin de récupérer la valeur d'un magasin auquel vous n'êtes pas abonné. `get` vous permet de le faire.
+De manière générale, il est recommandé de lire la valeur d'un store en vous y abonnant et en utilisant la valeur à mesure qu'elle change. Occasionnellement, vous pouvez avoir besoin de récupérer la valeur d'un store auquel vous n'êtes pas abonné. `get` vous permet de le faire.
 
-> Cela fonctionne en créant un abonnement, en lisant la valeur, puis en se désabonnant. Elle n'est donc pas recommandée dans les chemins de code chauds (!!!).
+> Cela fonctionne en créant un abonnement, en lisant la valeur, puis en se désabonnant. Cette méthode n'est donc pas recommandée lorsque le code concerné est exécuté à haute fréquence.
 
 ```js
-Importez { get } de 'svelte/store';
+import { get } from 'svelte/store';
 
 const value = get(store);
 ```
@@ -454,7 +454,7 @@ const value = get(store);
 
 ### `svelte/motion`
 
-Le module `svelte/motion` exporte deux fonctions, `tweened` et `spring`, pour créer des magasins de type `writable` dont les valeurs changent dans le temps après `set` et `update`, plutôt qu'immédiatement.
+Le module `svelte/motion` exporte deux fonctions, `tweened` et `spring`, pour créer des stores de type `writable` dont les valeurs changent dans le temps après `set` et `update`, plutôt qu'immédiatement.
 
 #### `tweened`
 
@@ -462,20 +462,20 @@ Le module `svelte/motion` exporte deux fonctions, `tweened` et `spring`, pour cr
 store = tweened(value: any, options)
 ```
 
-Les magasins `tweened` mettent à jour leurs valeurs sur une durée fixe. Les options suivantes sont disponibles:
+Les stores `tweened` mettent à jour leur valeur sur une durée fixe. Les options suivantes sont disponibles:
 
 * `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
-* `duration` (`number` | `function`, default 400) - durée en millisecondes de la transition.
+* `duration` (`number` | `function`, par défaut 400) - durée de la transition en millisecondes
 * `easing` (`function`, par défaut `t => t`) - une [fonction d'assouplissement](/docs#run-time-svelte-easing)
 * `interpolate` (`function`) - voir ci-dessous
 
 `store.set` et `store.update` peuvent accepter un second argument `options` qui remplacera les options passées à l'instanciation.
 
-Les deux fonctions retournent une Promise qui se résout lorsque la transition se termine. Si la transition est interrompu, la promesse ne sera jamais résolue.
+Les deux fonctions retournent une Promesse qui se résout lorsque la transition se termine. Si la transition est interrompue, la promesse ne sera jamais résolue.
 
 ---
 
-D'emblée, Svelte interpolera entre deux nombres, deux tableaux ou deux objets (tant que les tableaux et les objets ont la même "forme" et que leurs propriétés "leaf" sont également des nombres). (!!!)
+Gratuitement, Svelte interpolera entre deux nombres, deux tableaux ou deux objets (tant que les tableaux et les objets ont la même "forme" et que leurs propriétés "feuilles" sont également des nombres).
 
 ```sv
 <script>
@@ -488,7 +488,7 @@ D'emblée, Svelte interpolera entre deux nombres, deux tableaux ou deux objets (
 	});
 
 	function handleClick() {
-		// this is equivalent to size.update(n => n + 1)
+		// équivalent à size.update(n => n + 1)
 		$size += 1;
 	}
 </script>
@@ -496,7 +496,7 @@ D'emblée, Svelte interpolera entre deux nombres, deux tableaux ou deux objets (
 <button
 	on:click={handleClick}
 	style="transform: scale({$size}); transform-origin: 0 0"
->embiggen</button>
+>grossir</button>
 ```
 
 ---
@@ -514,7 +514,7 @@ $: $size = big ? 100 : 10;
 
 ---
 
-L'option `interpolate` vous permet de faire une transition entre *n'importe quelle* valeur arbitraire. Ce doit être une fonction `(a, b) => t => valeur`, où `a` est la valeur de départ, `b` est la valeur cible, `t` est un nombre entre 0 et 1, et `value` est le résultat. Par exemple, nous pouvons utiliser le package [d3-interpolate](https://github.com/d3/d3-interpolate) pour interpoler entre deux couleurs.
+L'option `interpolate` vous permet de faire une transition entre *n'importe quelles* valeurs arbitraires. Cette option doit être une fonction `(a, b) => t => value`, où `a` est la valeur de départ, `b` est la valeur cible, `t` est un nombre entre 0 et 1, et `value` est le résultat. Par exemple, il est possible d'utiliser [d3-interpolate](https://github.com/d3/d3-interpolate) pour interpoler entre deux couleurs.
 
 ```sv
 <script>
@@ -549,11 +549,11 @@ L'option `interpolate` vous permet de faire une transition entre *n'importe quel
 store = spring(value: any, options)
 ```
 
-Un magasin `spring` change progressivement vers sa valeur cible en fonction de ses paramètres `stiffness` et `damping`. Alors que les magasins `tweened` changent leurs valeurs sur une durée fixe, les magasins `spring` changent sur une durée qui est déterminée par leur vélocité existante, permettant un mouvement plus naturel dans de nombreuses situations. Les options suivantes sont disponibles :
+Un store `spring` change progressivement vers sa valeur cible en fonction de ses paramètres `stiffness` (raideur) et `damping` (amortissement). Alors que les stores `tweened` changent leur valeur sur une durée fixe, les stores `spring` changent leur valeur sur une durée qui est déterminée par leur vélocité courante, permettant un mouvement plus naturel dans de nombreuses situations. Les options suivantes sont disponibles :
 
-* `stiffness` (`number`, default `0.15`) - une valeur entre 0 et 1 où une valeur plus grande signifie un ressort plus 'serré'.
-* `damping` (`number`, default `0.8`) - une valeur entre 0 et 1 où une valeur plus basse signifie un ressort plus 'élastique'.
-* `precision` (`number`, default `0.01`) - détermine le seuil à partir duquel le ressort est considéré comme 'arrêté'. Une valeur plus basse signifie un ressort plus précis.
+* `stiffness` (`number`, par défaut `0.15`) - une valeur entre 0 et 1, où une valeur plus grande signifie un ressort plus 'raide'.
+* `damping` (`number`, par défaut `0.8`) - une valeur entre 0 et 1, où une valeur plus basse signifie un ressort plus 'élastique'.
+* `precision` (`number`, par défaut `0.01`) - détermine le seuil à partir duquel le ressort est considéré comme 'arrêté'. Une valeur plus basse signifie un ressort plus précis.
 
 ---
 
@@ -568,15 +568,15 @@ size.precision = 0.005;
 
 ---
 
-Comme avec les magasins [`tweened`](/docs#run-time-svelte-motion-tweened), `set` et `update` retournent une Promise qui se résout si le ressort s'arrêter.
+Comme avec les stores [`tweened`](/docs#run-time-svelte-motion-tweened), `set` et `update` retournent une Promesse qui se résout lorsque le ressort s'arrête.
 
-Les deux méthodes `set` et `update` peuvent prendre un second argument - un objet avec les propriétés `hard` ou `soft`. `{ hard: true }` fixe immédiatement la valeur cible ; `{ soft: n }` préserve l'élan existant pendant `n` secondes avant de se tasser. `{ soft: true }` est équivalent à `{ soft: 0.5 }`.
+Les deux méthodes `set` et `update` peuvent prendre un second argument - un objet avec les propriétés `hard` ou `soft`. `{ hard: true }` fixe immédiatement la valeur cible ; `{ soft: n }` préserve l'élan actuel pendant `n` secondes avant de s'arrêter. `{ soft: true }` est équivalent à `{ soft: 0.5 }`.
 
 ```js
 const coords = spring({ x: 50, y: 50 });
-// updates the value immediately
+// change la valeur immédiatement
 coords.set({ x: 100, y: 200 }, { hard: true });
-// preserves existing momentum for 1s
+// garde l'élan actuel pendant 1s
 coords.update(
 	(target_coords, coords) => {
 		return { x: target_coords.x, y: coords.y };
@@ -585,7 +585,7 @@ coords.update(
 );
 ```
 
-[Voir un exemple complet sur le tutoriel des magasins de type `spring`.](/tutorial/spring)
+[Un exemple complet de store de type `spring` est disponible dans le tutoriel.](/tutorial/spring)
 
 ```sv
 <script>
