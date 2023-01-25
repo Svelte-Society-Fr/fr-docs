@@ -475,7 +475,7 @@ Les deux fonctions retournent une Promesse qui se résout lorsque la transition 
 
 ---
 
-Gratuitement, Svelte interpolera entre deux nombres, deux tableaux ou deux objets (tant que les tableaux et les objets ont la même "forme" et que leurs propriétés "feuilles" sont également des nombres).
+Sans que vous n'ayez rien à faire, Svelte interpolera entre deux nombres, deux tableaux ou deux objets (tant que les tableaux et les objets ont la même "forme" et que leurs propriétés "feuilles" sont également des nombres).
 
 ```sv
 <script>
