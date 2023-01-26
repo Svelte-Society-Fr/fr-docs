@@ -1,6 +1,6 @@
 # TODO
 
-12 / 256 (4.69 %)
+19 / 256 (7.42 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -14,13 +14,13 @@
       - [x] Attributes and props
       - [x] Text expressions
       - [x] Comments
-      - [ ] {#if ...}
-      - [ ] {#each ...}
-      - [ ] {#await ...}
-      - [ ] {#key ...}
-      - [ ] {@html ...}
-      - [ ] {@debug ...}
-      - [ ] {@const ...}
+      - [x] {#if ...}
+      - [x] {#each ...}
+      - [x] {#await ...}
+      - [x] {#key ...}
+      - [x] {@html ...}
+      - [x] {@debug ...}
+      - [x] {@const ...}
       - [ ] Element directives
       - [ ] Component directives
       - [ ] \<slot>

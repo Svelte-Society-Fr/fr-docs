@@ -167,3 +167,309 @@ Les commentaires qui commencent par `svelte-ignore` désactivent les avertisseme
 <!-- svelte-ignore a11y-autofocus -->
 <input bind:value={name} autofocus>
 ```
+
+### {#if ...}
+
+```sv
+{#if expression}...{/if}
+```
+```sv
+{#if expression}...{:else if expression}...{/if}
+```
+```sv
+{#if expression}...{:else}...{/if}
+```
+
+---
+
+Il est possible d'afficher conditionnellement du contenu en l'encadrant par un bloc `if`.
+
+```sv
+{#if answer === 42}
+	<p>c'était quoi la question déjà ?</p>
+{/if}
+```
+
+---
+
+Des conditions supplémentaires peuvent être ajoutées avec `{:else if expression}`, et il est possible de terminer avec un `{:else}` optionnel.
+
+```sv
+{#if porridge.temperature > 100}
+	<p>trop chaud !</p>
+{:else if 80 > porridge.temperature}
+	<p>trop froid !</p>
+{:else}
+	<p>parfait !</p>
+{/if}
+```
+
+### {#each ...}
+
+```sv
+{#each expression as name}...{/each}
+```
+```sv
+{#each expression as name, index}...{/each}
+```
+```sv
+{#each expression as name (key)}...{/each}
+```
+```sv
+{#each expression as name, index (key)}...{/each}
+```
+```sv
+{#each expression as name}...{:else}...{/each}
+```
+
+---
+
+Il est possible d'itérer sur des listes de valeurs avec un bloc `each`.
+
+```sv
+<h1>Liste de courses</h1>
+<ul>
+	{#each items as item}
+		<li>{item.name} x {item.qty}</li>
+	{/each}
+</ul>
+```
+
+Vous pouvez utiliser des blocs `each` pour itérer sur n'importe quel tableau ou valeur similaire — c'est-à-dire un objet avec une propriété `length`.
+
+---
+
+Un bloc `each` peut aussi spécifier un *indice*, équivalent au deuxième argument du callback de `array.map(...)`:
+
+```sv
+{#each items as item, i}
+	<li>{i + 1}: {item.name} x {item.qty}</li>
+{/each}
+```
+
+---
+
+Vous pouvez spécifier une *clé* à un bloc `each`. Cette clé doit identifier de manière unique chaque élément de la liste. Svelte s'en servira pour mettre à jour la liste avec précision lorsque la donnée changera, plutôt que d'ajouter ou enlever des éléments à la fin. La clé peut être n'importe quel objet, mais les chaînes de caractères ou les nombres sont recommandés car ils permettent de persister l'identité, ce qui n'est pas le cas des objets.
+
+```sv
+{#each items as item (item.id)}
+	<li>{item.name} x {item.qty}</li>
+{/each}
+
+<!-- ou en utilisant un indice -->
+{#each items as item, i (item.id)}
+	<li>{i + 1}: {item.name} x {item.qty}</li>
+{/each}
+```
+
+---
+
+Vous pouvez librement utiliser la décomposition et la syntaxe *rest* dans les blocs `each`.
+
+```sv
+{#each items as { id, name, qty }, i (id)}
+	<li>{i + 1}: {name} x {qty}</li>
+{/each}
+
+{#each objects as { id, ...rest }}
+	<li><span>{id}</span><MyComponent {...rest}/></li>
+{/each}
+
+{#each items as [id, ...rest]}
+	<li><span>{id}</span><MyComponent values={rest}/></li>
+{/each}
+```
+
+---
+
+Un bloc `each` peut aussi avoir une clause `{:else}`, qui sera affichée si la liste est vide.
+
+```sv
+{#each todos as todo}
+	<p>{todo.text}</p>
+{:else}
+	<p>Rien à faire aujourd'hui !</p>
+{/each}
+```
+
+### {#await ...}
+
+```sv
+{#await expression}...{:then name}...{:catch name}...{/await}
+```
+```sv
+{#await expression}...{:then name}...{/await}
+```
+```sv
+{#await expression then name}...{/await}
+```
+```sv
+{#await expression catch name}...{/await}
+```
+
+---
+
+Les blocs `await` permettent de différencier les trois états de Promesse possibles — en attente, résolue ou rejetée. En mode SSR, seul l'état d'attente sera rendu sur le serveur.
+
+```sv
+{#await promise}
+	<!-- la promesse est en attente -->
+	<p>en attente de la résolution de la promesse...</p>
+{:then value}
+	<!-- la promesse est résolue -->
+	<p>La valeur est {value}</p>
+{:catch error}
+	<!-- la promesse est rejetée -->
+	<p>Quelque chose ne va pas : {error.message}</p>
+{/await}
+```
+
+---
+
+Le bloc `catch` peut être ignoré si vous n'avez pas besoin d'afficher quoi que ce soit lorsque la promesse est rejetée (ou si aucune erreur n'est possible).
+
+```sv
+{#await promise}
+	<!-- la promesse est en attente -->
+	<p>en attente de la résolution de la promesse...</p>
+{:then value}
+	<!-- la promesse est résolue -->
+	<p>La valeur est {value}</p>
+{/await}
+```
+
+---
+
+Si l'état d'attente ne vous concerne pas, vous pouvez aussi ignorer le bloc initial.
+
+```sv
+{#await promise then value}
+	<p>La valeur est {value}</p>
+{/await}
+```
+
+---
+
+De manière similaire, si vous voulez uniquement afficher l'état d'erreur, vous pouvez ignorer le bloc `then`.
+
+```sv
+{#await promise catch error}
+	<p>L'erreur est {error}</p>
+{/await}
+```
+
+### {#key ...}
+
+```sv
+{#key expression}...{/key}
+```
+
+Les bloc `key` détruisent et reconstruisent leur contenu quand la valeur de leur expression change.
+
+---
+
+C'est utile lorsque vous voulez qu'un élément joue sa transition à chaque fois qu'une valeur se met à jour.
+
+```sv
+{#key value}
+	<div transition:fade>{value}</div>
+{/key}
+```
+
+---
+
+Utilisé autour de composants, un bloc `key` déclenchera leur réinstantiation et réinitialisation.
+
+```sv
+{#key value}
+	<Component />
+{/key}
+```
+
+### {@html ...}
+
+```sv
+{@html expression}
+```
+
+---
+
+Dans une expression texte, les caractères `<` et `>` sont échappés ; ils ne sont en revanche pas échappés dans une expression HTML.
+
+L'expression doit être du HTML valide en soi — `{@html "<div>"}contenu{@html "</div>"}` ne fonctionnera *pas*, car `</div>` n'est pas du HTML valide. De plus dans ce cas, Svelte ne réussira *pas* à compiler.
+
+> Svelte ne nettoie pas les expressions avant d'injecter le HTML. Si la donnée provient d'une source non sûre, vous devez le nettoyer vous-même pour éviter d'exposer vos utilisateurs à des vulnérabilités de type XSS.
+
+```sv
+<div class="blog-post">
+	<h1>{post.title}</h1>
+	{@html post.content}
+</div>
+```
+
+### {@debug ...}
+
+```sv
+{@debug}
+```
+```sv
+{@debug var1, var2, ..., varN}
+```
+
+---
+
+La balise `{@debug ...}` offre une alternative à `console.log(...)`. Elle affiche les valeurs des variables spécifiées lorsqu'elle changent, et met en pause l'exécution du code si vous avez les outils de développement ouverts.
+
+```sv
+<script>
+	let user = {
+		firstname: 'Ada',
+		lastname: 'Lovelace'
+	};
+</script>
+
+{@debug user}
+
+<h1>Hello {user.firstname}!</h1>
+```
+
+---
+
+`{@debug ...}` accepte une liste de noms de variables séparés par des virgules (mais pas des expressions).
+
+```sv
+<!-- Compile -->
+{@debug user}
+{@debug user1, user2, user3}
+
+<!-- Ne compile pas -->
+{@debug user.firstname}
+{@debug myArray[0]}
+{@debug !isReady}
+{@debug typeof user === 'object'}
+```
+
+La balise `${@debug}` sans argument insère une expression `debugger` qui est déclenchée lorsque *n'importe quel* état change, plutôt que certaines variables spécifiques.
+
+### {@const ...}
+
+```sv
+{@const assignment}
+```
+
+---
+
+La balise `{@const ...}` définit une constante locale.
+
+```sv
+<script>
+	export let boxes;
+</script>
+
+{#each boxes as box}
+	{@const area = box.width * box.height}
+	{box.width} * {box.height} = {area}
+{/each}
+```
+
+`{@const}` est uniquement utilisable en tant qu'enfant direct de `{#if}`, `{:else if}`, `{:else}`, `{#each}`, `{:then}`, `{:catch}`, `<Component />` ou `<svelte:fragment />`.
