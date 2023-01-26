@@ -249,7 +249,7 @@ Un bloc `each` peut aussi spécifier un *indice*, équivalent au deuxième argum
 
 ---
 
-Si une expression *clé* est fournie — qui se doit d'identifier de manière unique chaque élément de la liste — Svelte s'en servira pour mettre à jour la liste avec précision lorsque la donnée changera, plutôt que d'ajouter ou enlever des éléments à la fin. La clé peut être n'importe quel objet, mais les chaînes de caractères ou les nombres sont recommandés car ils permettent de persister l'identité, ce qui n'est pas le cas des objets.
+Vous pouvez spécifier une *clé* à un bloc `each`. Cette clé doit identifier de manière unique chaque élément de la liste. Svelte s'en servira pour mettre à jour la liste avec précision lorsque la donnée changera, plutôt que d'ajouter ou enlever des éléments à la fin. La clé peut être n'importe quel objet, mais les chaînes de caractères ou les nombres sont recommandés car ils permettent de persister l'identité, ce qui n'est pas le cas des objets.
 
 ```sv
 {#each items as item (item.id)}
