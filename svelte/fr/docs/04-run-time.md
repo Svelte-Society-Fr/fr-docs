@@ -466,7 +466,7 @@ Les stores `tweened` mettent à jour leur valeur sur une durée fixe. Les option
 
 * `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
 * `duration` (`number` | `function`, par défaut 400) - durée de la transition en millisecondes
-* `easing` (`function`, par défaut `t => t`) - une [fonction d'assouplissement](/docs#run-time-svelte-easing)
+* `easing` (`function`, par défaut `t => t`) - une [fonction d'assouplissement (`easing function`)](/docs#run-time-svelte-easing)
 * `interpolate` (`function`) - voir ci-dessous
 
 `store.set` et `store.update` peuvent accepter un second argument `options` qui remplacera les options passées à l'instanciation.
@@ -605,4 +605,269 @@ Si la valeur initiale est `undefined` ou `null`, le premier changement de valeur
 ```js
 const size = spring();
 $: $size = big ? 100 : 10;
+```
+
+### `svelte/transition`
+
+Le module `svelte/transition` exporte 7 fonctions : `fade`, `blur`, `fly`, `slide`, `scale`, `draw` et `crossfade`. Ces fonctions sont utilisables avec les [`transitions`](/docs#template-syntax-element-directives-transition-fn) Svelte.
+
+#### `fade`
+
+```sv
+transition:fade={params}
+```
+```sv
+in:fade={params}
+```
+```sv
+out:fade={params}
+```
+
+---
+
+Anime l'opacité d'un élément de 0 jusqu'à l'opacité courante pour les transitions de type `in` et depuis l'opacité courante vers 0 pour les transitions de type `out`.
+
+Les paramètres suivants peuvent être utilisés avec `fade` :
+
+* `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
+* `duration` (`number`, par défaut 400) - durée de la transition en millisecondes
+* `easing` (`function`, par défaut `linear`) — une [fonction d'assouplissement (`easing function`)](/docs#run-time-svelte-easing)
+
+Un exemple de transition de type `fade` est présenté dans le [tutoriel relatif aux transitions](/tutorial/transition).
+
+```sv
+<script>
+	import { fade } from 'svelte/transition';
+</script>
+
+{#if condition}
+	<div transition:fade="{{delay: 250, duration: 300}}">
+		Apparait et disparait en s'éstompant
+	</div>
+{/if}
+```
+
+#### `blur`
+
+```sv
+transition:blur={params}
+```
+```sv
+in:blur={params}
+```
+```sv
+out:blur={params}
+```
+
+---
+
+Anime le filtre de flou (`blur`) en même temps que l'opacité d'un élément.
+
+Les paramètres suivants peuvent être utilisés avec `blur` :
+
+* `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
+* `duration` (`number`, par défaut 400) - durée de la transition en millisecondes
+* `easing` (`function`, par défaut `cubicInOut`) — une [fonction d'assouplissement (`easing function`)](/docs#run-time-svelte-easing)
+* `opacity` (`number`, par défaut 0) - l'opacité cible de l'animation
+* `amount` (`number`, par défaut 5) - La taille du flou en pixel
+
+```sv
+<script>
+	import { blur } from 'svelte/transition';
+</script>
+
+{#if condition}
+	<div transition:blur="{{amount: 10}}">
+		Apparait et disparait avec un flou
+	</div>
+{/if}
+```
+
+#### `fly`
+
+```sv
+transition:fly={params}
+```
+```sv
+in:fly={params}
+```
+```sv
+out:fly={params}
+```
+
+---
+
+Anime les positions x, y et l'opacité d'un élément. Les transitions entrantes (`in`) permettent d'animer les propriétés depuis les valeurs courantes vers les valeurs spécifiées, passées en tant que paramètres. Les transitions sortantes (`out`) permettent quant à elles d'animer depuis les valeurs spécifiées vers les valeurs par défaut de l'élément.
+
+Les paramètres suivants peuvent être utilisés avec `fly` :
+
+* `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
+* `duration` (`number`, par défaut 400) - durée de la transition en millisecondes
+* `easing` (`function`, par défaut `cubicOut`) — une [fonction d'assouplissement (`easing function`)](/docs#run-time-svelte-easing)
+* `x` (`number`, par défaut 0) - décallage horizontal de l'animation
+* `y` (`number`, par défaut 0) - décallage vertical de l'animation
+* `opacity` (`number`, par défaut 0) - l'opacité cible de l'animation
+
+Un exemple de transition de type `fly` est présenté dans le [tutoriel relatif aux transitions](/tutorial/adding-parameters-to-transitions).
+
+```sv
+<script>
+	import { fly } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+</script>
+
+{#if condition}
+	<div transition:fly="{{delay: 250, duration: 300, x: 100, y: 500, opacity: 0.5, easing: quintOut}}">
+		apparait et disparait avec un déplacement
+	</div>
+{/if}
+```
+
+#### `slide`
+
+```sv
+transition:slide={params}
+```
+```sv
+in:slide={params}
+```
+```sv
+out:slide={params}
+```
+
+---
+
+L'animation de type `slide` permet de faire apparaitre et disparaitre un élément en glissant vers et depuis le haut.
+
+Les paramètres suivants peuvent être utilisés avec `slide` :
+
+* `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
+* `duration` (`number`, par défaut 400) - durée de la transition en millisecondes
+* `easing` (`function`, par défaut `cubicOut`) — une [fonction d'assouplissement (`easing function`)](/docs#run-time-svelte-easing)
+
+```sv
+<script>
+	import { slide } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+</script>
+
+{#if condition}
+	<div transition:slide="{{delay: 250, duration: 300, easing: quintOut }}">
+		Apparait et disparait avec un fondu
+	</div>
+{/if}
+```
+
+#### `scale`
+
+```sv
+transition:scale={params}
+```
+```sv
+in:scale={params}
+```
+```sv
+out:scale={params}
+```
+
+---
+
+Anime l'opacité et l'échelle d'un élément. Les transitions entrantes (`in`) s'animent à partir des valeurs fournies en paramètre vers les valeurs de l'élément, passées en paramètres. Les transitions sortantes (`out`) s'animent à partir des valeurs de l'élément vers les valeurs fournies en paramètre.
+
+Les paramètres suivants peuvent être utilisés avec `scale` :
+
+* `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
+* `duration` (`number`, par défaut 400) - durée de la transition en millisecondes
+* `easing` (`function`, par défaut `cubicInOut`) — une [fonction d'assouplissement (`easing function`)](/docs#run-time-svelte-easing)
+* `start` (`number`, par défaut 0) - le ratio d'agrandissement de l'animation
+* `opacity` (`number`, par défaut 0) - l'opacité cible de l'animation
+
+```sv
+<script>
+	import { scale } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+</script>
+
+{#if condition}
+	<div transition:scale="{{duration: 500, delay: 500, opacity: 0.5, start: 0.5, easing: quintOut}}">
+		Anime l'agrandissement
+	</div>
+{/if}
+```
+
+#### `draw`
+
+```sv
+transition:draw={params}
+```
+```sv
+in:draw={params}
+```
+```sv
+out:draw={params}
+```
+
+---
+
+Anime le tracé d'un élément SVG. Les transitions entrantes (`in`) commence avec le tracé non visible et dessinent le tracé. Les transitions sortantes (`out`) commence avec le tracé visible et l'efface petit à petit. L'animation `draw` ne fonctionne qu'avec les éléments ayant la méthode `getTotalLength`, comme `<path>` et `<polyline>`.
+
+Les paramètres suivants peuvent être utilisés avec `draw` :
+
+* `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
+* `speed` (`number`, par défaut undefined) - la vitesse de l'animation, voir ci-dessous.
+* `duration` (`number` | `function`, par défaut 800) - durée de la transition en millisecondes
+* `easing` (`function`, par défaut `cubicInOut`) — une [fonction d'assouplissement (`easing function`)](/docs#run-time-svelte-easing)
+
+Le paramètre de vitesse `speed` peut être utilisé à la place du paramètre durée `duration` pour spécifier la vitesse de la transition par rapport à la longueur totale du chemin. Il s'agit d'un coefficient permettant de calculer la durée de l'animation : `durée = longueur / vitesse` (`duration = length / speed`). Par exemple, un chemin qui mesure 1000 pixels de long avec une vitesse de 1 aura une durée de 1000ms. Avec une vitesse de `0.5`, l'animation aura un temps doublé. Avec une vitesse de `2`, l'animation sera deux fois plus lente.
+
+```sv
+<script>
+	import { draw } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+</script>
+
+<svg viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg">
+	{#if condition}
+		<path transition:draw="{{duration: 5000, delay: 500, easing: quintOut}}"
+			d="M2 1 h1 v1 h1 v1 h-1 v1 h-1 v-1 h-1 v-1 h1 z"
+			fill="none"
+			stroke="cornflowerblue"
+			stroke-width="0.1px"
+			stroke-linejoin="round"
+		/>
+	{/if}
+</svg>
+
+```
+
+
+#### `crossfade`
+
+La fonction de fondu croisé `crossfade` crée deux [transitions](/docs#template-syntax-element-directives-transition-fn) appelées `send` et `receive`. Quand un élément est "envoyé", Svelte cherche un élément correspondant "reçu" et génère une transition qui transforme l'élément en sa contrepartie à travers un déplacement et un fondu. Quand un élément est "reçu", l'inverse s'applique. S'il n'y à pas d'élément reçu, la transition par défaut `fallback` s'applique.
+
+---
+
+Les paramètres suivants peuvent être utilisés avec `crossfade` :
+
+* `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
+* `duration` (`number` | `function`, par défaut 800) - durée de la transition en millisecondes
+* `easing` (`function`, par défaut `cubicOut`) — une [fonction d'assouplissement (`easing function`)](/docs#run-time-svelte-easing)
+* `fallback` (`function`) — Une [transition](/docs#template-syntax-element-directives-transition-fn) à utiliser lorsqu'il n'y a pas d'élément "reçu" correspondant.
+
+```sv
+<script>
+	import { crossfade } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+
+	const [send, receive] = crossfade({
+		duration:1500,
+		easing: quintOut
+	});
+</script>
+
+{#if condition}
+	<h1 in:send={{key}} out:receive={{key}}>GROS ELEMENT</h1>
+{:else}
+	<small in:send={{key}} out:receive={{key}}>petit élément</small>
+{/if}
 ```
