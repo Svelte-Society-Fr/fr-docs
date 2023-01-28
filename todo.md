@@ -36,7 +36,7 @@
       - [x] svelte
       - [x] svelte/store
       - [x] svelte/motion
-      - [ ] svelte/transition
+      - [x] svelte/transition
       - [ ] svelte/animate
       - [ ] svelte/easing
       - [ ] svelte/register
