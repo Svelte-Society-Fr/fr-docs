@@ -43,7 +43,7 @@ Interdire l’usage d'`autofocus` sur les éléments. Le focus automatique d'él
 
 ### `a11y-click-events-have-key-events`
 
-Veiller à ce que `on:click` soit accompagné d'au moins l'un des éléments suivants: `onKeyUp`, `onKeyDown`, `onKeyPress`. Le codage du clavier est important pour les utilisateurs handicapés physiques qui ne peuvent pas utiliser une souris, la compatibilité AT et les utilisateurs de liseuse d'écran.
+Veiller à ce que `on:click` soit accompagné d'au moins l'un des éléments suivants: `onKeyUp`, `onKeyDown`, `onKeyPress`. Penser à l'usage au clavier est important pour les utilisateurs avec des handicaps physiques qui ne peuvent pas utiliser de souris, pour les utilisateurs de liseuses d'écran, ainsi que pour la compatibilité AT.
 
 Cela ne s'applique pas aux éléments interactifs ou cachés.
 
