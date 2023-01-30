@@ -32,7 +32,7 @@ Certains éléments DOM spéciaux ne prennent pas en charge les rôles, états e
 
 ### `a11y-autofocus`
 
-Veiller à ce que l’autofocus ne soit pas utilisé sur les éléments. Les éléments d'autofocus peuvent entraîner des problèmes de convivialité pour les utilisateurs voyants et non myopes.
+Interdire l’usage d'`autofocus` sur les éléments. Le focus automatique d'éléments peut entraîner des problèmes d'usage pour les utilisateurs, qu'ils soient malvoyants, non voyants ou avec une vue parfaite.
 
 ```sv
 <!-- A11y: Eviter d'utiliser autofocus -->
