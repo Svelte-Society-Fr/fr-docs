@@ -56,7 +56,7 @@ Cela ne s'applique pas aux éléments interactifs ou cachés.
 
 ### `a11y-distracting-elements`
 
-Veiller à ce qu'aucun élément distrayant ne soit utilisé. Les éléments qui peuvent être distrayants visuellement peuvent causer des problèmes d'accessibilité avec les utilisateurs malvoyants. Ces éléments sont très probablement dépréciés et doivent être évités.
+Veiller à ce qu'aucun élément distrayant ne soit utilisé. Les éléments distrayants visuellement peuvent causer des problèmes d'accessibilité avec les utilisateurs malvoyants. Ces éléments sont généralement dépréciés et doivent être évités.
 
 Les éléments suivants sont visuellement distrayants: `<marquee>` et `<blink>`.
 
