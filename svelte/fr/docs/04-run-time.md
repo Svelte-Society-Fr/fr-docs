@@ -466,7 +466,7 @@ Les stores `tweened` mettent à jour leur valeur sur une durée fixe. Les option
 
 * `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
 * `duration` (`number` | `function`, par défaut 400) - durée de la transition en millisecondes
-* `easing` (`function`, par défaut `t => t`) - une [fonction d'assouplissement (`easing function`)](/docs#run-time-svelte-easing)
+* `easing` (`function`, par défaut `t => t`) - une [fonction de lissage (`easing function`)](/docs#run-time-svelte-easing)
 * `interpolate` (`function`) - voir ci-dessous
 
 `store.set` et `store.update` peuvent accepter un second argument `options` qui remplacera les options passées à l'instanciation.
@@ -631,7 +631,7 @@ Les paramètres suivants peuvent être utilisés avec `fade` :
 
 * `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
 * `duration` (`number`, par défaut 400) - durée de la transition en millisecondes
-* `easing` (`function`, par défaut `linear`) — une [fonction d'assouplissement (`easing function`)](/docs#run-time-svelte-easing)
+* `easing` (`function`, par défaut `linear`) — une [fonction de lissage (`easing function`)](/docs#run-time-svelte-easing)
 
 Un exemple de transition de type `fade` est présenté dans le [tutoriel relatif aux transitions](/tutorial/transition).
 
@@ -642,7 +642,7 @@ Un exemple de transition de type `fade` est présenté dans le [tutoriel relatif
 
 {#if condition}
 	<div transition:fade="{{delay: 250, duration: 300}}">
-		Apparait et disparait en s'éstompant
+		Apparaît et disparaît en s'estompant
 	</div>
 {/if}
 ```
@@ -667,8 +667,8 @@ Les paramètres suivants peuvent être utilisés avec `blur` :
 
 * `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
 * `duration` (`number`, par défaut 400) - durée de la transition en millisecondes
-* `easing` (`function`, par défaut `cubicInOut`) — une [fonction d'assouplissement (`easing function`)](/docs#run-time-svelte-easing)
-* `opacity` (`number`, par défaut 0) - l'opacité cible de l'animation
+* `easing` (`function`, par défaut `cubicInOut`) — une [fonction de lissage (`easing function`)](/docs#run-time-svelte-easing)
+* `opacity` (`number`, par défaut 0) - opacité cible de l'animation
 * `amount` (`number`, par défaut 5) - La taille du flou en pixel
 
 ```sv
@@ -678,7 +678,7 @@ Les paramètres suivants peuvent être utilisés avec `blur` :
 
 {#if condition}
 	<div transition:blur="{{amount: 10}}">
-		Apparait et disparait avec un flou
+		Apparaît et disparaît avec un flou
 	</div>
 {/if}
 ```
@@ -703,10 +703,10 @@ Les paramètres suivants peuvent être utilisés avec `fly` :
 
 * `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
 * `duration` (`number`, par défaut 400) - durée de la transition en millisecondes
-* `easing` (`function`, par défaut `cubicOut`) — une [fonction d'assouplissement (`easing function`)](/docs#run-time-svelte-easing)
-* `x` (`number`, par défaut 0) - décallage horizontal de l'animation
-* `y` (`number`, par défaut 0) - décallage vertical de l'animation
-* `opacity` (`number`, par défaut 0) - l'opacité cible de l'animation
+* `easing` (`function`, par défaut `cubicOut`) — une [fonction de lissage (`easing function`)](/docs#run-time-svelte-easing)
+* `x` (`number`, par défaut 0) - décalage horizontal de l'animation
+* `y` (`number`, par défaut 0) - décalage vertical de l'animation
+* `opacity` (`number`, par défaut 0) - opacité cible de l'animation
 
 Un exemple de transition de type `fly` est présenté dans le [tutoriel relatif aux transitions](/tutorial/adding-parameters-to-transitions).
 
@@ -718,7 +718,7 @@ Un exemple de transition de type `fly` est présenté dans le [tutoriel relatif 
 
 {#if condition}
 	<div transition:fly="{{delay: 250, duration: 300, x: 100, y: 500, opacity: 0.5, easing: quintOut}}">
-		apparait et disparait avec un déplacement
+		apparaît et disparaît avec un déplacement
 	</div>
 {/if}
 ```
@@ -737,13 +737,13 @@ out:slide={params}
 
 ---
 
-L'animation de type `slide` permet de faire apparaitre et disparaitre un élément en glissant vers et depuis le haut.
+L'animation de type `slide` permet de faire apparaître et disparaître un élément en glissant depuis et vers le haut.
 
 Les paramètres suivants peuvent être utilisés avec `slide` :
 
 * `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
 * `duration` (`number`, par défaut 400) - durée de la transition en millisecondes
-* `easing` (`function`, par défaut `cubicOut`) — une [fonction d'assouplissement (`easing function`)](/docs#run-time-svelte-easing)
+* `easing` (`function`, par défaut `cubicOut`) — une [fonction de lissage (`easing function`)](/docs#run-time-svelte-easing)
 
 ```sv
 <script>
@@ -753,7 +753,7 @@ Les paramètres suivants peuvent être utilisés avec `slide` :
 
 {#if condition}
 	<div transition:slide="{{delay: 250, duration: 300, easing: quintOut }}">
-		Apparait et disparait avec un fondu
+		Apparaît et disparaît en glissant
 	</div>
 {/if}
 ```
@@ -772,15 +772,15 @@ out:scale={params}
 
 ---
 
-Anime l'opacité et l'échelle d'un élément. Les transitions entrantes (`in`) s'animent à partir des valeurs fournies en paramètre vers les valeurs de l'élément, passées en paramètres. Les transitions sortantes (`out`) s'animent à partir des valeurs de l'élément vers les valeurs fournies en paramètre.
+Anime l'opacité et l'échelle d'un élément. Les transitions entrantes (`in`) s'animent à partir des valeurs fournies en paramètre vers les valeurs par défaut de l'élément, passées en paramètres. Les transitions sortantes (`out`) s'animent à partir des valeurs par défaut de l'élément vers les valeurs fournies en paramètre.
 
 Les paramètres suivants peuvent être utilisés avec `scale` :
 
 * `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
 * `duration` (`number`, par défaut 400) - durée de la transition en millisecondes
-* `easing` (`function`, par défaut `cubicInOut`) — une [fonction d'assouplissement (`easing function`)](/docs#run-time-svelte-easing)
-* `start` (`number`, par défaut 0) - le ratio d'agrandissement de l'animation
-* `opacity` (`number`, par défaut 0) - l'opacité cible de l'animation
+* `easing` (`function`, par défaut `cubicInOut`) — une [fonction de lissage (`easing function`)](/docs#run-time-svelte-easing)
+* `start` (`number`, par défaut 0) - ratio d'agrandissement de l'animation
+* `opacity` (`number`, par défaut 0) - opacité cible de l'animation
 
 ```sv
 <script>
@@ -809,16 +809,16 @@ out:draw={params}
 
 ---
 
-Anime le tracé d'un élément SVG. Les transitions entrantes (`in`) commence avec le tracé non visible et dessinent le tracé. Les transitions sortantes (`out`) commence avec le tracé visible et l'efface petit à petit. L'animation `draw` ne fonctionne qu'avec les éléments ayant la méthode `getTotalLength`, comme `<path>` et `<polyline>`.
+Anime le tracé d'un élément SVG. Les transitions entrantes (`in`) commencent avec le tracé non visible et dessinent le tracé. Les transitions sortantes (`out`) commencent avec le tracé visible et l'effacent au fur et à mesure. L'animation `draw` ne fonctionne qu'avec les éléments ayant la méthode `getTotalLength`, comme `<path>` et `<polyline>`.
 
 Les paramètres suivants peuvent être utilisés avec `draw` :
 
 * `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
-* `speed` (`number`, par défaut undefined) - la vitesse de l'animation, voir ci-dessous.
+* `speed` (`number`, par défaut undefined) - vitesse de l'animation, voir ci-dessous.
 * `duration` (`number` | `function`, par défaut 800) - durée de la transition en millisecondes
-* `easing` (`function`, par défaut `cubicInOut`) — une [fonction d'assouplissement (`easing function`)](/docs#run-time-svelte-easing)
+* `easing` (`function`, par défaut `cubicInOut`) — une [fonction de lissage (`easing function`)](/docs#run-time-svelte-easing)
 
-Le paramètre de vitesse `speed` peut être utilisé à la place du paramètre durée `duration` pour spécifier la vitesse de la transition par rapport à la longueur totale du chemin. Il s'agit d'un coefficient permettant de calculer la durée de l'animation : `durée = longueur / vitesse` (`duration = length / speed`). Par exemple, un chemin qui mesure 1000 pixels de long avec une vitesse de 1 aura une durée de 1000ms. Avec une vitesse de `0.5`, l'animation aura un temps doublé. Avec une vitesse de `2`, l'animation sera deux fois plus lente.
+Le paramètre de vitesse `speed` peut être utilisé à la place du paramètre durée `duration` pour spécifier la vitesse de la transition en fonction de la longueur totale du chemin. Il s'agit d'un coefficient permettant de calculer la durée de l'animation : `durée = longueur / vitesse` (`duration = length / speed`). Par exemple, un chemin qui mesure 1000 pixels de long avec une vitesse de 1 aura une durée de 1000ms. Avec une vitesse de `0.5`, l'animation aura un temps doublé. Avec une vitesse de `2`, l'animation sera deux fois plus lente.
 
 ```sv
 <script>
@@ -843,7 +843,7 @@ Le paramètre de vitesse `speed` peut être utilisé à la place du paramètre d
 
 #### `crossfade`
 
-La fonction de fondu croisé `crossfade` crée deux [transitions](/docs#template-syntax-element-directives-transition-fn) appelées `send` et `receive`. Quand un élément est "envoyé", Svelte cherche un élément correspondant "reçu" et génère une transition qui transforme l'élément en sa contrepartie à travers un déplacement et un fondu. Quand un élément est "reçu", l'inverse s'applique. S'il n'y à pas d'élément reçu, la transition par défaut `fallback` s'applique.
+La fonction de fondu croisé `crossfade` crée deux [transitions](/docs#template-syntax-element-directives-transition-fn) appelées `send` et `receive`. Quand un élément est "envoyé", Svelte cherche un élément correspondant "reçu" et génère une transition qui déplace l'élément vers la position de sa contrepartie en le faisant disparaître. Quand un élément est "reçu", l'inverse s'applique. S'il n'y a pas d'élément reçu, la transition par défaut `fallback` s'applique.
 
 ---
 
@@ -851,8 +851,8 @@ Les paramètres suivants peuvent être utilisés avec `crossfade` :
 
 * `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
 * `duration` (`number` | `function`, par défaut 800) - durée de la transition en millisecondes
-* `easing` (`function`, par défaut `cubicOut`) — une [fonction d'assouplissement (`easing function`)](/docs#run-time-svelte-easing)
-* `fallback` (`function`) — Une [transition](/docs#template-syntax-element-directives-transition-fn) à utiliser lorsqu'il n'y a pas d'élément "reçu" correspondant.
+* `easing` (`function`, par défaut `cubicOut`) — une [fonction de lissage (`easing function`)](/docs#run-time-svelte-easing)
+* `fallback` (`function`) — une [transition](/docs#template-syntax-element-directives-transition-fn) à utiliser lorsqu'il n'y a pas d'élément "reçu" correspondant.
 
 ```sv
 <script>
@@ -870,4 +870,90 @@ Les paramètres suivants peuvent être utilisés avec `crossfade` :
 {:else}
 	<small in:send={{key}} out:receive={{key}}>petit élément</small>
 {/if}
+```
+
+### `svelte/animate`
+
+Le module `svelte/animate` exporte une fonction à utiliser avec les [animations](/docs#template-syntax-element-directives-animate-fn) Svelte.
+
+#### `flip`
+
+```sv
+animate:flip={params}
+```
+
+La méthode `flip` calcule la position de départ et d'arrivée d'un élément et génère une animation de translation des coordonées `x` et `y`. Le mot `flip` est l'acronyme de Premier, dernier, inverse, jouer [First, Last, Invert, Play](https://aerotwist.com/blog/flip-your-animations/).
+
+Les paramètres suivants peuvent être utilisés avec `flip` :
+
+* `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
+* `duration` (`number` | `function`, par défaut `d => Math.sqrt(d) * 120`) - voir ci-dessous
+* `easing` (`function`, par défaut `cubicOut`) — une [fonction de lissage (`easing function`)](/docs#run-time-svelte-easing)
+
+Le paramètre de durée `duration` peut être:
+
+- soit un nombre, en millisecondes.
+- une fonction, `distance: number => duration: number`, dont le paramètre correspond à la distance que l'élément va parcourir en pixel et doit retourner la durée en millisecondes. Cela permet de définir une durée, relativeà la distance parcourru de l'élément.
+
+---
+
+Un exemple complet est présenté dans le [tutoriel relatif aux animations](/tutorial/animate).
+
+```sv
+<script>
+	import { flip } from 'svelte/animate';
+	import { quintOut } from 'svelte/easing';
+
+	let list = [1, 2, 3];
+</script>
+
+{#each list as n (n)}
+	<div animate:flip="{{delay: 250, duration: 250, easing: quintOut}}">
+		{n}
+	</div>
+{/each}
+```
+
+### `svelte/easing`
+
+Les fonctions de lissage permettent de configurer la vitesse de transitions ou d'animations. Elles peuvent également être utilisées avec les stores `tweened` et `spring`. `svelte/easing` exporte 31 utilitaires, une version linéaire de lissage `linear` et 3 variantes de 10 différentes fonctions de lissage : `in`, `out` et `inOut`.
+
+Un exemple de chaque méthode est présenté dans le [démonstrateur des fonctions de lissage](/examples/easing) ainsi que dans les [exemples](/examples).
+
+| ease | in | out | inOut |
+| --- | --- | --- | --- |
+| **back** | `backIn` | `backOut` | `backInOut` |
+| **bounce** | `bounceIn` | `bounceOut` | `bounceInOut` |
+| **circ** | `circIn` | `circOut` | `circInOut` |
+| **cubic** | `cubicIn` | `cubicOut` | `cubicInOut` |
+| **elastic** | `elasticIn` | `elasticOut` | `elasticInOut` |
+| **expo** | `expoIn` | `expoOut` | `expoInOut` |
+| **quad** | `quadIn` | `quadOut` | `quadInOut` |
+| **quart** | `quartIn` | `quartOut` | `quartInOut` |
+| **quint** | `quintIn` | `quintOut` | `quintInOut` |
+| **sine** | `sineIn` | `sineOut` | `sineInOut` |
+
+### `svelte/register`
+
+Afin d'afficher un composant Svelte avec Node.js sans bundler, vous pouvez utiliser `require('svelte/register')`. Avec cet import, vous pouvez utiliser la syntaxe `require` pour inclure n'importe quel fichier `.svelte`.
+
+```js
+require('svelte/register');
+
+const App = require('./App.svelte').default;
+
+...
+
+const { html, css, head } = App.render({ answer: 42 });
+```
+
+> l'extension `.default` est nécessaire car Svelte convertit un module Javascript natif vers un module CommonJS, reconnu par Node.js. Si votre composant importe quant à lui des modules Javascript, cela ne fonctionnera pas dans l'univers Node.js et vous serez obligé d'utiliser un bundler.
+
+Pour définir des options de compilation, ou pour utiliser une autre extension de fichier, appelez le hook `register` comme une fonction :
+
+```js
+require('svelte/register')({
+  extensions: ['.customextension'], // par défaut ['.html', '.svelte']
+	preserveComments: true
+});
 ```
