@@ -61,7 +61,7 @@ Veiller à ce qu'aucun élément distrayant ne soit utilisé. Les éléments dis
 Les éléments suivants sont visuellement distrayants: `<marquee>` et `<blink>`.
 
 ```sv
-<!-- A11y: Eviter les éléments <marquee> -->
+<!-- A11y: éviter les éléments <marquee> -->
 <marquee />
 ```
 
