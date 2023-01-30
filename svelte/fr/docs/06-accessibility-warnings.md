@@ -69,7 +69,7 @@ Les éléments suivants sont visuellement distrayants: `<marquee>` et `<blink
 
 ### `a11y-hidden`
 
-Certains éléments DOM sont utiles pour la navigation sur le lecteur d'écran et ne doivent pas être cachés.
+Certains éléments DOM sont utiles pour la navigation avec lecteur d'écran et ne doivent pas être cachés.
 
 ```sv
 <!-- A11y: l'élément <h2> ne doit pas être caché -->
