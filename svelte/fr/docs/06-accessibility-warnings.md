@@ -85,7 +85,7 @@ Veiller à ce que l'attribut `alt` de la balise `img` ne contient pas le mot ima
 ```sv
 <img src="foo" alt="Foo mange un sandwich." />
 
-<!-- aria-hidden, ne sera pas annoncer par le lecteur d'écran-->
+<!-- aria-hidden, ne sera pas annoncé par le lecteur d'écran-->
 <img src="bar" aria-hidden="true" alt="Photo de moi prenant une photo d'une image" />
 
 <!-- A11y: Les lecteurs d'écran annoncent déjà les éléments <img> comme une image. -->
