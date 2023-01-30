@@ -102,7 +102,7 @@ Veiller à ce que l'attribut `alt` de la balise `img` ne contient pas le mot ima
 
 ### `a11y-incorrect-aria-attribute-type`
 
-Veiller à ce que le type de valeur utilisé soit correct pour les attributs `aria`. Par exemple, `aria-hidden` ne devrait recevoir qu'un booléen.
+Veiller à ce que le bon type de valeur soit utilisé pour les attributs `aria`. Par exemple, `aria-hidden` ne devrait recevoir qu'un booléen.
 
 ```sv
 <!-- A11y: la valeur de 'aria-hidden' doit être exactement `true` ou `false` -->
