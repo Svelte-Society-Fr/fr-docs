@@ -80,7 +80,7 @@ Certains éléments DOM sont utiles pour la navigation avec lecteur d'écran et 
 
 ### `a11y-img-redundant-alt`
 
-Veiller à ce que l'attribut `alt` de la balise `img` ne contient pas le mot image ou photo. Les lecteurs d'écran annoncent déjà `img` éléments comme image. Il n'est pas nécessaire d'utiliser des mots tels que, *photo*, et / ou *image*.
+Veiller à ce que l'attribut `alt` des balises `img` ne contienne pas le mot "image" ou "photo". Les lecteurs d'écran décrivent déjà les éléments `img` comme étant des images. Il n'est pas nécessaire d'utiliser des mots tels que *photo* et / ou *image*.
 
 ```sv
 <img src="foo" alt="Foo mange un sandwich." />
