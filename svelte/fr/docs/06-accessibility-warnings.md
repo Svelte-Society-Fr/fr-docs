@@ -4,7 +4,7 @@ Titre: Avertissements d'accessibilité
 
 L'accessibilité (souvent raccourcie en "a11y") est un sujet complexe, qu'il est courant de mal implémenter. Pour vous aider, Svelte vous avertit au moment de la compilation si vous écrivez du markup non accessible. Toutefois, gardez à l'esprit que de nombreux problèmes d'accessibilité ne peuvent être identifiés qu'au moment de l'exécution, à l'aide d'autres outils automatisés et en testant manuellement votre application.
 
-Voici une liste des contrôles d'accessibilité que Svelte fera pour vous.
+Voici la liste des vérifications d'accessibilité que Svelte fera pour vous.
 
 ---
 
