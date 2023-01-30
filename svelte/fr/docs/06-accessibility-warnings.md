@@ -13,7 +13,7 @@ Voici la liste des vérifications d'accessibilité que Svelte fera pour vous.
 Veiller à ne pas utiliser l'attribut `accesskey` sur des éléments. L'attribut HTML `accesskey` permet aux développeurs web d'attribuer des raccourcis clavier aux éléments. Les incohérences entre les raccourcis clavier et les commandes clavier utilisées par le lecteur d'écran et les utilisateurs du clavier créent des complications d'accessibilité. Pour éviter les complications, les touches d'accès ne doivent pas être utilisées.
 
 ```sv
-<!-- A11y: Évitez d'utiliser la touches d'accès -->
+<!-- A11y: ne pas utiliser accessKey -->
 <div accessKey='z'></div>
 ```
 
