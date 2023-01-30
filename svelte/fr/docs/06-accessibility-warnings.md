@@ -24,7 +24,7 @@ Veiller à ne pas utiliser l'attribut `accesskey` sur des éléments. L'attrib
 Certains éléments DOM spéciaux ne prennent pas en charge les rôles, états et propriétés ARIA. C'est souvent parce qu'ils ne sont pas visibles, comme `meta`, `html`, `script`, `style`. Cette règle garantit que ces éléments DOM ne contiennent pas des `aria-*` accessoires.
 
 ```sv
-<!-- A11y: <meta> should not have aria-* attributes -->
+<!-- A11y: <meta> ne devrait pas avoir d'attribut aria-* -->
 <meta aria-hidden="false">
 ```
 
