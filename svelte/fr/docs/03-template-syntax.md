@@ -950,3 +950,46 @@ Une action peut avoir un argument. Si la valeur renvoyée a une méthode `update
 <div use:foo={bar}></div>
 ```
 
+#### transition:*fn*
+
+```sv
+transition:fn
+```
+```sv
+transition:fn={params}
+```
+```sv
+transition:fn|local
+```
+```sv
+transition:fn|local={params}
+```
+
+```js
+transition = (node: HTMLElement, params: any, options: { direction: 'in' | 'out' | 'both' }) => {
+	delay?: number,
+	duration?: number,
+	easing?: (t: number) => number,
+	css?: (t: number, u: number) => string,
+	tick?: (t: number, u: number) => void
+}
+```
+
+---
+
+Une transition est déclenchée lorsqu'un élément entre ou sort du DOM après un changement d'état.
+
+Quand un bloc transitionne vers sa sortie, tous les éléments au sein du bloc, y compris ceux n'ayant pas de transition propre, sont laissés dans le DOM tant que toutes les transitions du bloc se soient terminées.
+
+La directive `transition:` établit une transition *bidirectionnelle*, ce qui implique qu'elle peut être inversée sans heurts en cours de transition.
+
+```sv
+{#if visible}
+	<div transition:fade>
+		s'estompe en entrant et en sortant
+	</div>
+{/if}
+```
+
+> Par défaut, les transitions d'entrée ne sont pas jouées au premier rendu. Vous pouvez modifier ce comportement en appliquant `intro: true` lorsque vous [instanciez manuellement un composant](/docs#run-time-client-side-component-api).
+
