@@ -36,10 +36,10 @@
       - [x] svelte
       - [x] svelte/store
       - [x] svelte/motion
-      - [ ] svelte/transition
-      - [ ] svelte/animate
-      - [ ] svelte/easing
-      - [ ] svelte/register
+      - [x] svelte/transition
+      - [x] svelte/animate
+      - [x] svelte/easing
+      - [x] svelte/register
       - [ ] Client-side component API
       - [ ] Custom element API
       - [ ] Server-side component API
