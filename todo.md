@@ -37,9 +37,9 @@
       - [x] svelte/store
       - [x] svelte/motion
       - [x] svelte/transition
-      - [ ] svelte/animate
-      - [ ] svelte/easing
-      - [ ] svelte/register
+      - [x] svelte/animate
+      - [x] svelte/easing
+      - [x] svelte/register
       - [x] Client-side component API
       - [x] Custom element API
       - [x] Server-side component API

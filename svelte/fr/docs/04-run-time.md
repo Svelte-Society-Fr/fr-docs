@@ -882,7 +882,7 @@ Le module `svelte/animate` exporte une fonction à utiliser avec les [animations
 animate:flip={params}
 ```
 
-La méthode `flip` calcule la position de départ et d'arrivée d'un élément et génère une animation de translation des coordonées `x` et `y`. Le mot `flip` est l'acronyme de Premier, dernier, inverse, jouer [First, Last, Invert, Play](https://aerotwist.com/blog/flip-your-animations/).
+La méthode `flip` calcule la position de départ et d'arrivée d'un élément et génère une animation de translation des coordonnées `x` et `y`. Le mot `flip` est l'acronyme de [First, Last, Invert, Play](https://aerotwist.com/blog/flip-your-animations/) (Premier, Dernier, Inverser, Jouer).
 
 Les paramètres suivants peuvent être utilisés avec `flip` :
 
@@ -893,7 +893,7 @@ Les paramètres suivants peuvent être utilisés avec `flip` :
 Le paramètre de durée `duration` peut être:
 
 - soit un nombre, en millisecondes.
-- une fonction, `distance: number => duration: number`, dont le paramètre correspond à la distance que l'élément va parcourir en pixel et doit retourner la durée en millisecondes. Cela permet de définir une durée, relativeà la distance parcourru de l'élément.
+- une fonction, `distance: number => duration: number`, dont le paramètre correspond à la distance que l'élément va parcourir en pixels et qui retourne la durée en millisecondes. Cela permet de définir une durée, relative à la distance parcourue de l'élément.
 
 ---
 
@@ -916,7 +916,7 @@ Un exemple complet est présenté dans le [tutoriel relatif aux animations](/tut
 
 ### `svelte/easing`
 
-Les fonctions de lissage permettent de configurer la vitesse de transitions ou d'animations. Elles peuvent également être utilisées avec les stores `tweened` et `spring`. `svelte/easing` exporte 31 utilitaires, une version linéaire de lissage `linear` et 3 variantes de 10 différentes fonctions de lissage : `in`, `out` et `inOut`.
+Les fonctions de lissage permettent de configurer la vitesse de transitions ou d'animations. Elles peuvent également être utilisées avec les stores `tweened` et `spring`. `svelte/easing` exporte 31 utilitaires, une fonction de lissage linéaire (`linear`), et 3 variantes de 10 différentes fonctions de lissage : `in`, `out` et `inOut`.
 
 Un exemple de chaque méthode est présenté dans le [démonstrateur des fonctions de lissage](/examples/easing) ainsi que dans les [exemples](/examples).
 
@@ -935,7 +935,7 @@ Un exemple de chaque méthode est présenté dans le [démonstrateur des fonctio
 
 ### `svelte/register`
 
-Afin d'afficher un composant Svelte avec Node.js sans bundler, vous pouvez utiliser `require('svelte/register')`. De cette manière, vous pourrez utiliser la syntaxe `require` pour inclure les fichiers `.svelte`.
+Pour construire des composants Svelte avec Node.js sans bundler, vous pouvez utiliser `require('svelte/register')`. Avec cet import, vous pouvez utiliser la syntaxe `require` pour inclure n'importe quel fichier `.svelte`.
 
 ```js
 require('svelte/register');
@@ -947,9 +947,9 @@ const App = require('./App.svelte').default;
 const { html, css, head } = App.render({ answer: 42 });
 ```
 
-> l'extension `.default` est nécessaire car Svelte convertit un module Javascript natif vers un module CommonJS, reconnu par Node.js. Si votre composant importe quant à lui des modules Javascript, cela ne fonctionnera pas dans l'univers Node.js et vous serez obligé d'utiliser un bundler.
+> L'ajout de `.default` est nécessaire car Svelte convertit un module Javascript natif vers un module CommonJS, reconnu par Node. Notez que si votre composant importe lui-même des modules Javascript, ces imports ne seront pas reconnus par Node et vous serez obligé d'utiliser un bundler.
 
-Pour définir des options de compilation, ou pour utiliser une autre extension de fichier, appelez le hook `register` comme une fonction :
+Pour paramétrer les options de compilation, ou pour utiliser une autre extension de fichier, appelez le hook `register` comme une fonction :
 
 ```js
 require('svelte/register')({
