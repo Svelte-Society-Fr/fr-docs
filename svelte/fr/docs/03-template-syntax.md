@@ -476,7 +476,7 @@ La balise `{@const ...}` définit une constante locale.
 
 ### Directives d'élément
 
-Comme pour les attributs, les éléments peuvent avoir des *directives*, qui dictent d'une certaine façon le comportement d'un élément.
+En plus des attributs, les éléments peuvent avoir des *directives*, qui contrôlent le comportement des éléments de différentes manières.
 
 #### on:*eventname*
 
@@ -993,3 +993,469 @@ La directive `transition:` établit une transition *bidirectionnelle*, ce qui im
 
 > Par défaut, les transitions d'entrée ne sont pas jouées au premier rendu. Vous pouvez modifier ce comportement en appliquant `intro: true` lorsque vous [instanciez manuellement un composant](/docs#run-time-client-side-component-api).
 
+##### Paramètres de transition
+
+---
+
+À l'instar des actions, les transitions peuvent avoir des paramètres.
+
+(La syntaxe `{{accolades}}` n'est pas spéciale ; il s'agit simplement d'un objet dans une balise d'expression.)
+
+```sv
+{#if visible}
+	<div transition:fade="{{ duration: 2000 }}">
+		s'estompe en entrant et en sortant sur une durée de 2 secondes
+	</div>
+{/if}
+```
+
+##### Transitions personnalisées
+
+---
+
+Les transitions peuvent être définies par des fonctions personnalisées. Si l'objet retourné possède une fonction `css`, Svelte créera une animation CSS qui sera jouée sur l'élément.
+
+L'argument `t` passé à `css` est une valeur entre `0` et `1` après que la fonction `easing` a été appliquée. Les transitions *entrantes* sont jouées de `0` à `1`, les transitions *sortantes* sont jouées de `1` à `0` — en d'autres termes, `1` est l'état normal de l'élément, comme si aucune transition ne lui était appliquée. L'argument `u` est égal à `1 - t`.
+
+La fonction est régulièrement appelée *avant* que la transition ne commence, avec différentes valeurs pour `t` et `u`.
+
+```sv
+<script>
+	import { elasticOut } from 'svelte/easing';
+
+	export let visible;
+
+	function whoosh(node, params) {
+		const existingTransform = getComputedStyle(node).transform.replace('none', '');
+
+		return {
+			delay: params.delay || 0,
+			duration: params.duration || 400,
+			easing: params.easing || elasticOut,
+			css: (t, u) => `transform: ${existingTransform} scale(${t})`
+		};
+	}
+</script>
+
+{#if visible}
+	<div in:whoosh>
+		entre en faisant woosh
+	</div>
+{/if}
+```
+
+---
+
+Une fonction de transition personnalisée peut aussi renvoyer une fonction `tick`, qui est appelée *pendant* la transition avec les mêmes arguments `t` et `u`.
+
+> Il est recommandé d'utiliser `css` plutôt que `tick`, si possible — les animations CSS sont exécutées sur un *thread* différent de celui de JS, évitant ainsi de ralentir les machines les moins puissantes.
+
+```sv
+<script>
+	export let visible = false;
+
+	function typewriter(node, { speed = 1 }) {
+		const valid = (
+			node.childNodes.length === 1 &&
+			node.childNodes[0].nodeType === Node.TEXT_NODE
+		);
+
+		if (!valid) {
+			throw new Error(`Cette transition ne fonctionne que sur les éléments avec un seul noeud texte comme enfant`);
+		}
+
+		const text = node.textContent;
+		const duration = text.length / (speed * 0.01);
+
+		return {
+			duration,
+			tick: t => {
+				const i = ~~(text.length * t);
+				node.textContent = text.slice(0, i);
+			}
+		};
+	}
+</script>
+
+{#if visible}
+	<p in:typewriter="{{ speed: 1 }}">
+		Le renard marron et véloce saute au-dessus du chien fainéant
+	</p>
+{/if}
+```
+
+Si une transition retourne une fonction au lieu d'un objet transition, la fonction sera appelée lors de la prochaine micro-tâche. Cela permet à plusieurs transitions de se coordonner, rendant les effets de [fondu croisé](/tutorial/deferred-transitions) possibles.
+
+Les fonctions de transition peuvent aussi avoir un troisième argument, `options`, qui contient des informations sur la transition.
+
+Les valeurs possibles dans l'objet `options` sont:
+
+* `direction` - `in`, `out`, or `both`, selon le type de transition
+
+##### Évènements de transition
+
+---
+
+Un élément ayant des transitions génére les évènements suivants en plus des évènements DOM standards:
+
+* `introstart`
+* `introend`
+* `outrostart`
+* `outroend`
+
+```sv
+{#if visible}
+	<p
+		transition:fly="{{ y: 200, duration: 2000 }}"
+		on:introstart="{() => status = "début de l'entrée"}"
+		on:outrostart="{() => status = "début de la sortie"}"
+		on:introend="{() => status = "fin de l'entrée"}"
+		on:outroend="{() => status = "fin de la sortie"}"
+	>
+		Entre et sort en volant
+	</p>
+{/if}
+```
+
+---
+
+Les transitions locales sont jouées uniquement lorsque le bloc auquel elles appartiennent est créé ou détruit, *pas* lorsqu'un bloc parent est créé ou détruit.
+
+```sv
+{#if x}
+	{#if y}
+		<p transition:fade>
+      s'estompe en entrée et sortie lorsque x ou y change
+		</p>
+
+		<p transition:fade|local>
+			s'estompe en entrée et sortie uniquement lorsque y change
+		</p>
+	{/if}
+{/if}
+```
+
+
+#### in:*fn*/out:*fn*
+
+```sv
+in:fn
+```
+```sv
+in:fn={params}
+```
+```sv
+in:fn|local
+```
+```sv
+in:fn|local={params}
+```
+
+```sv
+out:fn
+```
+```sv
+out:fn={params}
+```
+```sv
+out:fn|local
+```
+```sv
+out:fn|local={params}
+```
+
+---
+
+Similaire à `transition:`, mais s'applique uniquement aux éléments entrant (`in:`) ou sortant (`out:`) du DOM
+
+Contrairement à `transition:`, les transitions appliquées avec `in:` et `out:` ne sont pas bi-directionnelles — une transition entrante (*in*) continuera sa course en parallèle de la transition sortante (*out*), plutôt que d'être inversée, si le bloc est supprimé pendant la transition en cours. Si une transition sortante est annulée, les transitions seront rejouées du début.
+
+```sv
+{#if visible}
+	<div in:fly out:fade>
+		entre en volant, sort en fondu
+	</div>
+{/if}
+```
+
+
+
+#### animate:*fn*
+
+```sv
+animate:name
+```
+
+```sv
+animate:name={params}
+```
+
+```js
+animation = (node: HTMLElement, { from: DOMRect, to: DOMRect } , params: any) => {
+	delay?: number,
+	duration?: number,
+	easing?: (t: number) => number,
+	css?: (t: number, u: number) => string,
+	tick?: (t: number, u: number) => void
+}
+```
+
+```js
+DOMRect {
+	bottom: number,
+	height: number,
+	​​left: number,
+	right: number,
+	​top: number,
+	width: number,
+	x: number,
+	y: number
+}
+```
+
+---
+
+Une animation est déclenchée quand le contenu d'un [bloc `each` avec clé](/docs#template-syntax-each) est réordonné. Les animations ne sont pas jouées lorsqu'un élément est ajouté ou supprimé, seulement lorsque l'indice d'un élément de liste change au sein d'un bloc `each`. Les directives `animate:` doivent appartenir à un élément enfant *direct* d'un bloc `each` avec clé.
+
+Les animations peuvent être utilisées avec les [fonctions d'animation natives](/docs#run-time-svelte-animate) de Svelte ou avec des [fonctions d'animation personnalisées](/docs#template-syntax-element-directives-animate-fn-custom-animation-functions).
+
+```sv
+<!-- Quand `list` est réordonnée, l'animation sera jouée -->
+{#each list as item, index (item)}
+	<li animate:flip>{item}</li>
+{/each}
+```
+
+##### Paramètres d'animation
+
+---
+
+À l'instar des actions et des transitions, les animations peuvent avoir des paramètres.
+
+(La syntaxe `{{accolades}}` n'est pas spéciale; il s'agit simplement d'un objet dans une balise d'expression.)
+
+```sv
+{#each list as item, index (item)}
+	<li animate:flip="{{ delay: 500 }}">{item}</li>
+{/each}
+```
+
+##### Fonctions d'animation personnalisées
+
+---
+
+Les animations peuvent être définies par des fonctions fournissant un `node`, un objet `animation`, et n'importe quels `parameters` en arguments. L'argument `animation` est un objet ayant les propriétés `from` et `to`, chacune contenant un [DOMRect](https://developer.mozilla.org/fr/docs/Web/API/DOMRect#Properties) décrivant la géométrie de l'élément dans ses positions de départ (`start`) et arrivée (`end`). La propriété `from` est le DOMRect de l'élément dans sa position de départ, la propriété `to` est le DOMRect de l'élément dans sa position d'arrivée après que la liste a été réordonnée et le DOM mis à jour.
+
+Si l'objet renvoyé a une méthode `css`, Svelte va créer une animation CSS qui sera jouée sur l'élément.
+
+L'argument `t` passé à `css` est une valeur qui va de `0` à `1` avec que la fonction `easing` a été appliquée. L'argument `u` est égal à `1 - t`.
+
+La fonction est régulièrement appelée *avant* que la transition ne commence, avec différentes valeurs pour `t` et `u`.
+
+
+```sv
+<script>
+	import { cubicOut } from 'svelte/easing';
+
+	function whizz(node, { from, to }, params) {
+
+		const dx = from.left - to.left;
+		const dy = from.top - to.top;
+
+		const d = Math.sqrt(dx * dx + dy * dy);
+
+		return {
+			delay: 0,
+			duration: Math.sqrt(d) * 120,
+			easing: cubicOut,
+			css: (t, u) =>
+				`transform: translate(${u * dx}px, ${u * dy}px) rotate(${t*360}deg);`
+		};
+	}
+</script>
+
+{#each list as item, index (item)}
+	<div animate:whizz>{item}</div>
+{/each}
+```
+
+---
+
+Une fonction d'animation personnalisée peut aussi renvoyer une fonction `tick`, qui est appelée *pendant* la transition avec les mêmes arguments `t` et `u`.
+
+> Il est recommandé d'utiliser `css` plutôt que `tick`, si possible — les animations CSS sont exécutées sur un *thread* différent de celui de JS, évitant ainsi de ralentir les machines les moins puissantes.
+
+```sv
+<script>
+	import { cubicOut } from 'svelte/easing';
+
+	function whizz(node, { from, to }, params) {
+
+		const dx = from.left - to.left;
+		const dy = from.top - to.top;
+
+		const d = Math.sqrt(dx * dx + dy * dy);
+
+		return {
+		delay: 0,
+		duration: Math.sqrt(d) * 120,
+		easing: cubicOut,
+		tick: (t, u) =>
+			Object.assign(node.style, {
+				color: t > 0.5 ? 'Pink' : 'Blue'
+			});
+	};
+	}
+</script>
+
+{#each list as item, index (item)}
+	<div animate:whizz>{item}</div>
+{/each}
+```
+
+
+### Directives de composant
+
+#### on:*eventname*
+
+```sv
+on:eventname={handler}
+```
+
+---
+
+Les composants peuvent émettre des évènements en utilisant [createEventDispatcher](/docs#run-time-svelte-createeventdispatcher), ou en relayant les évènements DOM. Il est possible d'écouter des évènements de composant de la même manière que pour des évènements DOM :
+
+Components can emit events using [createEventDispatcher](/docs#run-time-svelte-createeventdispatcher), or by forwarding DOM events. Listening for component events looks the same as listening for DOM events:
+
+```sv
+<UnComposant on:peuimporte={handler} />
+```
+
+---
+
+Comme pour les évènement DOM, si la directin `on:` est utilisée sans valeur, le composant va *relayer* l'évènement, ce qui permet au parent du composant de l'écouter.
+
+
+```sv
+<UnComposant on:peuimporte />
+```
+
+#### --style-props
+
+```sv
+--style-props="anycssvalue"
+```
+
+---
+
+Vous pouvez aussi passer des props de style aux composants en utilisant les propriétés CSS personnalisées (*CSS custom properties*). Cela permet notamment d'appliquer des thèmes.
+
+Cette fonctionnalité est principalement du sucre syntaxique, que Svelte va transformer pour entourer l'élément, comme dans cet exemple :
+
+```sv
+<Slider
+  bind:value
+  min={0}
+  --rail-color="black"
+  --track-color="rgb(0, 0, 255)"
+/>
+```
+
+---
+
+Qui va générer :
+
+```sv
+<div style="display: contents; --rail-color: black; --track-color: rgb(0, 0, 255)">
+  <Slider
+    bind:value
+    min={0}
+    max={100}
+  />
+</div>
+```
+
+**Note**: Faites attention, cette syntaxe ajoute une `<div>` à votre markup, qui pourra être ciblée accidentellement par votre CSS. Ayez conscience de cet ajout d'élément lorsque vous utilisez cette fonctionnalité.
+
+---
+
+Dans le namespace SVG, l'exemple ci-dessus va générer un `<g>` à la place d'une `<div>` :
+
+```sv
+<g style="--rail-color: black; --track-color: rgb(0, 0, 255)">
+  <Slider
+    bind:value
+    min={0}
+    max={100}
+  />
+</g>
+```
+
+**Note**: Faites attention, cette syntaxe ajoute un `<g>` à votre markup, qui pourra être ciblé accidentellement par votre CSS. Ayez conscience de cet ajout d'élément lorsque vous utilisez cette fonctionnalité.
+
+---
+
+Le support des variables CSS dans Svelte permet d'appliquer des thèmes aux composants de manière simple :
+
+```sv
+<!-- Slider.svelte -->
+<style>
+  .potato-slider-rail {
+    background-color: var(--rail-color, var(--theme-color, 'purple'));
+  }
+</style>
+```
+
+---
+
+Vous pouvez alors définir une couleur de thème à plus haut niveau :
+
+```css
+/* global.css */
+html {
+  --theme-color: black;
+}
+```
+
+---
+
+Ou l'écraser au niveau de l'instantiation du composant :
+
+```sv
+<Slider --rail-color="goldenrod"/>
+```
+
+#### bind:*property*
+
+```sv
+bind:property={variable}
+```
+
+---
+
+Vous pouvez lier des props de composant en utilisant la même syntaxe que pour les éléments.
+
+```sv
+<Keypad bind:value={pin}/>
+```
+
+#### bind:this
+
+```sv
+bind:this={component_instance}
+```
+
+---
+
+Les composants permettent aussi `bind:this`, permettant d'interagir avec les instances de composant programmatiquement.
+
+> Notez qu'on ne peut pas écrire `{cart.empty}` puisque `cart` est `undefined` quand le bouton est rendu la première fois, ce qui provoquerait une erreur
+
+```sv
+<ShoppingCart bind:this={cart}/>
+
+<button on:click={() => cart.empty()}>
+	Caddie vide
+</button>
+```
