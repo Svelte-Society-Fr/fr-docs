@@ -787,7 +787,7 @@ Les inputs qui fonctionnent ensemble peuvent utiliser `bind:group`.
 <input type="checkbox" bind:group={fillings} value="Riz">
 <input type="checkbox" bind:group={fillings} value="Haricots">
 <input type="checkbox" bind:group={fillings} value="Fromage">
-<input type="checkbox" bind:group={fillings} value="Guacamole (extra)">
+<input type="checkbox" bind:group={fillings} value="Guacamole (supplément)">
 ```
 
 #### bind:this
