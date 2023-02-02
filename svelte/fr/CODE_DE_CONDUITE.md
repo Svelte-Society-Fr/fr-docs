@@ -2,7 +2,7 @@
 
 ## Notre engagement
 
-En tant que membres, contributeurs, et responsables, nous nous engageons ce que toute personne puisse participer à notre communauté sans subir de harcèlement, peu importe son âge, sa corpulence, son handicap visible ou invisible, son ethnicité, ses attributs sexuels, son identité et expression de genre, son niveau d'expérience, sa formation, son statut socio-économique, sa nationalité, son apparence, sa race, sa caste, sa couleur, sa religion, son identité ou orientation sexuelle.
+En tant que membres, contributeurs et contributrices, gérants et gérantes de la communauté, nous nous engageons ce que toute personne puisse participer à notre communauté sans subir de harcèlement, peu importe son âge, sa corpulence, son handicap visible ou invisible, son ethnicité, ses attributs sexuels, son identité et expression de genre, son niveau d'expérience, sa formation, son statut socio-économique, sa nationalité, son apparence, sa race, sa caste, sa couleur, sa religion, son identité ou orientation sexuelle.
 
 Nous nous engageons à agir et interagir de manière à contribuer à une communauté ouverte, accueillante, diverse, inclusive, et saine.
 
@@ -22,13 +22,13 @@ Des exemples de comportements inacceptables incluent:
 * Se moquer, insulter ou commenter de manière désobligeante, ainsi que toute attaque personnelle ou politique
 * Le harcèlement public ou privé
 * Publier des informations privées d'autrui, comme l'adresse postale ou électonique, sans leur permission explicite
-* Toute autre conduite qui pourrait raisonnablement être considérée inappropriée dans un environnement professionel
+* Toute autre conduite qui pourrait raisonnablement être considérée inappropriée dans un environnement professionnel
 
 ## Responsabilités
 
-Les responsables de la communauté sont garant•e•s de la clarification et l'application de nos standards de comportement acceptable, et prendront les mesures juste et nécessaires en réponse à tout comportement qu'ils jugent inapproprié, menaçant, aggressif ou blessant.
+Les gérant•e•s de la communauté sont garant•e•s de la clarification et l'application de nos standards de comportement acceptable, et prendront les mesures juste et nécessaires en réponse à tout comportement qu'ils jugent inapproprié, menaçant, aggressif ou blessant.
 
-Les responsables de la communauté ont le droit et la responsabilité de supprimer, modifier, rejeter les commentaires, commits, code, éditions de wiki, issues, et autres contributions qui ne sont pas alignées avec ce Code de Conduite, et communiqueront les raisons des décisions de modération lorsqu'approprié.
+Les gérant•e•s de la communauté ont le droit et la responsabilité de supprimer, modifier, rejeter les commentaires, commits, code, éditions de wiki, issues, et autres contributions qui ne sont pas alignées avec ce Code de Conduite, et communiqueront les raisons des décisions de modération lorsqu'approprié.
 
 ## Cadre
 
@@ -38,44 +38,45 @@ Ce Code de Conduite s'applique dans tous les espaces de la communauté, et s'app
 
 Les comportements abusifs, harcelants, ou généralement inacceptables peuvent être rapportés aux personnes de la communautés responsables de l'application des règles à l'adresse coc@sveltesociety.dev. Toute plainte sera examinée et investiguée rapidement et équitablement.
 
-Les personnes responsables de la communauté se doivent de respecter l'anonymat et la sécurité du rapporteur de l'incident.
+Les gérant•e•s de la communauté se doivent de respecter l'anonymat et la sécurité du rapporteur de l'incident.
 
-## Enforcement Guidelines
+## Directives d'application
 
-Community leaders will follow these Community Impact Guidelines in determining the consequences for any action they deem in violation of this Code of Conduct:
+Les gérant•e•s de la communauté suivront ces Directives d'Impact Communautaire pour déterminer les conséquences de toute action qu'ils jugent en violation de ce Code de Conduite :
 
 ### 1. Correction
 
-**Community Impact**: Use of inappropriate language or other behavior deemed unprofessional or unwelcome in the community.
+**Impact communautaire**: Utilisation d'un langage inapproprié ou tout autre comportement jugé non professionnel ou malvenu dans la communauté.
 
-**Consequence**: A private, written warning from community leaders, providing clarity around the nature of the violation and an explanation of why the behavior was inappropriate. A public apology may be requested.
+**Conséquence**: Un avertissement privé par écrit de la part des gérant•e•s de la communautés, clarifiant la nature de la violation ainsi que l'explication du caractère inapproprié du comportement. Une excuse publique peut être demandée.
 
-### 2. Warning
+### 2. Avertissement
 
-**Community Impact**: A violation through a single incident or series of actions.
+**Impact communautaire**: Une violation au travers d'un incident isolé ou d'une série d'actions.
 
-**Consequence**: A warning with consequences for continued behavior. No interaction with the people involved, including unsolicited interaction with those enforcing the Code of Conduct, for a specified period of time. This includes avoiding interactions in community spaces as well as external channels like social media. Violating these terms may lead to a temporary or permanent ban.
+**Conséquence**: Un avertissement entraînant des conséquences avec sursis. Aucune interaction avec les personnes impliquées, incluant toute interaction non sollicitée avec les personnes en charge de l'application du Code de Conduite, sur une durée déterminée. Cela inclut d'éviter les interactions dans les espaces communautaires ainsi que dans les canaux extérieurs tels que les réseaux sociaux. La violation de ces termes peut entraîner une exclusion temporaire ou permanente.
 
-### 3. Temporary Ban
+### 3. Exclusion temporaire
 
-**Community Impact**: A serious violation of community standards, including sustained inappropriate behavior.
+**Impact communautaire**: Une violation sérieuse des standards communautaires, incluant un comportement inapproprié régulier.
 
-**Consequence**: A temporary ban from any sort of interaction or public communication with the community for a specified period of time. No public or private interaction with the people involved, including unsolicited interaction with those enforcing the Code of Conduct, is allowed during this period. Violating these terms may lead to a permanent ban.
+**Conséquence**: Une exclusion temporaire de toute interaction ou communication publique avec la communauté sur une durée déterminée. Aucune interaction publique ou privée avec les personnes concernées, incluant les personnes en charge de l'application du Code de Conduite, n'est permise pendant cette période. La violation de ces termes peut entraîner une exclusion permanente.
 
-### 4. Permanent Ban
+### 4. Exclusion permanente
 
-**Community Impact**: Demonstrating a pattern of violation of community standards, including sustained inappropriate behavior, harassment of an individual, or aggression toward or disparagement of classes of individuals.
+**Impact communautaire**: Faire preuve d'un schéma de violation des standards communautaires, incluant un comportement inapproprié régulier, le harcèlement d'un individu, ou l'aggression ou le dénigrement envers une classe d'individus.
 
-**Consequence**: A permanent ban from any sort of public interaction within the community.
+**Conséquence**: Une exclusion permanente de tout type d'interaction avec la communauté.
 
-## Attribution
+## Crédits
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 2.1, available at [https://www.contributor-covenant.org/version/2/1/code_of_conduct.html][v2.1].
+Ce Code de Conduite est la traduction depuis l'anglais du [Svelte Code Of Conduct officiel][Svelte CoC], lui-même adapté du [Contributor Covenant][homepage], version 2.1, disponible à l'adresse [https://www.contributor-covenant.org/version/2/1/code_of_conduct.html][v2.1] (en anglais).
 
-Community Impact Guidelines were inspired by [Mozilla's code of conduct enforcement ladder][Mozilla CoC].
+Les Directives d'Impact Communautaire sont inspirées de l'[échelle de mise en vigueur du code de coduite de Mozilla][Mozilla CoC] (en anglais).
 
-For answers to common questions about this code of conduct, see the FAQ at [https://www.contributor-covenant.org/faq][FAQ]. Translations are available at [https://www.contributor-covenant.org/translations][translations].
+Pour obtenir des réponses à des questions communes sur ce code de conduite, voir la FÀQ sur [https://www.contributor-covenant.org/faq][FAQ] (en anglais). Des traductions sont disponibles sur [https://www.contributor-covenant.org/translations][translations].
 
+[Svelte CoC]: https://github.com/sveltejs/community/blob/main/CODE_OF_CONDUCT.md
 [homepage]: https://www.contributor-covenant.org
 [v2.1]: https://www.contributor-covenant.org/version/2/1/code_of_conduct.html
 [Mozilla CoC]: https://github.com/mozilla/diversity
