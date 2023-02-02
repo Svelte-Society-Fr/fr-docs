@@ -1090,7 +1090,7 @@ app.count += 1;
 
 ---
 
-Les composants Svelte peuvent également être compilés en *web components* (ou *custom elements*) en utilisant l'option `customElement: true`. Il est recommandé de spécifier un nom de tag pour le composant en utilisant la [balise](/docs#template-syntax-svelte-options) `<svelte:options>`.
+Les composants Svelte peuvent également être compilés en *web components* (ou *custom elements*) en utilisant l'option `customElement: true`. Il est recommandé de spécifier un nom de tag pour le composant en utilisant la [balise `<svelte:options>`](/docs#template-syntax-svelte-options).
 
 ```sv
 <svelte:options tag="my-element" />
@@ -1141,7 +1141,7 @@ console.log(el.name);
 el.name = 'everybody';
 ```
 
-Les web components sont un bon moyen de packager des composants pour une utilisation dans une application développée dans une autre technologie que Svelte, puisqu'ils fonctionneront avec du HTML et JavaScript natifs mais aussi avec [la plupart des framework](https://custom-elements-everywhere.com/). Il y a cependant des différences importantes à connaître :
+Les web components sont un bon moyen de packager des composants pour une utilisation dans une application développée dans une autre technologie que Svelte, puisqu'ils fonctionneront avec du HTML et JavaScript natifs mais aussi avec [la plupart des frameworks](https://custom-elements-everywhere.com/). Il y a cependant des différences importantes à connaître :
 
 * Le style est *encapsulé*, plutôt que simplement *scopé*. Cela signifie que tout style défini en dehors du composant (par exemple, celui défini dans un fichier `global.css` et celui défini avec `:global(...)`) ne s'appliquera pas au web component
 * Plutôt que d'être extrait dans un fichier `.css` séparé, le style est mis en propriété du composant
