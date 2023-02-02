@@ -40,9 +40,9 @@
       - [x] svelte/animate
       - [x] svelte/easing
       - [x] svelte/register
-      - [ ] Client-side component API
-      - [ ] Custom element API
-      - [ ] Server-side component API
+      - [x] Client-side component API
+      - [x] Custom element API
+      - [x] Server-side component API
    - [ ] 05-compile-time.md
       - [ ] svelte.compile
       - [ ] svelte.parse
