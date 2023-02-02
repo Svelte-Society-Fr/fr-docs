@@ -608,7 +608,7 @@ Les valeurs numériques sont traitées comme des nombres ; même si `input.value
 
 ---
 
-Sur les éléments `<input>` de type `type=="file"`, vous pouvez utiliser `bind:files` pour obtenir la [`FileList` des fichiers sélectionnés](https://developer.mozilla.org/fr/docs/Web/API/FileList). Cette liste est en lecture seule.
+Sur les éléments `<input>` de type `type="file"`, vous pouvez utiliser `bind:files` pour obtenir la [`FileList` des fichiers sélectionnés](https://developer.mozilla.org/fr/docs/Web/API/FileList). Cette liste est en lecture seule.
 
 ```sv
 <label for="avatar">Choisissez une image :</label>
@@ -662,7 +662,7 @@ Un élément `<select multiple>` se comporte de manière similaire à un groupe 
 	<option value="Riz">Riz</option>
 	<option value="Haricots">Haricots</option>
 	<option value="Fromage">Fromage</option>
-	<option value="Guacamole (extra)">Guacamole (extra)</option>
+	<option value="Guacamole (supplément)">Guacamole (supplément)</option>
 </select>
 ```
 
@@ -675,7 +675,7 @@ Quand la valeur d'une `<option>` correspond à son contenu texte, l'attribut peu
 	<option>Riz</option>
 	<option>Haricots</option>
 	<option>Formage</option>
-	<option>Guacamole (extra)</option>
+	<option>Guacamole (supplément)</option>
 </select>
 ```
 
@@ -894,7 +894,7 @@ use:action
 use:action={parameters}
 ```
 
-```js
+```ts
 action = (node: HTMLElement, parameters: any) => {
 	update?: (parameters: any) => void,
 	destroy?: () => void
@@ -1048,7 +1048,7 @@ La fonction est régulièrement appelée *avant* que la transition ne commence, 
 
 Une fonction de transition personnalisée peut aussi renvoyer une fonction `tick`, qui est appelée *pendant* la transition avec les mêmes arguments `t` et `u`.
 
-> Il est recommandé d'utiliser `css` plutôt que `tick`, si possible — les animations CSS sont exécutées sur un *thread* différent de celui de JS, évitant ainsi de ralentir les machines les moins puissantes.
+> Il est recommandé d'utiliser `css` plutôt que `tick`, si possible — les animations CSS sont exécutées sur un fil d'exécution (*thread*) différent de celui de JS, évitant ainsi de ralentir les machines les moins puissantes.
 
 ```sv
 <script>
@@ -1325,8 +1325,6 @@ on:eventname={handler}
 ---
 
 Les composants peuvent émettre des évènements en utilisant [createEventDispatcher](/docs#run-time-svelte-createeventdispatcher), ou en relayant les évènements DOM. Il est possible d'écouter des évènements de composant de la même manière que pour des évènements DOM :
-
-Components can emit events using [createEventDispatcher](/docs#run-time-svelte-createeventdispatcher), or by forwarding DOM events. Listening for component events looks the same as listening for DOM events:
 
 ```sv
 <UnComposant on:peuimporte={handler} />
