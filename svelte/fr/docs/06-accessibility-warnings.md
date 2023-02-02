@@ -18,6 +18,7 @@ Voici la liste des vérifications d'accessibilité que Svelte fera pour vous.
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Appliquer aucun `accesskey` sur l'élément. Les touches d'accès sont des attributs HTML qui permettent aux développeurs Web d'attribuer des raccourcis clavier aux éléments. Les incohérences entre les raccourcis clavier et les commandes clavier utilisées par le lecteur d'écran et les utilisateurs du clavier créent des complications d'accessibilité. Pour éviter les complications, les touches d'accès ne doivent pas être utilisées.
 
 ```sv
@@ -27,6 +28,9 @@ Veiller à ne pas utiliser l'attribut `accesskey` sur des éléments. L'attrib
 =======
 Assurez-vous de ne pas utiliser l'attribut `accesskey` sur des éléments. L'attribut HTML `accesskey` permet aux développeurs web d'attribuer des raccourcis clavier aux éléments. Les incohérences entre les raccourcis clavier et les commandes clavier utilisées par le lecteur d'écran et les utilisateurs du clavier créent des complications d'accessibilité. Pour éviter les complications, les touches d'accès ne doivent pas être utilisées.
 >>>>>>> 5928711 (I finished the translation and fix errors)
+=======
+Assure de ne pas utiliser l'attribut `accesskey` sur des éléments. L'attribut HTML `accesskey` permet aux développeurs web d'attribuer des raccourcis clavier aux éléments. Les incohérences entre les raccourcis clavier et les commandes clavier utilisées par le lecteur d'écran et les utilisateurs du clavier créent des complications d'accessibilité. Pour éviter les complications, les touches d'accès ne doivent pas être utilisées.
+>>>>>>> 3524f7a (Apply suggestions from code review)
 
 ```sv
 <!-- A11y: ne pas utiliser accessKey -->
@@ -76,6 +80,7 @@ Interdire l’usage d'`autofocus` sur les éléments. Le focus automatique d'él
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Veiller à ce que `on:click` soit accompagné d'au moins l'un des éléments suivants: `onKeyUp`, `onKeyDown`, `onKeyPress`. Le codage du clavier est important pour les utilisateurs handicapés physiques qui ne peuvent pas utiliser une souris, la compatibilité AT et les utilisateurs de liseuse d'écran.
 =======
 Veiller à ce que `on:click` soit accompagné d'au moins l'un des éléments suivants: `onKeyUp`, `onKeyDown`, `onKeyPress`. Penser à l'usage au clavier est important pour les utilisateurs avec des handicaps physiques qui ne peuvent pas utiliser de souris, pour les utilisateurs de liseuses d'écran, ainsi que pour la compatibilité AT.
@@ -83,6 +88,9 @@ Veiller à ce que `on:click` soit accompagné d'au moins l'un des éléments s
 =======
 Assurez-vous que `on:click` soit accompagné d'au moins l'un des éléments suivants: `onKeyUp`, `onKeyDown`, `onKeyPress`. Penser à l'usage au clavier est important pour les utilisateurs avec des handicaps physiques qui ne peuvent pas utiliser de souris, pour les utilisateurs de liseuses d'écran, ainsi que pour la compatibilité AT.
 >>>>>>> 5928711 (I finished the translation and fix errors)
+=======
+Assure que `on:click` soit accompagné d'au moins l'un des éléments suivants: `onKeyUp`, `onKeyDown`, `onKeyPress`. Penser à l'usage au clavier est important pour les utilisateurs avec des handicaps physiques qui ne peuvent pas utiliser de souris, pour les utilisateurs de liseuses d'écran, ainsi que pour la compatibilité AT.
+>>>>>>> 3524f7a (Apply suggestions from code review)
 
 Cela ne s'applique pas aux éléments interactifs ou cachés.
 
@@ -97,6 +105,7 @@ Cela ne s'applique pas aux éléments interactifs ou cachés.
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Veiller à ce qu'aucun élément distrayant ne soit utilisé. Les éléments qui peuvent être distrayants visuellement peuvent causer des problèmes d'accessibilité avec les utilisateurs malvoyants. Ces éléments sont très probablement dépréciés et doivent être évités.
 =======
 Veiller à ce qu'aucun élément distrayant ne soit utilisé. Les éléments distrayants visuellement peuvent causer des problèmes d'accessibilité avec les utilisateurs malvoyants. Ces éléments sont généralement dépréciés et doivent être évités.
@@ -104,6 +113,9 @@ Veiller à ce qu'aucun élément distrayant ne soit utilisé. Les éléments dis
 =======
 Assurez-vous qu'aucun élément distrayant ne soit utilisé. Les éléments distrayants visuellement peuvent causer des problèmes d'accessibilité avec les utilisateurs malvoyants. Ces éléments sont généralement dépréciés et doivent être évités.
 >>>>>>> 5928711 (I finished the translation and fix errors)
+=======
+Assure qu'aucun élément distrayant ne soit utilisé. Les éléments distrayants visuellement peuvent causer des problèmes d'accessibilité avec les utilisateurs malvoyants. Ces éléments sont généralement dépréciés et doivent être évités.
+>>>>>>> 3524f7a (Apply suggestions from code review)
 
 Les éléments suivants sont visuellement distrayants: `<marquee>` et `<blink>`.
 
@@ -137,6 +149,7 @@ Certains éléments DOM sont utiles pour la navigation avec lecteur d'écran et 
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Veiller à ce que l'attribut `alt` de la balise `img` ne contient pas le mot image ou photo. Les lecteurs d'écran annoncent déjà `img` éléments comme image. Il n'est pas nécessaire d'utiliser des mots tels que, *photo*, et / ou *image*.
 =======
 Veiller à ce que l'attribut `alt` des balises `img` ne contienne pas le mot "image" ou "photo". Les lecteurs d'écran décrivent déjà les éléments `img` comme étant des images. Il n'est pas nécessaire d'utiliser des mots tels que *photo* et / ou *image*.
@@ -144,6 +157,9 @@ Veiller à ce que l'attribut `alt` des balises `img` ne contienne pas le mot "im
 =======
 Assurez-vous que l'attribut `alt` des balises `img` ne contienne pas le mot "image" ou "photo". Les lecteurs d'écran décrivent déjà les éléments `img` comme étant des images. Il n'est pas nécessaire d'utiliser des mots tels que *photo* et / ou *image*.
 >>>>>>> 5928711 (I finished the translation and fix errors)
+=======
+Assure que l'attribut `alt` des balises `img` ne contienne pas le mot "image" ou "photo". Les lecteurs d'écran décrivent déjà les éléments `img` comme étant des images. Il n'est pas nécessaire d'utiliser des mots tels que *photo* et / ou *image*.
+>>>>>>> 3524f7a (Apply suggestions from code review)
 
 <img src="foo" alt="Foo mange un sandwich." />
 ```sv
@@ -172,6 +188,7 @@ Assurez-vous que l'attribut `alt` des balises `img` ne contienne pas le mot "ima
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Veiller à ce que le type de valeur utilisé soit correct pour les attributs `aria`. Par exemple, `aria-hidden` ne devrait recevoir qu'un booléen.
 
 ```sv
@@ -181,6 +198,9 @@ Veiller à ce que le bon type de valeur soit utilisé pour les attributs `aria`.
 =======
 Assurez-vous que le bon type de valeur soit utilisé pour les attributs `aria`. Par exemple, `aria-hidden` ne devrait recevoir qu'un booléen.
 >>>>>>> 5928711 (I finished the translation and fix errors)
+=======
+Assure que le bon type de valeur soit utilisé pour les attributs `aria`. Par exemple, `aria-hidden` ne devrait recevoir qu'un booléen.
+>>>>>>> 3524f7a (Apply suggestions from code review)
 
 ```sv
 <!-- A11y: la valeur de 'aria-hidden' doit être exactement `true` ou `false` -->
@@ -192,18 +212,18 @@ Assurez-vous que le bon type de valeur soit utilisé pour les attributs `aria`. 
 
 ### `a11y-invalid-attribute`
 
-Assurez-vous que les attributs importants pour l'accessibilité aient une valeur valide. Par exemple, `href` ne devrait pas être vide, `'#'` ou `javascript:`.
+Assure que les attributs importants pour l'accessibilité aient une valeur valide. Par exemple, `href` ne devrait pas être vide, `'#'` ou `javascript:`.
 
 ```sv
 <!-- A11y: '' n'est pas un attribut href valide -->
-<a href=''>invalid</a>
+<a href=''>invalide</a>
 ```
 
 ---
 
 ### `a11y-label-has-associated-control`
 
-Assurez-vous qu'un élément `label` ait une étiquette de texte et un contrôle associé.
+Assure qu'un élément `label` ait une étiquette de texte et un contrôle associé.
 
 Il existe deux méthodes prises en charge pour associer une étiquette à un contrôle :
 
@@ -223,10 +243,9 @@ Il existe deux méthodes prises en charge pour associer une étiquette à un con
 
 ### `a11y-media-has-caption`
 
-Fournir des sous-titres pour les médias est essentiel pour les utilisateurs sourds pour suivre. Les sous-titres devraient être une transcription ou une traduction du dialogue, des effets sonores, des indications musicales pertinentes et d'autres informations audio pertinentes. Ce n'est pas seulement important pour l'accessibilité, mais peut également être utile pour tous les utilisateurs dans le cas où les médias ne sont pas disponibles (similaire au texte `alt` sur une image lorsqu'une image ne peut pas être chargée).
+Fournir des sous-titres pour les médias est essentiel afin que les utilisateurs sourds puissent suivre. Les sous-titres devraient être une transcription ou une traduction du dialogue, des effets sonores, des indications musicales pertinentes et d'autres informations audio pertinentes. Ce n'est pas seulement important pour l'accessibilité, mais peut également être utile pour tous les utilisateurs dans le cas où les médias ne sont pas disponibles (similaire au texte `alt` sur une image lorsqu'une image ne peut pas être chargée).
 
 Les sous-titres doivent contenir toutes les informations importantes et pertinentes pour comprendre les médias correspondants. Cela peut signifier que les sous-titres ne sont pas une correspondance 1:1 du dialogue dans le contenu média. Cependant, les sous-titres ne sont pas nécessaires pour les composants vidéo avec l'attribut `muet`.
-Assurez-vous
 
 ```sv
 <video><track kind="captions"/></video>
@@ -266,9 +285,9 @@ L'attribut `scope` ne devrait être utilisé que sur les éléments `<th>`.
 
 ### `a11y-missing-attribute`
 
-Assurez-vous que les attributs requis l'accessibilité soient présents sur un élément. Cela inclut les vérifications suivantes:
+Assure que les attributs requis pour l'accessibilité soient présents sur un élément. Cela inclut les vérifications suivantes:
 
-- `<a>` devrait avoir un href (sauf s'il s'agit d'un [fragment-defining tag](https://github.com/sveltejs/svelte/issues/4697))
+- `<a>` devrait avoir un href (sauf s'il s'agit d'une [balise définissant un fragment](https://github.com/sveltejs/svelte/issues/4697))
 - `<area>` devrait avoir alt, aria-label ou aria-labelledby
 - `<html>` devrait avoir lang
 - `<iframe>` devrait avoir title
@@ -291,7 +310,7 @@ Assurez-vous que les attributs requis l'accessibilité soient présents sur un �
 
 ### `a11y-missing-content`
 
-Assurez-vous que les éléments d'en-tête (`h1`, `h2`, etc.) et les ancres aient un contenu et que ce contenu soit accessible aux lecteurs d'écran.
+Assure que les éléments d'en-tête (`h1`, `h2`, etc.) et les ancres aient un contenu, et que ce contenu soit accessible aux lecteurs d'écran.
 
 ```sv
 <!-- A11y: L'élément <a> doit avoir un contenu enfant -->
@@ -305,7 +324,7 @@ Assurez-vous que les éléments d'en-tête (`h1`, `h2`, etc.) et les ancres aien
 
 ### `a11y-mouse-events-have-key-events`
 
-Assurez-vous que `on:mouseover` and `on:mouseout` soient accompagnés de `on:focus` et `on:blur`, respectivement. Cela aide à garantir que toutes les fonctionnalités déclenchées par ces événements de souris sont également accessibles aux utilisateurs du clavier.
+Assure que `on:mouseover` and `on:mouseout` soient accompagnés de `on:focus` et `on:blur`, respectivement. Cela aide à garantir que toutes les fonctionnalités déclenchées par ces événements de souris soient également accessibles aux utilisateurs du clavier.
 
 ```sv
 <!-- A11y: on:mouseover doit être accompagné de on:focus -->
@@ -344,7 +363,7 @@ Les rôles [WAI-ARIA](https://www.w3.org/TR/wai-aria-1.1/#usage_intro) ne devrai
 
 ### `a11y-no-noninteractive-tabindex`
 
-La navigation à l'aide de la touche Tab doit être limitée aux éléments de la page qui peuvent être interagis avec.
+La navigation à l'aide de la touche Tab doit être limitée aux éléments de la page avec lesquels il est possible d'interagir.
 
 ```sv
 <!-- A11y: un élément non interactif ne peut pas avoir une valeur de tabIndex non négative -->
@@ -355,7 +374,7 @@ La navigation à l'aide de la touche Tab doit être limitée aux éléments de l
 
 ### `a11y-positive-tabindex`
 
-Evitez les valeurs positives pour la propriété `tabindex`. Cela déplacera des éléments en dehors de l'ordre de tabulation attendu, ce qui créera une expérience confuse pour les utilisateurs du clavier..
+Évitez les valeurs positives pour la propriété `tabindex`. Cela positionnera des éléments en dehors de l'ordre de tabulation attendu, ce qui créera une expérience confuse pour les utilisateurs du clavier.
 
 ```sv
 <!-- A11y: évitez les valeurs de tabindex supérieures à zéro -->
@@ -390,7 +409,7 @@ Assurez-vous que certains éléments DOM aient la bonne structure.
 
 ### `a11y-unknown-aria-attribute`
 
-Assurez-vous que seuls les attributs ARIA connus soient utilisés. Cela est basé sur la spécification [WAI-ARIA States and Properties](https://www.w3.org/WAI/PF/aria-1.1/states_and_properties).
+Assure que seuls les attributs ARIA connus soient utilisés. Cela est basé sur la spécification [WAI-ARIA States and Properties](https://www.w3.org/WAI/PF/aria-1.1/states_and_properties).
 
 ```sv
 <!-- A11y: Attribut aria inconnu 'aria-labeledby' (vouliez-vous dire 'labelledby'?) -->
