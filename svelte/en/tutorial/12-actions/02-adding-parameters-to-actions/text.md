@@ -8,7 +8,7 @@ Here, we're using a `longpress` action that fires an event with the same name wh
 
 We can change the action function to accept a `duration` as a second argument, and pass that `duration` to the `setTimeout` call:
 
-```js
+```ts
 export function longpress(node, duration) {
 	// ...
 
@@ -34,7 +34,7 @@ This *almost* works — the event now only fires after 2 seconds. But if you sli
 
 To change that, we can add an `update` method in `longpress.js`. This will be called whenever the argument changes:
 
-```js
+```ts
 return {
 	update(newDuration) {
 		duration = newDuration;

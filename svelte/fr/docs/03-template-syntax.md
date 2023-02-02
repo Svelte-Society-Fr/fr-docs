@@ -965,7 +965,7 @@ transition:fn|local
 transition:fn|local={params}
 ```
 
-```js
+```ts
 transition = (node: HTMLElement, params: any, options: { direction: 'in' | 'out' | 'both' }) => {
 	delay?: number,
 	duration?: number,
@@ -1190,7 +1190,7 @@ animate:name
 animate:name={params}
 ```
 
-```js
+```ts
 animation = (node: HTMLElement, { from: DOMRect, to: DOMRect } , params: any) => {
 	delay?: number,
 	duration?: number,
@@ -1200,7 +1200,7 @@ animation = (node: HTMLElement, { from: DOMRect, to: DOMRect } , params: any) =>
 }
 ```
 
-```js
+```ts
 DOMRect {
 	bottom: number,
 	height: number,

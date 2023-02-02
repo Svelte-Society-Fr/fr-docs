@@ -8,7 +8,7 @@ Together, they're useful for doing things imperatively that are difficult to ach
 
 This [Eliza](https://en.wikipedia.org/wiki/ELIZA) chatbot is annoying to use, because you have to keep scrolling the chat window. Let's fix that.
 
-```js
+```ts
 let div;
 let autoscroll;
 

@@ -4,7 +4,7 @@ title: Custom CSS transitions
 
 The `svelte/transition` module has a handful of built-in transitions, but it's very easy to create your own. By way of example, this is the source of the `fade` transition:
 
-```js
+```ts
 function fade(node, {
 	delay = 0,
 	duration = 400

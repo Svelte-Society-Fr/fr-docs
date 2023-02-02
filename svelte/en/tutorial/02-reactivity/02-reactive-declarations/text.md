@@ -4,7 +4,7 @@ title: Declarations
 
 Svelte's reactivity not only keeps the DOM in sync with your application's variables as shown in the previous section, it can also keep variables in sync with each other using reactive declarations. They look like this:
 
-```js
+```ts
 let count = 0;
 $: doubled = count * 2;
 ```

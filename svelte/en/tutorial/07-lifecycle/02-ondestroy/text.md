@@ -19,7 +19,7 @@ For example, we can add a `setInterval` function when our component initialises,
 
 While it's important to call lifecycle functions during the component's initialisation, it doesn't matter *where* you call them from. So if we wanted, we could abstract the interval logic into a helper function in `utils.js`...
 
-```js
+```ts
 import { onDestroy } from 'svelte';
 
 export function onInterval(callback, milliseconds) {

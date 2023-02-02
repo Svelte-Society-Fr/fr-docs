@@ -8,13 +8,13 @@ When you update component state in Svelte, it doesn't update the DOM immediately
 
 You can see that behaviour in this example. Select a range of text and hit the tab key. Because the `<textarea>` value changes, the current selection is cleared and the cursor jumps, annoyingly, to the end. We can fix this by importing `tick`...
 
-```js
+```ts
 import { tick } from 'svelte';
 ```
 
 ...and running it immediately before we set `this.selectionStart` and `this.selectionEnd` at the end of `handleKeydown`:
 
-```js
+```ts
 await tick();
 this.selectionStart = selectionStart;
 this.selectionEnd = selectionEnd;

@@ -10,7 +10,7 @@ There are two halves to the context API — `setContext` and `getContext`. If a 
 
 Let's set the context first. In `Map.svelte`, import `setContext` from `svelte` and `key` from `mapbox.js` and call `setContext`:
 
-```js
+```ts
 import { onDestroy, setContext } from 'svelte';
 import { mapbox, key } from './mapbox.js';
 
@@ -23,7 +23,7 @@ The context object can be anything you like. Like [lifecycle functions](/tutoria
 
 On the other side of the equation, in `MapMarker.svelte`, we can now get a reference to the Mapbox instance:
 
-```js
+```ts
 import { getContext } from 'svelte';
 import { mapbox, key } from './mapbox.js';
 
@@ -39,7 +39,7 @@ The markers can now add themselves to the map.
 
 In `mapbox.js` you'll see this line:
 
-```js
+```ts
 const key = Symbol();
 ```
 
@@ -51,6 +51,6 @@ Contexts and stores seem similar. They differ in that stores are available to *a
 
 In fact, you might use the two together. Since context is not reactive, values that change over time should be represented as stores:
 
-```js
+```ts
 const { these, are, stores } = getContext(...);
 ```

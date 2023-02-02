@@ -4,7 +4,7 @@ title: Custom JS transitions
 
 While you should generally use CSS for transitions as much as possible, there are some effects that can't be achieved without JavaScript, such as a typewriter effect:
 
-```js
+```ts
 function typewriter(node, { speed = 1 }) {
 	const valid = (
 		node.childNodes.length === 1 &&
