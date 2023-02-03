@@ -1,6 +1,6 @@
 # TODO
 
-19 / 256 (7.42 %)
+50 / 256 (19.53 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -32,7 +32,7 @@
       - [ ] \<svelte:head>
       - [ ] \<svelte:options>
       - [ ] \<svelte:fragment>
-   - [ ] 04-run-time.md
+   - [x] 04-run-time.md
       - [x] svelte
       - [x] svelte/store
       - [x] svelte/motion
@@ -49,31 +49,31 @@
       - [ ] svelte.preprocess
       - [ ] svelte.walk
       - [ ] svelte.VERSION
-   - [ ] 06-accessibility-warnings.md
-      - [ ] a11y-accesskey
-      - [ ] a11y-aria-attributes
-      - [ ] a11y-autofocus
-      - [ ] a11y-click-events-have-key-events
-      - [ ] a11y-distracting-elements
-      - [ ] a11y-hidden
-      - [ ] a11y-img-redundant-alt
-      - [ ] a11y-incorrect-aria-attribute-type
-      - [ ] a11y-invalid-attribute
-      - [ ] a11y-label-has-associated-control
-      - [ ] a11y-media-has-caption
-      - [ ] a11y-misplaced-role
-      - [ ] a11y-misplaced-scope
-      - [ ] a11y-missing-attribute
-      - [ ] a11y-missing-content
-      - [ ] a11y-mouse-events-have-key-events
-      - [ ] a11y-no-redundant-roles
-      - [ ] a11y-no-interactive-element-to-noninteractive-role
-      - [ ] a11y-no-noninteractive-tabindex
-      - [ ] a11y-positive-tabindex
-      - [ ] a11y-role-has-required-aria-props
-      - [ ] a11y-structure
-      - [ ] a11y-unknown-aria-attribute
-      - [ ] a11y-unknown-role
+   - [x] 06-accessibility-warnings.md
+      - [x] a11y-accesskey
+      - [x] a11y-aria-attributes
+      - [x] a11y-autofocus
+      - [x] a11y-click-events-have-key-events
+      - [x] a11y-distracting-elements
+      - [x] a11y-hidden
+      - [x] a11y-img-redundant-alt
+      - [x] a11y-incorrect-aria-attribute-type
+      - [x] a11y-invalid-attribute
+      - [x] a11y-label-has-associated-control
+      - [x] a11y-media-has-caption
+      - [x] a11y-misplaced-role
+      - [x] a11y-misplaced-scope
+      - [x] a11y-missing-attribute
+      - [x] a11y-missing-content
+      - [x] a11y-mouse-events-have-key-events
+      - [x] a11y-no-redundant-roles
+      - [x] a11y-no-interactive-element-to-noninteractive-role
+      - [x] a11y-no-noninteractive-tabindex
+      - [x] a11y-positive-tabindex
+      - [x] a11y-role-has-required-aria-props
+      - [x] a11y-structure
+      - [x] a11y-unknown-aria-attribute
+      - [x] a11y-unknown-role
 ## examples
    - [ ] Miscellaneous
       - [ ] Hacker News
