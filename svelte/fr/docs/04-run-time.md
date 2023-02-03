@@ -375,6 +375,7 @@ store = derived([a, ...b], callback: ([a: any, ...b: any[]]) => any)
 ```js
 store = derived([a, ...b], callback: ([a: any, ...b: any[]], set: (value: any) => void) => void | () => void, initial_value: any)
 ```
+
 ---
 
 Dérive un store à partir d'un ou plusieurs autres stores. Le callback s'exécute initialement lorsque le premier abonné s'abonne, puis à chaque fois que les dépendances du store changent.
@@ -872,6 +873,7 @@ Les paramètres suivants peuvent être utilisés avec `crossfade` :
 {/if}
 ```
 
+
 ### `svelte/animate`
 
 Le module `svelte/animate` exporte une fonction à utiliser avec les [animations](/docs#template-syntax-element-directives-animate-fn) Svelte.
@@ -890,6 +892,7 @@ Les paramètres suivants peuvent être utilisés avec `flip` :
 * `duration` (`number` | `function`, par défaut `d => Math.sqrt(d) * 120`) - voir ci-dessous
 * `easing` (`function`, par défaut `cubicOut`) — une [fonction de lissage (`easing function`)](/docs#run-time-svelte-easing)
 
+
 Le paramètre de durée `duration` peut être:
 
 - soit un nombre, en millisecondes.
@@ -898,6 +901,7 @@ Le paramètre de durée `duration` peut être:
 ---
 
 Un exemple complet est présenté dans le [tutoriel relatif aux animations](/tutorial/animate).
+
 
 ```sv
 <script>
@@ -914,11 +918,14 @@ Un exemple complet est présenté dans le [tutoriel relatif aux animations](/tut
 {/each}
 ```
 
+
+
 ### `svelte/easing`
 
 Les fonctions de lissage permettent de configurer la vitesse de transitions ou d'animations. Elles peuvent également être utilisées avec les stores `tweened` et `spring`. `svelte/easing` exporte 31 utilitaires, une fonction de lissage linéaire (`linear`), et 3 variantes de 10 différentes fonctions de lissage : `in`, `out` et `inOut`.
 
 Un exemple de chaque méthode est présenté dans le [démonstrateur des fonctions de lissage](/examples/easing) ainsi que dans les [exemples](/examples).
+
 
 | ease | in | out | inOut |
 | --- | --- | --- | --- |
@@ -932,6 +939,7 @@ Un exemple de chaque méthode est présenté dans le [démonstrateur des fonctio
 | **quart** | `quartIn` | `quartOut` | `quartInOut` |
 | **quint** | `quintIn` | `quintOut` | `quintInOut` |
 | **sine** | `sineIn` | `sineOut` | `sineInOut` |
+
 
 ### `svelte/register`
 
@@ -947,7 +955,7 @@ const App = require('./App.svelte').default;
 const { html, css, head } = App.render({ answer: 42 });
 ```
 
-> L'ajout de `.default` est nécessaire car Svelte convertit un module Javascript natif vers un module CommonJS, reconnu par Node. Notez que si votre composant importe lui-même des modules Javascript, ces imports ne seront pas reconnus par Node et vous serez obligé d'utiliser un bundler.
+> L'ajout de `.default` est nécessaire car Svelte convertit un module JavaScript natif vers un module CommonJS, reconnu par Node. Notez que si votre composant importe lui-même des modules JavaScript, ces imports ne seront pas reconnus par Node et vous serez obligé d'utiliser un bundler.
 
 Pour paramétrer les options de compilation, ou pour utiliser une autre extension de fichier, appelez le hook `register` comme une fonction :
 
@@ -956,4 +964,240 @@ require('svelte/register')({
   extensions: ['.customextension'], // par défaut ['.html', '.svelte']
 	preserveComments: true
 });
+```
+
+
+### API des composants rendus côté client
+
+#### Création d'un composant
+
+```js
+const component = new Component(options)
+```
+
+Un composant rendu côté client est une classe JavaScript correspondant à un composant compilé avec l'option `generate: 'dom'` (ou avec l'option `generate` non spécifiée).
+
+```js
+import App from './App.svelte';
+
+const app = new App({
+	target: document.body,
+	props: {
+		// en supposant que App.svelte contienne :
+		// `export let answer`:
+		answer: 42
+	}
+});
+```
+
+Les options d'initialisation suivantes peuvent être utilisées :
+
+| option | valeur par défaut | description |
+| --- | --- | --- |
+| `target` | **none** | Un élément `HTMLElement` ou `ShadowRoot` sur lequel rendre le composant. Cette option est obligatoire
+| `anchor` | `null` | Un enfant de la cible `target` à rendre juste avant le composant
+| `props` | `{}` | Des propriétés avec lesquelles le composant sera initialisé
+| `context` | `new Map()` | Une `Map` de paires clé-valeur de contexte à fournir au composant
+| `hydrate` | `false` | Voir plus bas
+| `intro` | `false` | Si `true`, jouera les transitions au premier rendu, plutôt que d'attendre de futurs changements d'état
+
+Les enfants existants de la cible `target` ne sont pas affectés.
+
+
+---
+
+L'option d'hydratation `hydrate` indique à Svelte de mettre à jour le DOM existant (habituellement à partir du rendu côté serveur) plutôt que de créer de nouveaux éléments. Cela ne fonctionnera que si le composant a été compilé avec l'option [`hydratable: true`](/docs#compile-time-svelte-compile). L'hydratation de la section `<head>` ne fonctionnera que si le code rendu côté serveur a également été compilé avec l'option `hydratable: true`. Cette option a pour effet d'identifier chaque élément à l'intérieur de la section `<head>` de telle sorte que le composant sache quels éléments il peut supprimer pendant l'hydratation.
+
+Alors que les enfants de la cible `target` ne sont normalement pas modifiés, l'option `hydrate: true` causera leur suppression. Pour cette raison, l'option `anchor` ne peut pas être utilisée en même temps que `hydrate: true`.
+
+Le DOM existant n'a pas besoin de correspondre au composant, Svelte "réparera" le DOM au fur et à mesure.
+
+```js
+import App from './App.svelte';
+
+const app = new App({
+	target: document.querySelector('#server-rendered-html'),
+	hydrate: true
+});
+```
+
+#### `$set`
+
+```js
+component.$set(props)
+```
+
+---
+
+`$set` définit les props d'une instance de composant. `component.$set({ x: 1 })` est équivalent à `x = 1` à l'intérieur de la balise `<script>` du composant.
+
+L'appel de cette méthode déclenchera une mise à jour à la prochaine micro-tâche — le DOM **n'est pas** mis à jour de manière synchrone.
+
+```js
+component.$set({ answer: 42 });
+```
+
+#### `$on`
+
+```js
+component.$on(event, callback)
+```
+
+---
+
+`$on` enregistre un `callback` qui sera appelé à chaque génération d'un évènement de type `event`.
+
+`$on` retourne une fonction dont l'exécution permet de supprimer l'écoute de cet événement.
+
+```js
+const off = app.$on('selected', event => {
+	console.log(event.detail.selection);
+});
+
+off();
+```
+
+#### `$destroy`
+
+```js
+component.$destroy()
+```
+
+Retire un composant du DOM et déclenche les callbacks de type `onDestroy` associés.
+
+#### props des composants
+
+```js
+component.prop
+```
+```js
+component.prop = value
+```
+
+---
+
+Si un composant est compilé avec l'option `accessors: true`, chaque instance sera générée avec des *getters* et *setters* correspondant à chacune de ses propriétés. Mettre à jour une des propriétés déclenchera une mise à jour *synchrone*. Ce comportement est différent de la mise à jour asynchrone déclenchée par l'appel `component.$set(...)`.
+
+Par défaut, `accessors` est initialisé à `false`, à moins que vous ne compiliez un *web component* (voir section suivante).
+
+```js
+console.log(app.count);
+app.count += 1;
+```
+
+
+### API des *web components*
+
+---
+
+Les composants Svelte peuvent également être compilés en *web components* (ou *custom elements*) en utilisant l'option `customElement: true`. Il est recommandé de spécifier un nom de tag pour le composant en utilisant la [balise `<svelte:options>`](/docs#template-syntax-svelte-options).
+
+```sv
+<svelte:options tag="my-element" />
+
+<script>
+	export let name = 'tout le monde';
+</script>
+
+<h1>Bonjour {name} !</h1>
+<slot></slot>
+```
+
+---
+
+Vous pouvez également passer l'option `tag={null}` afin d'indiquer que le consommateur du composant devra le nommer lui-même.
+
+```js
+import MyElement from './MyElement.svelte';
+
+customElements.define('my-element', MyElement);
+```
+
+---
+
+Une fois qu'un web component a été défini, il peut être utilisé comme un élément du DOM classique :
+
+```js
+document.body.innerHTML = `
+	<my-element>
+		<p>Ceci est du contenu enfant</p>
+	</my-element>
+`;
+```
+
+---
+
+Par défaut, les web components sont compilés avec l'option `accessors: true`, qui indique que n'importe quelle [`props`](/docs#template-syntax-attributes-and-props) sera exposée comme propriété de l'élément DOM (et sera traitée comme un attribut modifiable lorsque ce sera possible).
+
+Pour empêcher ce comportement, vous pouvez ajouter l'option `accessors={false}` à la balise `<svelte:options>`.
+
+```js
+const el = document.querySelector('my-element');
+
+// affiche la valeur courante de la propriété 'name'
+console.log(el.name);
+
+// met à jour une nouvelle valeur, mettant à jour le shadow DOM
+el.name = 'everybody';
+```
+
+Les web components sont un bon moyen de packager des composants pour une utilisation dans une application développée dans une autre technologie que Svelte, puisqu'ils fonctionneront avec du HTML et JavaScript natifs mais aussi avec [la plupart des frameworks](https://custom-elements-everywhere.com/). Il y a cependant des différences importantes à connaître :
+
+* Le style est *encapsulé*, plutôt que simplement *scopé*. Cela signifie que tout style défini en dehors du composant (par exemple, celui défini dans un fichier `global.css` et celui défini avec `:global(...)`) ne s'appliquera pas au web component
+* Plutôt que d'être extrait dans un fichier `.css` séparé, le style est mis en propriété du composant
+* Les web components ne sont généralement pas faits pour être rendus côté serveur, puisque le *shadow DOM* est invisible tant que le code JavaScript n'est pas chargé
+* En Svelte, les éléments slottés sont rendus de manière *lazy*. Dans le DOM, le rendu est "impatient". En d'autres termes, le composant sera toujours créé même si l'élément `<slot>` est à l'intérieur d'un bloc `{#if ...}`. De la même manière, inclure un `<slot>` dans un bloc `{#each ...}` ne rendra pas l'enfant plusieurs fois
+* La directive `let:` n'a aucun effet
+* Des *polyfills* sont nécessaires pour supporter de vieux navigateurs
+
+
+
+### API des composants rendus côté serveur
+
+```js
+const result = Component.render(...)
+```
+
+---
+
+A la différence des composants rendus côté client, les composants rendus côté serveur n'ont pas de cycle de vie une fois qu'ils sont rendus, leur unique intérêt est de créer du HTML et du CSS. Pour cette raison, l'API est différente.
+
+Un composant rendu côté serveur expose une méthode `render` qui peut être appelée avec des propriétés optionnelles. Cette méthode retourne un objet avec les propriétés  `head`, `html`, et `css`, où `head` contient les éléments de toutes les balises `<svelte:head>` présentes.
+
+Vous pouvez importer un composant directement dans Node.js en utilisant [`svelte/register`](/docs#run-time-svelte-register).
+
+```js
+require('svelte/register');
+
+const App = require('./App.svelte').default;
+
+const { head, html, css } = App.render({
+	answer: 42
+});
+```
+
+---
+
+La méthode `.render()` accepte les arguments suivants :
+
+| argument | valeur par défaut | description |
+| --- | --- | --- |
+| `props` | `{}` | Un objet de propriétés à passer au composant
+| `options` | `{}` | Un objet d'options
+
+L'objet `options` est de la forme suivante :
+
+| option | valeur par défaut | description |
+| --- | --- | --- |
+| `context` | `new Map()` | Une `Map` de paires clé-valeur de contexte à fournir au composant
+
+```js
+const { head, html, css } = App.render(
+	// props
+	{ answer: 42 },
+	// options
+	{
+		context: new Map([['context-key', 'context-value']])
+	}
+);
 ```
