@@ -643,7 +643,7 @@ Dans ce cas, nous avons lié la valeur d'un input de texte qui utilise l'évène
 
 ---
 
-Une liaison sur un `<select>` correspond à la propriété `value` sur l'`<option>` sélectionnée, qui peut être n'importe quelle valeur (pas uniquement des chaînes de caractères, comme c'est le cas en général dans le DOM).
+Une liaison sur un `<select>` correspond à la propriété `value` de l'`<option>` sélectionnée, qui peut être n'importe quelle valeur (pas uniquement des chaînes de caractères, comme c'est le cas en général dans le DOM).
 
 ```sv
 <select bind:value={selected}>
