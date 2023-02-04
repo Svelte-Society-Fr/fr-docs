@@ -923,7 +923,7 @@ Les actions sont des fonctions exécutées lorsqu'un élément est créé. Elles
 
 ---
 
-Une action peut avoir un argument. Si la valeur renvoyée a une méthode `update`, celle-ci sera exécutée à chaque fois que cet argument changera, juste après que Svelte a appliqué les modifications au markup.
+Une action peut avoir un argument. Si la valeur renvoyée possède une méthode `update`, celle-ci sera exécutée à chaque fois que cet argument changera, juste après que Svelte a appliqué les modifications au *markup*.
 
 > Ne vous inquiétez pas du fait que l'on redéclare la fonction `foo` pour chaque instance — Svelte garde en mémoire toute fonction qui ne dépend pas d'un état local en dehors de la définition du composant.
 
