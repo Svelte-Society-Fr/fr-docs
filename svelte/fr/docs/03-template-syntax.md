@@ -489,7 +489,7 @@ on:eventname|modifiers={handler}
 
 ---
 
-Utilisez la directive `on:` pour écouter des évènements DOM.
+Utilisez la directive `on:` pour écouter des évènements du DOM.
 
 ```sv
 <script>
