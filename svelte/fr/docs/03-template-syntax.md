@@ -835,7 +835,7 @@ Une directive `class:` fournit une méthode rapide pour ajouter ou enlever une c
 <div class="{active ? 'active' : ''}">...</div>
 <div class:active={active}>...</div>
 
-<!-- Syntaxe raccourcie, quand les noms correspondent -->
+<!-- Syntaxe raccourcie, quand le nom de la variable correspond au nom de la classe -->
 <div class:active>...</div>
 
 <!-- Plusieurs directives `class:` peuvent être utilisées -->
