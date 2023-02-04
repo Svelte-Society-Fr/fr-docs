@@ -742,7 +742,7 @@ Les vidéos ont de plus des liaisons en lecture seule pour les attributs `videoW
 ></video>
 ```
 
-##### Liaisons de bloc
+##### Liaisons des éléments de type `block`
 
 ---
 
