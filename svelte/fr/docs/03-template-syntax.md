@@ -866,7 +866,7 @@ La directive `style:` fournit un raccourci pour modifier directement le style d'
 <!-- Vous pouvez utiliser des variables -->
 <div style:color={myColor}>...</div>
 
-<!-- Syntaxe raccourcie, quand les noms correspondent -->
+<!-- Syntaxe raccourcie, quand le nom de la variable correspond au nom de la propriété -->
 <div style:color>...</div>
 
 <!-- Plusieurs directives `style:` peuvent être utilisées -->
