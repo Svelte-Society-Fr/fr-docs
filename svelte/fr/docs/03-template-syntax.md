@@ -828,7 +828,7 @@ class:name
 
 ---
 
-Une directive de `class:` fournit une méthode rapide pour ajouter ou enlever une classe à un élément.
+Une directive `class:` fournit une méthode rapide pour ajouter ou enlever une classe à un élément.
 
 ```sv
 <!-- Ces syntaxes sont équivalentes -->
