@@ -599,7 +599,7 @@ Si le nom de la variable est le même que le nom de la propriété, vous pouvez 
 
 ---
 
-Les valeurs numériques sont traitées comme des nombres ; même si `input.value` est une chaîne de caractères pour le DOM, Svelte traitera cette valeur comme un nombre. Si l'input est vide ou invalide (dans le cas de `type="number"`), la valeur sera `undefined`.
+Les valeurs numériques sont traitées comme des nombres ; même si `input.value` est une chaîne de caractères pour le DOM, Svelte traitera cette valeur comme un nombre. Si l'input est vide ou invalide (dans le cas de `type="number"` par exemple), la valeur sera `undefined`.
 
 ```sv
 <input type="number" bind:value={num}>
