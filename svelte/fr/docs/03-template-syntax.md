@@ -530,7 +530,7 @@ Les modificateurs suivants sont disponibles:
 
 * `preventDefault` — appelle `event.preventDefault()` avant d'exécuter la fonction d'écoute
 * `stopPropagation` — appelle `event.stopPropagation()`, empêchant l'évènement d'atteindre le prochain élément
-* `passive` — améliore la perfomance du défilement pour les évènement touch/wheel (Svelte l'ajoutera automatiquement lorsque cela n'est pas problématique)
+* `passive` — améliore la performance du défilement pour les évènements touch/wheel (Svelte l'ajoutera automatiquement lorsque qu'il détecte que ce n'est pas problématique)
 * `nonpassive` — déclare explicitement l'évènement avec `passive: false`
 * `capture` — déclenche la fonction d'écoute pendant la phase de *capture* plutôt que pendant la phase de *bubbling*
 * `once` — supprime la fonction d'écoute après sa première exécution
