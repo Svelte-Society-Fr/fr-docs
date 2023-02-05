@@ -1,6 +1,6 @@
 # TODO
 
-71 / 256 (27.73 %)
+79 / 256 (30.86 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -9,7 +9,7 @@
       - [x] \<script>
       - [x] \<script context="module">
       - [x] \<style>
-   - [ ] 03-template-syntax.md
+   - [x] 03-template-syntax.md
       - [x] Tags
       - [x] Attributes and props
       - [x] Text expressions
@@ -24,14 +24,14 @@
       - [x] Element directives
       - [x] Component directives
       - [x] \<slot>
-      - [ ] \<svelte:self>
-      - [ ] \<svelte:component>
-      - [ ] \<svelte:element>
-      - [ ] \<svelte:window>
-      - [ ] \<svelte:body>
-      - [ ] \<svelte:head>
-      - [ ] \<svelte:options>
-      - [ ] \<svelte:fragment>
+      - [x] \<svelte:self>
+      - [x] \<svelte:component>
+      - [x] \<svelte:element>
+      - [x] \<svelte:window>
+      - [x] \<svelte:body>
+      - [x] \<svelte:head>
+      - [x] \<svelte:options>
+      - [x] \<svelte:fragment>
    - [x] 04-run-time.md
       - [x] svelte
       - [x] svelte/store

@@ -1610,3 +1610,197 @@ Les slots nommés peuvent aussi exposer des valeurs. La directive `let:` ira sur
 </FancyList>
 ```
 
+
+### `<svelte:self>`
+
+---
+
+L'élément `<svelte:self>` permet à un composant de s'inclure lui-même, récursivement.
+
+Cet élément ne peut pas être utilisé à la racine du markup ; il doit être placé à l'intérieur d'un bloc `{#if}` ou `{#each}` ou passé à un `<slot>` pour éviter une boucle infinie.
+
+```sv
+<script>
+	export let count;
+</script>
+
+{#if count > 0}
+	<p>compte à rebours ... {count}</p>
+	<svelte:self count="{count - 1}"/>
+{:else}
+	<p>décollage !</p>
+{/if}
+```
+
+### `<svelte:component>`
+
+```sv
+<svelte:component this={expression}/>
+```
+
+---
+
+L'élément `<svelte:component>` rend un composant dynamiquement, en utilisant le constructeur du composant spécifié avec la propriété `this`. Quand cette propriété change, l'instance du composant est détruite et recréée.
+
+Si la valeur de `this` est *falsy*, aucun composant n'est rendu.
+
+```sv
+<svelte:component this={currentSelection.component} foo={bar}/>
+```
+
+
+### `<svelte:element>`
+
+```sv
+<svelte:element this={expression}/>
+```
+
+---
+
+L'élément `<svelte:element>` permet de rendre un élément d'un type spécifié dynamiquement. Cela peut servir par exemple pour afficher du contenu texte enrichi provenant d'un CMS. Toutes les propriétés et fonctions d'écoute d'évènements seront appliquées à l'élément.
+
+Le seul type de liaison (*binding*) possible dans ce cas est `bind:this`, puisque les liaisons spécifiques créées par Svelte au moment de la compilation pour le type de l'élément (par ex. `bind:value` pour les éléments `<input>`) ne sont pas compatibles avec un type de balise dynamique.
+
+Si `this` a une valeur *nullish* (`null` ou `undefined`), l'élément et ses enfants ne seront pas rendus.
+
+Si `this` a pour valeur le nom d'une balise vide (comme `br`), et des enfants ont été fournis à `<svelte:element>`, une erreur d'exécution sera levée en mode développement.
+
+```sv
+<script>
+	let tag = 'div';
+	export let handler;
+</script>
+
+<svelte:element this={tag} on:click={handler}>Foo</svelte:element>
+```
+
+### `<svelte:window>`
+
+```sv
+<svelte:window on:event={handler}/>
+```
+```sv
+<svelte:window bind:prop={value}/>
+```
+
+---
+
+L'élément `<svelte:window>` permet d'ajouter des fonctions d'écoute d'évènements à l'objet `window` sans avoir à penser à les supprimer quand le composant est détruit, ou sans avoir à vérifier l'existence de `window` lorsque l'on fait des rendus côté serveur.
+
+À l'inverse de `<svelte:self>`, cet élément peut uniquement être placé à la racine du markup d'un composant, et ne doit jamais être à l'intérieur d'un bloc de compilation ou d'un élément.
+
+```sv
+<script>
+	function handleKeydown(event) {
+		alert(`la touche ${event.key} a été enfoncée`);
+	}
+</script>
+
+<svelte:window on:keydown={handleKeydown}/>
+```
+
+---
+
+Vous pouvez aussi lier (avec `bind:`) les propriétés suivantes :
+
+* `innerWidth`
+* `innerHeight`
+* `outerWidth`
+* `outerHeight`
+* `scrollX`
+* `scrollY`
+* `online` — alias de window.navigator.onLine
+
+Toutes ces propriétés sont en lecture seule, à l'exception de `scrollX` and `scrollY`.
+
+```sv
+<svelte:window bind:scrollY={y}/>
+```
+
+> Notez que la page ne défilera pas à la valeur fournie initialement pour des raisons d'accessibilité. Seuls les changements ultérieurs liés aux variables `scrollX` et `scrollY` déclencheront le défilement. Cependant, si un défilement initial est tout de même nécessaire, vous pouvez utiliser `scrollTo()` dans `onMount()`.
+
+
+### `<svelte:body>`
+
+```sv
+<svelte:body on:event={handler}/>
+```
+
+---
+
+À l'instar de `<svelte:window>`, cet élément vous permet d'ajouter des fonctions d'écoute pour les évènements se produisant sur le `document.body`, comme `mouseenter` et `mouseleave`, qui ne se déclenchent pas sur `window`. Cela permet également d'utiliser des [actions](/docs#template-syntax-element-directives-use-action) sur l'élément `<body>`.
+
+
+Comme pour `<svelte:window>`, cet élément peut uniquement être placé à la racine du markup d'un composant, et ne doit jamais être à l'intérieur d'un bloc de compilation ou d'un élément.
+
+```sv
+<svelte:body
+	on:mouseenter={handleMouseenter}
+	on:mouseleave={handleMouseleave}
+	use:someAction
+/>
+```
+
+
+### `<svelte:head>`
+
+```sv
+<svelte:head>...</svelte:head>
+```
+
+---
+
+Cet élément rend possible l'insertion d'éléments dans `document.head`. Lors d'un rendu côté serveur, le contenu de `head` est exposé séparément du contenu `html`.
+
+Comme pour `<svelte:window>` et `<svelte:body>`, cet élément peut uniquement être placé à la racine du markup d'un composant, et ne doit jamais être à l'intérieur d'un bloc de compilation ou d'un élément.
+
+```sv
+<svelte:head>
+	<link rel="stylesheet" href="/tutorial/dark-theme.css">
+</svelte:head>
+```
+
+### `<svelte:options>`
+
+```sv
+<svelte:options option={value}/>
+```
+
+---
+
+L'élément `<svelte:options>` permet de fournir à un composant des options de compilation spécifiques, dont le détail est fourni dans [la section Compilation](/docs#compile-time-svelte-compile).
+Les options disponibles sont:
+
+* `immutable={true}` — vous n'utilisez aucune donnée mutable, le compilateur peut donc se contenter d'effectuer des vérifications d'égalité par référence pour déterminer si des valeurs ont changé
+* `immutable={false}` — utilisé par défaut. Svelte sera plus conservatif pour vérifier si des objets mutables ont changé
+* `accessors={true}` — ajoute des *getters* et *setters* aux props d'un composant
+* `accessors={false}` — utilisé par défaut
+* `namespace="..."` — le namespace où ce composant sera utilisé, le plus souvent "svg" ; utilisez le namespace "foreign" pour désactiver l'insensibilité à la casse des noms d'attributs ainsi que les avertissements spécifiques au HTML
+* `tag="..."` — le nom à utiliser à la compilation de ce composant en *web component*
+
+```sv
+<svelte:options tag="my-custom-element"/>
+```
+
+### `<svelte:fragment>`
+
+L'élément `<svelte:fragment>` permet de placer du contenu dans un [slot nommé](/docs#template-syntax-slot-slot-name-name) sans l'encadrer par un élément DOM supplémentaire. Cela permet de garder la structure de votre document intacte.
+
+```sv
+<!-- Widget.svelte -->
+<div>
+	<slot name="header">Aucun en-tête fourni</slot>
+	<p>Du contenu entre l'en-tête et le bas de page</p>
+	<slot name="footer"></slot>
+</div>
+
+<!-- App.svelte -->
+<Widget>
+	<HeaderComponent slot="header" />
+	<svelte:fragment slot="footer">
+		<p>Tous droits réservés.</p>
+		<p>Copyright (c) 2019 Svelte Industries</p>
+	</svelte:fragment>
+</Widget>
+```
+
