@@ -1,6 +1,6 @@
 # TODO
 
-70 / 256 (27.34 %)
+71 / 256 (27.73 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -23,7 +23,7 @@
       - [x] {@const ...}
       - [x] Element directives
       - [x] Component directives
-      - [ ] \<slot>
+      - [x] \<slot>
       - [ ] \<svelte:self>
       - [ ] \<svelte:component>
       - [ ] \<svelte:element>

@@ -1457,3 +1457,156 @@ Les composants permettent aussi `bind:this`, permettant d'interagir avec les ins
 	Caddie vide
 </button>
 ```
+
+
+
+### `<slot>`
+
+```sv
+<slot><!-- contenu par défaut optionnel --></slot>
+```
+```sv
+<slot name="x"><!-- contenu par défaut optionnel --></slot>
+```
+```sv
+<slot prop={value}></slot>
+```
+
+---
+
+Les composants peuvent avoir du contenu enfant (ou *slot*), de la même façon que les éléments.
+
+Le contenu est exposé dans le composant enfant avec l'élément `<slot>`, qui peut avoir un contenu par défaut qui sera utilisé si aucun enfant n'est fourni.
+
+```sv
+<!-- Widget.svelte -->
+<div>
+	<slot>
+    ce contenu slot par défaut sera rendu si aucun contenu n'est fourni, comme dans le premier exemple
+	</slot>
+</div>
+
+<!-- App.svelte -->
+<Widget></Widget> <!-- ce composant va rendre le contenu par défaut -->
+
+<Widget>
+	<p>ceci est du contenu qui remplacera le contenu slot par défaut</p>
+</Widget>
+```
+
+
+#### `<slot name="`*name*`">`
+
+---
+
+Les slots nommés permettent aux parents de cibler des zones spécifiques. Ils peuvent aussi avoir du contenu par défaut.
+
+```sv
+<!-- Widget.svelte -->
+<div>
+	<slot name="header">Aucun en-tête fourni</slot>
+	<p>Du contenu entre l'en-tête et le bas de page</p>
+	<slot name="footer"></slot>
+</div>
+
+<!-- App.svelte -->
+<Widget>
+	<h1 slot="header">Bonjour</h1>
+	<p slot="footer">Copyright (c) 2019 Svelte Industries</p>
+</Widget>
+```
+
+Les composants peuvent être placés dans un slot nommé en utilisant le syntaxe `<Component slot="name />`.
+Pour positionner du contenu dans un slot sans l'entourer d'un élément, vous pouvez utiliser l'élément spécial `<svelte:fragment>`.
+
+```sv
+<!-- Widget.svelte -->
+<div>
+	<slot name="header">Aucun en-tête fourni</slot>
+	<p>Du contenu entre l'en-tête et le bas de page</p>
+	<slot name="footer"></slot>
+</div>
+
+<!-- App.svelte -->
+<Widget>
+	<HeaderComponent slot="header" />
+	<svelte:fragment slot="footer">
+		<p>Tous droits réservés.</p>
+		<p>Copyright (c) 2019 Svelte Industries</p>
+	</svelte:fragment>
+</Widget>
+```
+
+#### `$$slots`
+
+---
+
+L'objet `$$slots` a comme clés les noms des slots passés au composant par le parent. Si le parent ne fournit pas un slot avec un nom particulier, ce nom ne sera pas présent dans `$$slots`. Cela permet aux composants d'afficher un slot (et d'autres éléments, comment des *wrappers* de style) uniquement si le parent le fournit.
+
+Notez que passer explicitement un slot nommés vide ajoutera le nom de ce slot à `$$slots`. Par exemple, si un parent fournit `<div slot="title" />` à un composant enfant, `$$slots.title` sera *truthy* dans l'enfant.
+
+```sv
+<!-- Card.svelte -->
+<div>
+	<slot name="title"></slot>
+	{#if $$slots.description}
+		<!-- Ce <hr> et ce <slot> seront rendus uniquement si un slot nommé "description" est fourni -->
+		<hr>
+		<slot name="description"></slot>
+	{/if}
+</div>
+
+<!-- App.svelte -->
+<Card>
+	<h1 slot="title">Titre d'article de blog</h1>
+	<!-- Aucun slot "description" n'est fourni, donc aucun des éléments dépendants de $$slots.description ne sera rendu -->
+</Card>
+```
+
+#### `<slot key={`*value*`}>`
+
+---
+
+Les slors peuvent être rendus zéro ou plusieurs fois, et peuvent passer des valeurs *en retour* au parent en utilisant des props. Le parent expose ces valeurs au *template* de slot avec la directive `let:`.
+
+Il est possible d'utiliser la syntaxe raccourcie usuelle — `let:item` est équivalent à `let:item={item}`, et `<slot {item}>` est équivalent à `<slot item={item}>`.
+
+```sv
+<!-- FancyList.svelte -->
+<ul>
+	{#each items as item}
+		<li class="fancy">
+			<slot prop={item}></slot>
+		</li>
+	{/each}
+</ul>
+
+<!-- App.svelte -->
+<FancyList {items} let:prop={thing}>
+	<div>{thing.text}</div>
+</FancyList>
+```
+
+---
+
+Les slots nommés peuvent aussi exposer des valeurs. La directive `let:` ira sur l'élément avec l'attribut `slot` correspondant.
+
+```sv
+<!-- FancyList.svelte -->
+<ul>
+	{#each items as item}
+		<li class="fancy">
+			<slot name="item" {item}></slot>
+		</li>
+	{/each}
+</ul>
+
+<slot name="footer"></slot>
+
+<!-- App.svelte -->
+<FancyList {items}>
+	<div slot="item" let:item>{item.text}</div>
+	<p slot="footer">Copyright (c) 2019 Svelte Industries</p>
+</FancyList>
+```
+
