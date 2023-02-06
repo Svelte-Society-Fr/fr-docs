@@ -43,12 +43,12 @@
       - [x] Client-side component API
       - [x] Custom element API
       - [x] Server-side component API
-   - [ ] 05-compile-time.md
-      - [ ] svelte.compile
-      - [ ] svelte.parse
-      - [ ] svelte.preprocess
-      - [ ] svelte.walk
-      - [ ] svelte.VERSION
+   - [x] 05-compile-time.md
+      - [x] svelte.compile
+      - [x] svelte.parse
+      - [x] svelte.preprocess
+      - [x] svelte.walk
+      - [x] svelte.VERSION
    - [x] 06-accessibility-warnings.md
       - [x] a11y-accesskey
       - [x] a11y-aria-attributes
