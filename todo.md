@@ -1,6 +1,6 @@
 # TODO
 
-50 / 256 (19.53 %)
+68 / 256 (26.56 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -188,19 +188,19 @@
       - [ ] Nested components
       - [ ] HTML tags
 ## faq
-   - [ ] 100-im-new-to-svelte.md
-   - [ ] 110-where-can-i-get-support.md
-   - [ ] 1100-is-svelte-v2-still-available.md
-   - [ ] 1200-how-do-i-do-hmr.md
-   - [ ] 200-are-there-any-third-party-resources.md
-   - [ ] 400-how-can-i-get-syntax-highlighting.md
-   - [ ] 425-is-there-a-tool-to-automatically-format.md
-   - [ ] 450-how-do-i-document-my-components.md
-   - [ ] 500-what-about-typescript-support.md
-   - [ ] 600-does-svelte-scale.md
-   - [ ] 700-is-there-a-component-library.md
-   - [ ] 800-how-do-i-test-svelte-apps.md
-   - [ ] 900-is-there-a-router.md
+   - [x] 100-im-new-to-svelte.md
+   - [x] 110-where-can-i-get-support.md
+   - [x] 1100-is-svelte-v2-still-available.md
+   - [x] 1200-how-do-i-do-hmr.md
+   - [x] 200-are-there-any-third-party-resources.md
+   - [x] 400-how-can-i-get-syntax-highlighting.md
+   - [x] 425-is-there-a-tool-to-automatically-format.md
+   - [x] 450-how-do-i-document-my-components.md
+   - [x] 500-what-about-typescript-support.md
+   - [x] 600-does-svelte-scale.md
+   - [x] 700-is-there-a-component-library.md
+   - [x] 800-how-do-i-test-svelte-apps.md
+   - [x] 900-is-there-a-router.md
 ## tutorial
    - [ ] Next steps
       - [ ] Congratulations!
