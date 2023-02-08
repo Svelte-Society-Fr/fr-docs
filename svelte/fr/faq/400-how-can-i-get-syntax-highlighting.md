@@ -1,5 +1,5 @@
 ---
-question: Comment puis-je mette en évidence la syntaxe de mes fichiers .svelte dans VS Code
+question: Comment puis-je utiliser la coloration syntaxique sur mes fichiers .svelte dans VS Code ?
 ---
 
-Il existe une [extension officielle dans VS Code pour Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+Il existe une [extension VS Code officielle pour Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).

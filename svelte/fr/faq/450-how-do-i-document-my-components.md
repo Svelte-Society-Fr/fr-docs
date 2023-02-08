@@ -2,7 +2,7 @@
 question: Comment documenter mes composants ?
 ---
 
-Dans les éditeurs qui utilisent le Langage Serveur Svelte vous pouvez documenter les composants, fonctions et les exportations à l'aide de commentaires spécialement formatés.
+Dans les éditeurs qui utilisent le Langage Serveur Svelte (*Svelte Language Server*) vous pouvez documenter les composants, fonctions et exports à l'aide de commentaires spécialement formatés.
 
 ````sv
 <script>
@@ -29,4 +29,4 @@ Il apparaîtra au survol
 </main>
 ````
 
-Note: Le `@component` est nécéssaire dans le commentaire HTML qui décrit votre composant.
+Note: Le `@component` est nécessaire dans le commentaire HTML qui décrit votre composant.
