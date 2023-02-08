@@ -52,7 +52,9 @@ async function _list(path) {
               ?.map(s => `      - [${s.done ? 'x' : ' '}] ${s.title}\n`)
               .join('') ?? '';
 
-          const done = !!sections?.every(s => s.done);
+          const done = sections?.length
+            ? !!sections?.every(s => s.done)
+            : !!_item;
 
           if (!sections?.length) {
             nb++;
