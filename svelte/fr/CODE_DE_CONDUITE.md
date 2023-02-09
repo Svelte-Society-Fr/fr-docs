@@ -42,7 +42,7 @@ Les gérant•e•s de la communauté se doivent de respecter l'anonymat et la s
 
 ## Directives d'application
 
-Les gérant•e•s de la communauté suivront ces Directives d'Impact Communautaire pour déterminer les conséquences de toute action qu'ils jugent en violation de ce Code de Conduite :
+Les gérant•e•s de la communauté suivront ces Directives d'application sur l'impact communautaire pour déterminer les conséquences de toute action qu'ils jugent en violation de ce Code de Conduite :
 
 ### 1. Correction
 
