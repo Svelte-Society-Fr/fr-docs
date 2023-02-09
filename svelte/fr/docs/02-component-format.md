@@ -263,7 +263,7 @@ Les variables locales (qui ne représentent pas la valeur d'un store) ne doivent
 
 ##### Le contrat de store
 
-```js
+```ts
 store = { subscribe: (subscription: (value: any) => void) => (() => void), set?: (value: any) => void }
 ```
 

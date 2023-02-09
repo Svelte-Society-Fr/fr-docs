@@ -6,7 +6,7 @@ The app in the previous example works, but there's a subtle bug — the store is
 
 Start by declaring `unsubscribe` in `App.svelte`:
 
-```js
+```ts
 const unsubscribe = count.subscribe(value => {
 	countValue = value;
 });

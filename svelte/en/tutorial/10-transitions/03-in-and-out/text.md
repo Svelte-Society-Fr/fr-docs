@@ -4,7 +4,7 @@ title: In and out
 
 Instead of the `transition` directive, an element can have an `in` or an `out` directive, or both together. Import `fade` alongside `fly`...
 
-```js
+```ts
 import { fade, fly } from 'svelte/transition';
 ```
 

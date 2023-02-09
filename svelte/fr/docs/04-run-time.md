@@ -12,7 +12,7 @@ Le paquet `svelte` expose les [fonctions de cycle de vie](/tutorial/onmount) et 
 onMount(callback : () => void)
 ```
 
-```js
+```ts
 onMount(callback : () => () => void)
 ```
 
@@ -288,7 +288,7 @@ Cela permet d'envelopper presque toute autre bibliothèque de gestion d'état r�
 ``js
 store = writable(value?: any)
 ```
-```js
+```ts
 store = writable(value?: any, start?: (set: (value: any) => void) => () => void)
 ```
 
@@ -318,7 +318,7 @@ count.update(n => n + 1); // affiche '2'.
 
 Si une fonction est passée comme deuxième argument, elle sera appelée lorsque le nombre d'abonnés au store passera de zéro à un (mais pas de un à deux, etc.). Cette fonction a comme argument une fonction `set` qui peut changer la valeur du magasin. Elle doit retourner une fonction `stop` qui sera appelée lorsque le nombre d'abonnés passera de un à zéro.
 
-```js
+```ts
 import { writable } from 'svelte/store';
 
 const count = writable(0, () => {
@@ -347,7 +347,7 @@ store = readable(value?: any, start?: (set: (value: any) => void) => () => void)
 
 Crée un store dont la valeur ne peut pas être modifiée de l'extérieur. Le premier argument est la valeur initiale du store, le second argument est le même que le second argument de `writable`.
 
-```js
+```ts
 import { readable } from 'svelte/store';
 
 const time = readable(null, set => {
@@ -363,16 +363,16 @@ const time = readable(null, set => {
 
 #### `derived`
 
-```js
+```ts
 store = derived(a, callback: (a: any) => any)
 ```
-```js
+```ts
 store = derived(a, callback: (a: any, set: (value: any) => void) => void | () => void, initial_value: any)
 ```
-```js
+```ts
 store = derived([a, ...b], callback: ([a: any, ...b: any[]]) => any)
 ```
-```js
+```ts
 store = derived([a, ...b], callback: ([a: any, ...b: any[]], set: (value: any) => void) => void | () => void, initial_value: any)
 ```
 
@@ -406,7 +406,7 @@ const delayed = derived(a, ($a, set) => {
 
 Si vous renvoyez une fonction à partir du callback, elle sera appelée lorsque a) le callback s'exécute à nouveau, ou b) le dernier abonné se désabonne.
 
-```js
+```ts
 import { derived } from 'svelte/store';
 
 const tick = derived(frequency, ($frequency, set) => {
@@ -424,7 +424,7 @@ const tick = derived(frequency, ($frequency, set) => {
 
 Dans les deux cas, un tableau d'arguments peut être passé comme premier argument au lieu d'un seul store.
 
-```js
+```ts
 import { derived } from 'svelte/store';
 
 const summed = derived([a, b], ([$a, $b]) => $a + $b);
@@ -446,7 +446,7 @@ De manière générale, il est recommandé de lire la valeur d'un store en vous 
 
 > Cela fonctionne en créant un abonnement, en lisant la valeur, puis en se désabonnant. Cette méthode n'est donc pas recommandée lorsque le code concerné est exécuté à haute fréquence.
 
-```js
+```ts
 import { get } from 'svelte/store';
 
 const value = get(store);
@@ -504,7 +504,7 @@ Sans que vous n'ayez rien à faire, Svelte interpolera entre deux nombres, deux 
 
 Si la valeur initiale est `undefined` ou `null`, le premier changement de valeur prendra effet immédiatement. Ceci est utile lorsque vous avez des valeurs d'interpolation qui sont basées sur des propriétés de composant et que vous ne voulez pas qu'il y ait de mouvement lors du premier rendu du composant.
 
-```js
+```ts
 const size = tweened(undefined, {
 	duration: 300,
 	easing: cubicOut
@@ -546,7 +546,7 @@ L'option `interpolate` vous permet de faire une transition entre *n'importe quel
 
 #### `spring`
 
-```js
+```ts
 store = spring(value: any, options)
 ```
 
@@ -560,7 +560,7 @@ Un store `spring` change progressivement vers sa valeur cible en fonction de ses
 
 Toutes les options ci-dessus peuvent être changées pendant que le ressort est en mouvement, et prendront effet immédiatement.
 
-```js
+```ts
 const size = spring(100);
 size.stiffness = 0.3;
 size.damping = 0.4;
@@ -573,7 +573,7 @@ Comme avec les stores [`tweened`](/docs#run-time-svelte-motion-tweened), `set` e
 
 Les deux méthodes `set` et `update` peuvent prendre un second argument - un objet avec les propriétés `hard` ou `soft`. `{ hard: true }` fixe immédiatement la valeur cible ; `{ soft: n }` préserve l'élan actuel pendant `n` secondes avant de s'arrêter. `{ soft: true }` est équivalent à `{ soft: 0.5 }`.
 
-```js
+```ts
 const coords = spring({ x: 50, y: 50 });
 // change la valeur immédiatement
 coords.set({ x: 100, y: 200 }, { hard: true });
@@ -603,7 +603,7 @@ coords.update(
 
 Si la valeur initiale est `undefined` ou `null`, le premier changement de valeur prendra effet immédiatement, comme pour les valeurs `tweened` (voir ci-dessus).
 
-```js
+```ts
 const size = spring();
 $: $size = big ? 100 : 10;
 ```
@@ -945,7 +945,7 @@ Un exemple de chaque méthode est présenté dans le [démonstrateur des fonctio
 
 Pour construire des composants Svelte avec Node.js sans bundler, vous pouvez utiliser `require('svelte/register')`. Avec cet import, vous pouvez utiliser la syntaxe `require` pour inclure n'importe quel fichier `.svelte`.
 
-```js
+```ts
 require('svelte/register');
 
 const App = require('./App.svelte').default;
@@ -959,7 +959,7 @@ const { html, css, head } = App.render({ answer: 42 });
 
 Pour paramétrer les options de compilation, ou pour utiliser une autre extension de fichier, appelez le hook `register` comme une fonction :
 
-```js
+```ts
 require('svelte/register')({
   extensions: ['.customextension'], // par défaut ['.html', '.svelte']
 	preserveComments: true
@@ -971,13 +971,13 @@ require('svelte/register')({
 
 #### Création d'un composant
 
-```js
+```ts
 const component = new Component(options)
 ```
 
 Un composant rendu côté client est une classe JavaScript correspondant à un composant compilé avec l'option `generate: 'dom'` (ou avec l'option `generate` non spécifiée).
 
-```js
+```ts
 import App from './App.svelte';
 
 const app = new App({
@@ -1012,7 +1012,7 @@ Alors que les enfants de la cible `target` ne sont normalement pas modifiés, l'
 
 Le DOM existant n'a pas besoin de correspondre au composant, Svelte "réparera" le DOM au fur et à mesure.
 
-```js
+```ts
 import App from './App.svelte';
 
 const app = new App({
@@ -1023,7 +1023,7 @@ const app = new App({
 
 #### `$set`
 
-```js
+```ts
 component.$set(props)
 ```
 
@@ -1033,13 +1033,13 @@ component.$set(props)
 
 L'appel de cette méthode déclenchera une mise à jour à la prochaine micro-tâche — le DOM **n'est pas** mis à jour de manière synchrone.
 
-```js
+```ts
 component.$set({ answer: 42 });
 ```
 
 #### `$on`
 
-```js
+```ts
 component.$on(event, callback)
 ```
 
@@ -1049,7 +1049,7 @@ component.$on(event, callback)
 
 `$on` retourne une fonction dont l'exécution permet de supprimer l'écoute de cet événement.
 
-```js
+```ts
 const off = app.$on('selected', event => {
 	console.log(event.detail.selection);
 });
@@ -1059,7 +1059,7 @@ off();
 
 #### `$destroy`
 
-```js
+```ts
 component.$destroy()
 ```
 
@@ -1067,10 +1067,10 @@ Retire un composant du DOM et déclenche les callbacks de type `onDestroy` assoc
 
 #### props des composants
 
-```js
+```ts
 component.prop
 ```
-```js
+```ts
 component.prop = value
 ```
 
@@ -1080,7 +1080,7 @@ Si un composant est compilé avec l'option `accessors: true`, chaque instance se
 
 Par défaut, `accessors` est initialisé à `false`, à moins que vous ne compiliez un *web component* (voir section suivante).
 
-```js
+```ts
 console.log(app.count);
 app.count += 1;
 ```
@@ -1107,7 +1107,7 @@ Les composants Svelte peuvent également être compilés en *web components* (ou
 
 Vous pouvez également passer l'option `tag={null}` afin d'indiquer que le consommateur du composant devra le nommer lui-même.
 
-```js
+```ts
 import MyElement from './MyElement.svelte';
 
 customElements.define('my-element', MyElement);
@@ -1117,7 +1117,7 @@ customElements.define('my-element', MyElement);
 
 Une fois qu'un web component a été défini, il peut être utilisé comme un élément du DOM classique :
 
-```js
+```ts
 document.body.innerHTML = `
 	<my-element>
 		<p>Ceci est du contenu enfant</p>
@@ -1131,7 +1131,7 @@ Par défaut, les web components sont compilés avec l'option `accessors: true`, 
 
 Pour empêcher ce comportement, vous pouvez ajouter l'option `accessors={false}` à la balise `<svelte:options>`.
 
-```js
+```ts
 const el = document.querySelector('my-element');
 
 // affiche la valeur courante de la propriété 'name'
@@ -1154,7 +1154,7 @@ Les web components sont un bon moyen de packager des composants pour une utilisa
 
 ### API des composants rendus côté serveur
 
-```js
+```ts
 const result = Component.render(...)
 ```
 
@@ -1166,7 +1166,7 @@ Un composant rendu côté serveur expose une méthode `render` qui peut être ap
 
 Vous pouvez importer un composant directement dans Node.js en utilisant [`svelte/register`](/docs#run-time-svelte-register).
 
-```js
+```ts
 require('svelte/register');
 
 const App = require('./App.svelte').default;
@@ -1191,7 +1191,7 @@ L'objet `options` est de la forme suivante :
 | --- | --- | --- |
 | `context` | `new Map()` | Une `Map` de paires clé-valeur de contexte à fournir au composant
 
-```js
+```ts
 const { head, html, css } = App.render(
 	// props
 	{ answer: 42 },

@@ -17,7 +17,7 @@ In this example we have two stores — one representing the circle's coordinates
 
 Both springs have default `stiffness` and `damping` values, which control the spring's, well... springiness. We can specify our own initial values:
 
-```js
+```ts
 let coords = spring({ x: 50, y: 50 }, {
 	stiffness: 0.1,
 	damping: 0.25

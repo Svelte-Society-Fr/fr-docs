@@ -12,7 +12,7 @@ Add `bind:group` to each input:
 
 In this case, we could make the code simpler by moving the checkbox inputs into an `each` block. First, add a `menu` variable to the `<script>` block...
 
-```js
+```ts
 let menu = [
 	'Cookies and cream',
 	'Mint choc chip',
