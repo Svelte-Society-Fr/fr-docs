@@ -541,7 +541,7 @@ Vous pouvez chaîner les modificateurs, par ex. `on:click|once|capture={...}`.
 
 ---
 
-Si la directive `on:` est utilisée sans valeur, le composant *relaiera* l'évènement, ce qui permet à un parent du composant d'écouter cet évènement.
+Si la directive `on:` est utilisée sans valeur, le composant relaiera l'évènement à son parent, ce qui permettra à ce dernier de l'écouter.
 
 ```sv
 <button on:click>
