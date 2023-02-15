@@ -30,7 +30,9 @@ async function _list(path) {
         .map(item => {
           let tabs = '  ';
 
-          const _item = frD?.content.list.find(i => i.file === item.file);
+          const _item = frD?.content.list.find(
+            i => (i?.file ?? i?.name) === (item?.file ?? item?.name),
+          );
 
           const subItems = item.sections ?? item.tutorials ?? item.examples;
           const _subItems =
@@ -60,7 +62,6 @@ async function _list(path) {
             nb++;
             if (done) nbDone++;
           }
-          // console.log(item.file ?? item.name, done, sections);
 
           return `${tabs} - [${done ? 'x' : ' '}] ${
             item.file ?? item.name
@@ -82,5 +83,11 @@ ${nbDone} / ${nb} (${((nbDone / nb) * 100).toFixed(2)} %)
 
 ${str}
 `;
+
+// const data = await transform(`svelte/en`);
+// const datafr = await transform(`svelte/fr`);
+
+// writeFileSync('en.json', JSON.stringify(data));
+// writeFileSync('fr.json', JSON.stringify(datafr));
 
 writeFileSync('./todo.md', output);

@@ -1,6 +1,6 @@
 # TODO
 
-79 / 256 (30.86 %)
+80 / 256 (31.25 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -301,7 +301,7 @@
       - [ ] Statements
       - [ ] Updating arrays and objects
    - [ ] Introduction
-      - [ ] Basics
+      - [x] Basics
       - [ ] Adding data
       - [ ] Dynamic attributes
       - [ ] Styling
