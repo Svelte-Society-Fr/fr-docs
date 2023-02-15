@@ -22,7 +22,7 @@ Vous aurez besoin de connaissances de base en HTML, CSS et JavaScript pour compr
 
 À mesure que vous progresserez dans le tutorial, vous serez amené•e•s à faire à des mini exercices pensés pour illustrer de nouvelles fonctionnalités. Chaque chapitre se base sur ce que vous avez appris dans les chapitres précédents, de sorte qu'il est recommandé de suivre le tutoriel dans l'ordre, en commençant par le début. Si besoin, vous pouvez naviguer entre les chapitres à l'aide du menu déroulant ci-dessous (cliquez sur 'Introduction / Bases').
 
-Chaque chapitre de ce tutoriel vous présente un bouton 'Je veux voir' sur lequel vous pouvez cliquer si vous bloquez malgré les instructions. Essayez de ne pas trop vous en servir ; vous apprendrez plus vite en trouvant vous-même où placer les blocs de code suggérés et en les tapant manuellement dans l'éditeur.
+Chaque chapitre de ce tutoriel vous présente un bouton "Je veux voir" sur lequel vous pouvez cliquer si vous bloquez malgré les instructions. Essayez de ne pas trop vous en servir ; vous apprendrez plus vite en trouvant vous-même où placer les blocs de code suggérés et en les tapant manuellement dans l'éditeur.
 
 ## Comprendre les composants
 
