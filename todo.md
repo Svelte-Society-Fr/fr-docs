@@ -177,16 +177,16 @@
       - [ ] Declaring props
       - [ ] Default values
       - [ ] Spread props
-   - [ ] Reactivity
-      - [ ] Reactive assignments
-      - [ ] Reactive declarations
-      - [ ] Reactive statements
-   - [ ] Introduction
-      - [ ] Hello world
-      - [ ] Dynamic attributes
-      - [ ] Styling
-      - [ ] Nested components
-      - [ ] HTML tags
+   - [x] Reactivity
+      - [x] Reactive assignments
+      - [x] Reactive declarations
+      - [x] Reactive statements
+   - [x] Introduction
+      - [x] Hello world
+      - [x] Dynamic attributes
+      - [x] Styling
+      - [x] Nested components
+      - [x] HTML tags
 ## faq
    - [x] 100-im-new-to-svelte.md
    - [x] 110-where-can-i-get-support.md
