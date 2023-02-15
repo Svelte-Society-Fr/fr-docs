@@ -16,7 +16,7 @@ Mais il y a une différence fondamentale : plutôt que d'interpréter votre code
 
 Vous pouvez construire votre application entièrement avec Svelte, ou l'ajouter au fur et à mesure à une base de code existante. Vous pouvez aussi générer des composants en tant que modules autonomes utilisables n'importe où, sans la contrainte d'une dépendance à un *framework* traditionnel.
 
-## Comment se servir de ce tutoriel
+## Comment se servir de ce tutoriel ?
 
 Vous aurez besoin de connaissances de base en HTML, CSS et JavaScript pour comprendre Svelte.
 
