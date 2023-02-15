@@ -10,7 +10,7 @@ Click the `stores.js` tab to see the definition of `count`. It's a *writable* st
 
 Now go to the `Incrementer.svelte` tab so that we can wire up the `+` button:
 
-```js
+```ts
 function increment() {
 	count.update(n => n + 1);
 }
@@ -20,7 +20,7 @@ Clicking the `+` button should now update the count. Do the inverse for `Decreme
 
 Finally, in `Resetter.svelte`, implement `reset`:
 
-```js
+```ts
 function reset() {
 	count.set(0);
 }

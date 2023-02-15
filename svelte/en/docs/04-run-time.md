@@ -9,10 +9,10 @@ The `svelte` package exposes [lifecycle functions](/tutorial/onmount) and the [c
 
 #### `onMount`
 
-```js
+```ts
 onMount(callback: () => void)
 ```
-```js
+```ts
 onMount(callback: () => () => void)
 ```
 
@@ -54,7 +54,7 @@ If a function is returned from `onMount`, it will be called when the component i
 
 #### `beforeUpdate`
 
-```js
+```ts
 beforeUpdate(callback: () => void)
 ```
 
@@ -76,7 +76,7 @@ Schedules a callback to run immediately before the component is updated after an
 
 #### `afterUpdate`
 
-```js
+```ts
 afterUpdate(callback: () => void)
 ```
 
@@ -98,7 +98,7 @@ Schedules a callback to run immediately after the component has been updated.
 
 #### `onDestroy`
 
-```js
+```ts
 onDestroy(callback: () => void)
 ```
 
@@ -120,7 +120,7 @@ Out of `onMount`, `beforeUpdate`, `afterUpdate` and `onDestroy`, this is the onl
 
 #### `tick`
 
-```js
+```ts
 promise: Promise = tick()
 ```
 
@@ -142,7 +142,7 @@ Returns a promise that resolves once any pending state changes have been applied
 
 #### `setContext`
 
-```js
+```ts
 setContext(key: any, context: any)
 ```
 
@@ -164,7 +164,7 @@ Like lifecycle functions, this must be called during component initialisation.
 
 #### `getContext`
 
-```js
+```ts
 context: any = getContext(key: any)
 ```
 
@@ -182,7 +182,7 @@ Retrieves the context that belongs to the closest parent component with the spec
 
 #### `hasContext`
 
-```js
+```ts
 hasContext: boolean = hasContext(key: any)
 ```
 
@@ -202,7 +202,7 @@ Checks whether a given `key` has been set in the context of a parent component. 
 
 #### `getAllContexts`
 
-```js
+```ts
 contexts: Map<any, any> = getAllContexts()
 ```
 
@@ -220,7 +220,7 @@ Retrieves the whole context map that belongs to the closest parent component. Mu
 
 #### `createEventDispatcher`
 
-```js
+```ts
 dispatch: ((name: string, detail?: any, options?: DispatchOptions) => boolean) = createEventDispatcher();
 ```
 
@@ -285,10 +285,10 @@ This makes it possible to wrap almost any other reactive state handling library 
 
 #### `writable`
 
-```js
+```ts
 store = writable(value?: any)
 ```
-```js
+```ts
 store = writable(value?: any, start?: (set: (value: any) => void) => () => void)
 ```
 
@@ -300,7 +300,7 @@ Function that creates a store which has values that can be set from 'outside' co
 
 `update` is a method that takes one argument which is a callback. The callback takes the existing store value as its argument and returns the new value to be set to the store.
 
-```js
+```ts
 import { writable } from 'svelte/store';
 
 const count = writable(0);
@@ -318,7 +318,7 @@ count.update(n => n + 1); // logs '2'
 
 If a function is passed as the second argument, it will be called when the number of subscribers goes from zero to one (but not from one to two, etc). That function will be passed a `set` function which changes the value of the store. It must return a `stop` function that is called when the subscriber count goes from one to zero.
 
-```js
+```ts
 import { writable } from 'svelte/store';
 
 const count = writable(0, () => {
@@ -339,7 +339,7 @@ Note that the value of a `writable` is lost when it is destroyed, for example wh
 
 #### `readable`
 
-```js
+```ts
 store = readable(value?: any, start?: (set: (value: any) => void) => () => void)
 ```
 
@@ -347,7 +347,7 @@ store = readable(value?: any, start?: (set: (value: any) => void) => () => void)
 
 Creates a store whose value cannot be set from 'outside', the first argument is the store's initial value, and the second argument to `readable` is the same as the second argument to `writable`.
 
-```js
+```ts
 import { readable } from 'svelte/store';
 
 const time = readable(null, set => {
@@ -363,16 +363,16 @@ const time = readable(null, set => {
 
 #### `derived`
 
-```js
+```ts
 store = derived(a, callback: (a: any) => any)
 ```
-```js
+```ts
 store = derived(a, callback: (a: any, set: (value: any) => void) => void | () => void, initial_value: any)
 ```
-```js
+```ts
 store = derived([a, ...b], callback: ([a: any, ...b: any[]]) => any)
 ```
-```js
+```ts
 store = derived([a, ...b], callback: ([a: any, ...b: any[]], set: (value: any) => void) => void | () => void, initial_value: any)
 ```
 
@@ -382,7 +382,7 @@ Derives a store from one or more other stores. The callback runs initially when 
 
 In the simplest version, `derived` takes a single store, and the callback returns a derived value.
 
-```js
+```ts
 import { derived } from 'svelte/store';
 
 const doubled = derived(a, $a => $a * 2);
@@ -394,7 +394,7 @@ The callback can set a value asynchronously by accepting a second argument, `set
 
 In this case, you can also pass a third argument to `derived` — the initial value of the derived store before `set` is first called.
 
-```js
+```ts
 import { derived } from 'svelte/store';
 
 const delayed = derived(a, ($a, set) => {
@@ -406,7 +406,7 @@ const delayed = derived(a, ($a, set) => {
 
 If you return a function from the callback, it will be called when a) the callback runs again, or b) the last subscriber unsubscribes.
 
-```js
+```ts
 import { derived } from 'svelte/store';
 
 const tick = derived(frequency, ($frequency, set) => {
@@ -424,7 +424,7 @@ const tick = derived(frequency, ($frequency, set) => {
 
 In both cases, an array of arguments can be passed as the first argument instead of a single store.
 
-```js
+```ts
 import { derived } from 'svelte/store';
 
 const summed = derived([a, b], ([$a, $b]) => $a + $b);
@@ -436,7 +436,7 @@ const delayed = derived([a, b], ([$a, $b], set) => {
 
 #### `get`
 
-```js
+```ts
 value: any = get(store)
 ```
 
@@ -446,7 +446,7 @@ Generally, you should read the value of a store by subscribing to it and using t
 
 > This works by creating a subscription, reading the value, then unsubscribing. It's therefore not recommended in hot code paths.
 
-```js
+```ts
 import { get } from 'svelte/store';
 
 const value = get(store);
@@ -459,7 +459,7 @@ The `svelte/motion` module exports two functions, `tweened` and `spring`, for cr
 
 #### `tweened`
 
-```js
+```ts
 store = tweened(value: any, options)
 ```
 
@@ -504,7 +504,7 @@ Out of the box, Svelte will interpolate between two numbers, two arrays or two o
 
 If the initial value is `undefined` or `null`, the first value change will take effect immediately. This is useful when you have tweened values that are based on props, and don't want any motion when the component first renders.
 
-```js
+```ts
 const size = tweened(undefined, {
 	duration: 300,
 	easing: cubicOut
@@ -546,7 +546,7 @@ The `interpolate` option allows you to tween between *any* arbitrary values. It 
 
 #### `spring`
 
-```js
+```ts
 store = spring(value: any, options)
 ```
 
@@ -560,7 +560,7 @@ A `spring` store gradually changes to its target value based on its `stiffness` 
 
 All of the options above can be changed while the spring is in motion, and will take immediate effect.
 
-```js
+```ts
 const size = spring(100);
 size.stiffness = 0.3;
 size.damping = 0.4;
@@ -573,7 +573,7 @@ As with [`tweened`](/docs#run-time-svelte-motion-tweened) stores, `set` and `upd
 
 Both `set` and `update` can take a second argument — an object with `hard` or `soft` properties. `{ hard: true }` sets the target value immediately; `{ soft: n }` preserves existing momentum for `n` seconds before settling. `{ soft: true }` is equivalent to `{ soft: 0.5 }`.
 
-```js
+```ts
 const coords = spring({ x: 50, y: 50 });
 // updates the value immediately
 coords.set({ x: 100, y: 200 }, { hard: true });
@@ -603,7 +603,7 @@ coords.update(
 
 If the initial value is `undefined` or `null`, the first value change will take effect immediately, just as with `tweened` values (see above).
 
-```js
+```ts
 const size = spring();
 $: $size = big ? 100 : 10;
 ```
@@ -853,7 +853,7 @@ The `crossfade` function creates a pair of [transitions](/docs#template-syntax-e
 * `delay` (`number`, default 0) — milliseconds before starting
 * `duration` (`number` | `function`, default 800) — milliseconds the transition lasts
 * `easing` (`function`, default `cubicOut`) — an [easing function](/docs#run-time-svelte-easing)
-* `fallback` (`function`) — A fallback [transition](/docs#template-syntax-element-directives-transition-fn) to use for send when there is no matching element being received, and for receive when there is no element being sent. 
+* `fallback` (`function`) — A fallback [transition](/docs#template-syntax-element-directives-transition-fn) to use for send when there is no matching element being received, and for receive when there is no element being sent.
 
 ```sv
 <script>
@@ -945,7 +945,7 @@ You can explore the various eases using the [ease visualiser](/examples/easing) 
 
 To render Svelte components in Node.js without bundling, use `require('svelte/register')`. After that, you can use `require` to include any `.svelte` file.
 
-```js
+```ts
 require('svelte/register');
 
 const App = require('./App.svelte').default;
@@ -959,7 +959,7 @@ const { html, css, head } = App.render({ answer: 42 });
 
 To set compile options, or to use a custom file extension, call the `register` hook as a function:
 
-```js
+```ts
 require('svelte/register')({
   extensions: ['.customextension'], // defaults to ['.html', '.svelte']
 	preserveComments: true
@@ -971,13 +971,13 @@ require('svelte/register')({
 
 #### Creating a component
 
-```js
+```ts
 const component = new Component(options)
 ```
 
 A client-side component — that is, a component compiled with `generate: 'dom'` (or the `generate` option left unspecified) is a JavaScript class.
 
-```js
+```ts
 import App from './App.svelte';
 
 const app = new App({
@@ -1012,7 +1012,7 @@ Whereas children of `target` are normally left alone, `hydrate: true` will cause
 
 The existing DOM doesn't need to match the component — Svelte will 'repair' the DOM as it goes.
 
-```js
+```ts
 import App from './App.svelte';
 
 const app = new App({
@@ -1023,7 +1023,7 @@ const app = new App({
 
 #### `$set`
 
-```js
+```ts
 component.$set(props)
 ```
 
@@ -1033,13 +1033,13 @@ Programmatically sets props on an instance. `component.$set({ x: 1 })` is equiva
 
 Calling this method schedules an update for the next microtask — the DOM is *not* updated synchronously.
 
-```js
+```ts
 component.$set({ answer: 42 });
 ```
 
 #### `$on`
 
-```js
+```ts
 component.$on(event, callback)
 ```
 
@@ -1049,7 +1049,7 @@ Causes the `callback` function to be called whenever the component dispatches an
 
 A function is returned that will remove the event listener when called.
 
-```js
+```ts
 const off = app.$on('selected', event => {
 	console.log(event.detail.selection);
 });
@@ -1059,7 +1059,7 @@ off();
 
 #### `$destroy`
 
-```js
+```ts
 component.$destroy()
 ```
 
@@ -1067,10 +1067,10 @@ Removes a component from the DOM and triggers any `onDestroy` handlers.
 
 #### Component props
 
-```js
+```ts
 component.prop
 ```
-```js
+```ts
 component.prop = value
 ```
 
@@ -1080,7 +1080,7 @@ If a component is compiled with `accessors: true`, each instance will have gette
 
 By default, `accessors` is `false`, unless you're compiling as a custom element.
 
-```js
+```ts
 console.log(app.count);
 app.count += 1;
 ```
@@ -1107,7 +1107,7 @@ Svelte components can also be compiled to custom elements (aka web components) u
 
 Alternatively, use `tag={null}` to indicate that the consumer of the custom element should name it.
 
-```js
+```ts
 import MyElement from './MyElement.svelte';
 
 customElements.define('my-element', MyElement);
@@ -1117,7 +1117,7 @@ customElements.define('my-element', MyElement);
 
 Once a custom element has been defined, it can be used as a regular DOM element:
 
-```js
+```ts
 document.body.innerHTML = `
 	<my-element>
 		<p>This is some slotted content</p>
@@ -1131,7 +1131,7 @@ By default, custom elements are compiled with `accessors: true`, which means tha
 
 To prevent this, add `accessors={false}` to `<svelte:options>`.
 
-```js
+```ts
 const el = document.querySelector('my-element');
 
 // get the current value of the 'name' prop
@@ -1154,7 +1154,7 @@ Custom elements can be a useful way to package components for consumption in a n
 
 ### Server-side component API
 
-```js
+```ts
 const result = Component.render(...)
 ```
 
@@ -1166,7 +1166,7 @@ A server-side component exposes a `render` method that can be called with option
 
 You can import a Svelte component directly into Node using [`svelte/register`](/docs#run-time-svelte-register).
 
-```js
+```ts
 require('svelte/register');
 
 const App = require('./App.svelte').default;
@@ -1191,7 +1191,7 @@ The `options` object takes in the following options:
 | --- | --- | --- |
 | `context` | `new Map()` | A `Map` of root-level context key-value pairs to supply to the component
 
-```js
+```ts
 const { head, html, css } = App.render(
 	// props
 	{ answer: 42 },

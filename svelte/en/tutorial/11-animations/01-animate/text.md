@@ -8,7 +8,7 @@ To complete the illusion, we also need to apply motion to the elements that *are
 
 First, import the `flip` function — flip stands for ['First, Last, Invert, Play'](https://aerotwist.com/blog/flip-your-animations/) — from `svelte/animate`:
 
-```js
+```ts
 import { flip } from 'svelte/animate';
 ```
 

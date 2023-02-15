@@ -16,7 +16,7 @@ We can do that by declaring a `<script context="module">` block. Code contained 
 
 It's now possible for the components to 'talk' to each other without any state management:
 
-```js
+```ts
 function stopOthers() {
 	if (current && current !== audio) current.pause();
 	current = audio;
