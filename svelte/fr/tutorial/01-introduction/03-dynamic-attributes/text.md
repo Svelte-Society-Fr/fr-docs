@@ -1,0 +1,33 @@
+---
+title: Attributs dynamiques
+---
+
+Vous pouvez utiliser des accolades pour contrôles les attributs d'un élément, comme vous le feriez pour contrôler du texte.
+
+Il manque l'attribut `src` à notre image — corrigeons cet oubli :
+
+```html
+<img src={src}>
+```
+
+Voilà qui est mieux. Mais Svelte nous avertit :
+
+> A11y: &lt;img&gt; element should have an alt attribute
+
+Lorsque l'on construit des applications web, il est important de s'assurer que celles-ci sont **accessibles** à l'audience la plus large possible, en incluant des personnes avec (par exemple) des déficiences visuelles ou moteures, ou des personnes avec du matériel informatique peu puissant, ou avec une mauvaise connection internet. L'accessibilité (que l'on écrit souvent "a11y") n'est pas toujours simple à mettre en place correctement, mais Svelte vous aidera en vous avertissant si vos écrivez du *markup* non accessible.
+
+Dans ce cas, il manque à notre image l'attribut `alt` qui décrit l'image pour les personnes utilisant des liseuses d'écran, ou pour les personnes ne pouvant pas télécharger l'image en raison d'une mauvaise connection internet. Rectifions cela :
+
+```html
+<img src={src} alt="Un homme danse.">
+```
+
+Nous pouvons utiliser des accolades **à l'intérieur** des attributs. Essayez de changer l'attribut `alt` en `"{name} danse."` — n'oubliez pas de déclarer une variable `name` dans le bloc `<script>`.
+
+## Raccourcis d'attributs
+
+Il est courant d'avoir un attribut ayant le même nom que la variable qu'on lui fournit, comme `src={src}`. Dans ce cas, Svelte nous donne accès à un raccourci pratique :
+
+```html
+<img {src} alt="Un homme danse.">
+```
