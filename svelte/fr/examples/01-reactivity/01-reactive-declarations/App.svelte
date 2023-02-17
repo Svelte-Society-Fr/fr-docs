@@ -11,7 +11,7 @@
 </script>
 
 <button on:click={handleClick}>
-	Nombre de clic: {count}
+	Nombre de clics: {count}
 </button>
 
 <p>{count} * 2 = {doubled}</p>
