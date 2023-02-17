@@ -1,6 +1,6 @@
 # TODO
 
-83 / 256 (32.42 %)
+88 / 256 (34.38 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -177,10 +177,10 @@
       - [ ] Declaring props
       - [ ] Default values
       - [ ] Spread props
-   - [x] Reactivity
-      - [x] Reactive assignments
-      - [x] Reactive declarations
-      - [x] Reactive statements
+   - [ ] Reactivity
+      - [ ] Reactive assignments
+      - [ ] Reactive declarations
+      - [ ] Reactive statements
    - [x] Introduction
       - [x] Hello world
       - [x] Dynamic attributes
