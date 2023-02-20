@@ -2,7 +2,7 @@
 title: Créer une application
 ---
 
-Ce tutoriel est construit pour que vous vous familiarisiez avec le processus d'écriture de composants. Mais au bout d'un moment, vous aurez envie d'écrire vos composants dans le confort de votre éditeur de texte préféré.
+Ce tutoriel est construit pour que vous vous familiarisiez avec le processus d'écriture de composants. Mais au bout d'un moment, vous aurez envie d'écrire vos composants avec le confort de votre éditeur de texte préféré.
 
 Tout d'abord, vous aurez besoin d'un outil de compilation pour vous servir de Svelte. Nous recommandons d'utiliser [SvelteKit](https://kit.svelte.dev), qui met en place [Vite](https://vitejs.dev/) et [vite-plugin-svelte](https://github.com/sveltejs/vite-plugin-svelte/) pour vous...
 
