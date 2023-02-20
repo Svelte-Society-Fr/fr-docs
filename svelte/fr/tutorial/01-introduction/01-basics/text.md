@@ -10,11 +10,11 @@ Vous pouvez aussi consulter la [documentation de l'API](/docs) ainsi que les [ex
 
 Svelte est un outil pour développer des applications web rapides.
 
-C'est un *framework* JavaScript similaire à React ou Vue, qui ont en commun l'objectif de rendre facile le développement d'interfaces utilisateur interactives de grande qualité.
+C'est un **<span class='vo'>_framework_</span>** JavaScript similaire à React ou Vue, qui ont en commun l'objectif de rendre facile le développement d'interfaces utilisateur interactives de grande qualité.
 
-Mais il y a une différence fondamentale : plutôt que d'interpréter votre code applicatif *au moment de l'exécution* (*run time*), Svelte transforme votre application en du JavaScript optimisé *au moment de la compilation* (*build time*). Cela signifie que votre application ne subira pas le coût en performance des abstractions que le framework utilise, et ne sera pas pénalisée lors du premier chargement.
+Mais il y a une différence fondamentale : plutôt que d'interpréter votre code applicatif **au moment de l'exécution (<span class='vo'>_run time_</span>)**, Svelte transforme votre application en du JavaScript optimisé **au moment de la compilation (<span class='vo'>_build time_</span>)**. Cela signifie que votre application ne subira pas le coût en performance des abstractions que le framework utilise, et ne sera pas pénalisée lors du premier chargement.
 
-Vous pouvez construire votre application entièrement avec Svelte, ou l'ajouter au fur et à mesure à une base de code existante. Vous pouvez aussi générer des composants en tant que modules autonomes (*web components*) utilisables n'importe où, sans la contrainte d'une dépendance à un *framework* traditionnel.
+Vous pouvez construire votre application entièrement avec Svelte, ou l'ajouter au fur et à mesure à une base de code existante. Vous pouvez aussi générer des composants en tant que modules autonomes (<span class='vo'>_web components_</span>) utilisables n'importe où, sans la contrainte d'une dépendance à un <span class='vo'>_framework_</span> traditionnel.
 
 ## Comment se servir de ce tutoriel ?
 
@@ -26,4 +26,4 @@ Chaque chapitre de ce tutoriel vous présente un bouton "Je veux voir" sur leque
 
 ## Comprendre les composants
 
-Une application Svelte est composée d'un ou plusieurs *composants*. Un composant est un bloc de code réutilisable qui encapsule du HTML, du CSS et du JavaScript qui fonctionnent ensemble, le tout dans un fichier `.svelte`. L'exemple "bonjour tout le monde" dans l'éditeur est un composant simple.
+Une application Svelte est composée d'un ou plusieurs **composants**. Un composant est un bloc de code réutilisable qui encapsule du HTML (que l'on appelle aussi <span class='vo'>_markup_</span>, qui signifie "balisage"), du CSS et du JavaScript qui fonctionnent ensemble, le tout dans un fichier `.svelte`. L'exemple "bonjour tout le monde" dans l'éditeur est un composant simple.

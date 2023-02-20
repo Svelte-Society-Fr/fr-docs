@@ -1,6 +1,6 @@
 # TODO
 
-80 / 256 (31.25 %)
+88 / 256 (34.38 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -177,10 +177,10 @@
       - [ ] Declaring props
       - [ ] Default values
       - [ ] Spread props
-   - [x] Reactivity
-      - [x] Reactive assignments
-      - [x] Reactive declarations
-      - [x] Reactive statements
+   - [ ] Reactivity
+      - [ ] Reactive assignments
+      - [ ] Reactive declarations
+      - [ ] Reactive statements
    - [x] Introduction
       - [x] Hello world
       - [x] Dynamic attributes
@@ -302,9 +302,9 @@
       - [ ] Updating arrays and objects
    - [ ] Introduction
       - [x] Basics
-      - [ ] Adding data
-      - [ ] Dynamic attributes
-      - [ ] Styling
+      - [x] Adding data
+      - [x] Dynamic attributes
+      - [x] Styling
       - [ ] Nested components
       - [ ] HTML tags
       - [ ] Making an app
