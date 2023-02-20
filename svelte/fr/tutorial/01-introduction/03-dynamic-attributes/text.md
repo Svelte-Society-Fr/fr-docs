@@ -2,7 +2,7 @@
 title: Attributs dynamiques
 ---
 
-Vous pouvez utiliser des accolades pour contrôles les attributs d'un élément, comme vous le feriez pour contrôler du texte.
+Vous pouvez utiliser des accolades pour contrôler les attributs d'un élément, comme vous le feriez pour contrôler du texte.
 
 Il manque l'attribut `src` à notre image — corrigeons cet oubli :
 
