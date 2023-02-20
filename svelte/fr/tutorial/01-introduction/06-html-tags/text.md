@@ -12,5 +12,5 @@ En Svelte, vous pouvez faire cela avec la balise spéciale `{@html ...}` :
 <p>{@html string}</p>
 ```
 
-> Svelte ne fait aucune opération de nettoyage de l'expression à l'intérieur de `{@html ...}` avant de l'ajouter dans le DOM. Autrement dit, si vous utilisez cette fonctionnalité, il est primordial d'échapper le HTML dont vous ne maîtrisez pas la source, pour ne pas exposer vos utilisateurs et utilisatrices à des attaques <span class='vo'>_XSS_</span>.
+> Svelte ne fait aucune opération de nettoyage de l'expression à l'intérieur de `{@html ...}` avant de l'ajouter au DOM. Autrement dit, si vous utilisez cette fonctionnalité, il est primordial d'échapper le HTML dont vous ne maîtrisez pas la source, pour ne pas exposer vos utilisateurs et utilisatrices à des attaques <span class='vo'>_XSS_</span>.
 
