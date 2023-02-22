@@ -2,7 +2,7 @@
 title: Instructions
 ---
 
-Nous ne sommes limité•e•s à la déclaration de **valeurs** réactives — nous pouvons aussi exécuter des **instructions** de manière réactive. Par exemple, nous pouvons afficher la valeur de `count` à chaque fois qu'elle change :
+Nous ne sommes pas limité•e•s à la déclaration de **valeurs** réactives — nous pouvons aussi exécuter des **instructions** de manière réactive. Par exemple, nous pouvons afficher la valeur de `count` à chaque fois qu'elle change :
 
 ```ts
 $: console.log('le compteur vaut ' + count);
