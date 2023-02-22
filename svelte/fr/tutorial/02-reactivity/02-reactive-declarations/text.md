@@ -2,7 +2,7 @@
 title: Déclarations
 ---
 
-La réactivité de Svelte ne se contente pas de garder le <span class='vo'>DOM</span> synchronisé avec les variables d'état de votre application, comme nous l'avons vu dans la section précédente. Cette réactivité permet aussi de garder les variables en phase les unes avec les autres en utilisant des déclarations réactives. Cela s'écrit comme ça :
+La réactivité de Svelte ne se contente pas de garder le <span class='vo'>DOM</span> synchronisé avec les variables d'état de votre application, comme nous l'avons vu dans la section précédente. Cette réactivité permet aussi de garder les variables en phase les unes avec les autres en utilisant des déclarations réactives. Cela s'écrit :
 
 ```ts
 let count = 0;
