@@ -13,7 +13,7 @@ npm create svelte@latest myapp
 
 Il existe également un certain nombre d'[outils gérés par la communauté](https://sveltesociety.dev/tools).
 
-Si vous êtes relativement débutant•e dans le développement web, ne vous inquiétez pas si vous n'avez jamais utilisé ces outils. Nous avons préparé le guide [Svelte for new developers](/blog/svelte-for-new-developers), qui vous guidera pas-à-pas.
+Si vous êtes relativement débutant•e dans le développement web, ne vous inquiétez pas si vous n'avez jamais utilisé ces outils. Vous pouvez suivre le guide [Svelte for new developers](/blog/svelte-for-new-developers) (en anglais), qui vous guidera pas-à-pas.
 
 Vous aurez certainement besoin de configurer votre éditeur de texte. Il y a des <span class='vo'>[_plugins_](https://sveltesociety.dev/tools#editor-support)</span> pour la plupart des éditeurs courants, ainsi qu'[une extension VS Code officielle](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
 
