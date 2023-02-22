@@ -1,6 +1,6 @@
 # TODO
 
-79 / 256 (30.86 %)
+91 / 256 (35.55 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -300,12 +300,12 @@
       - [ ] Declarations
       - [ ] Statements
       - [ ] Updating arrays and objects
-   - [ ] Introduction
-      - [ ] Basics
-      - [ ] Adding data
-      - [ ] Dynamic attributes
-      - [ ] Styling
-      - [ ] Nested components
-      - [ ] HTML tags
-      - [ ] Making an app
+   - [x] Introduction
+      - [x] Basics
+      - [x] Adding data
+      - [x] Dynamic attributes
+      - [x] Styling
+      - [x] Nested components
+      - [x] HTML tags
+      - [x] Making an app
 
