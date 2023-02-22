@@ -9,7 +9,7 @@ let count = 0;
 $: doubled = count * 2;
 ```
 
-> Ne vous inquiétez si cela semble un peu étrange. Cette syntaxe est du JavaScript [valide](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/label), même si peu conventionnel, que Svelte interprète ainsi : "ré-exécute ce code dès qu'une des variables référencées change". Une fois l'habitude prise, vous ne pourrez plus vous en passer.
+> Ne vous inquiétez pas si cela semble un peu étrange. Cette syntaxe est du JavaScript [valide](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/label), même si peu conventionnel, que Svelte interprète ainsi : "ré-exécute ce code dès qu'une des variables référencées change". Une fois l'habitude prise, vous ne pourrez plus vous en passer.
 
 Utilisons `doubled` dans notre <span class='vo'>_markup_</span> :
 
