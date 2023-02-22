@@ -291,10 +291,10 @@
       - [ ] Each blocks
       - [ ] Keyed each blocks
       - [ ] Await blocks
-   - [ ] Props
-      - [ ] Declaring props
-      - [ ] Default values
-      - [ ] Spread props
+   - [x] Props
+      - [x] Declaring props
+      - [x] Default values
+      - [x] Spread props
    - [x] Reactivity
       - [x] Assignments
       - [x] Declarations
