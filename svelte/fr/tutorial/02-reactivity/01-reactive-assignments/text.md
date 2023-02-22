@@ -4,7 +4,7 @@ title: Assignations
 
 Au coeur de Svelte se trouve un système efficace de **réactivité** qui permet de garder le <span class='vo'>DOM</span> en phase avec l'état de votre application — par exemple en réaction à un évènement.
 
-Pour le mettre en valeur, nous devons d'abord mettre en place une écoute d'évènement. Remplacez la ligne 9 par :
+Pour le mettre en valeur, nous devons d'abord mettre en place une fonction d'écoute d'évènement. Remplacez la ligne 9 par :
 
 ```html
 <button on:click={incrementCount}>
