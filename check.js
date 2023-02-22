@@ -26,50 +26,52 @@ async function _list(path) {
 
       const frD = translated.find(t => t.type === name);
 
-      const lines = d.content.list
-        .map(item => {
-          let tabs = '  ';
+      const lines = d.content.list.map(item => {
+        let tabs = '  ';
 
-          const _item = frD?.content.list.find(
-            i => (i?.file ?? i?.name) === (item?.file ?? item?.name),
-          );
+        const _item = frD?.content.list.find(
+          i => (i?.file ?? i?.name) === (item?.file ?? item?.name),
+        );
 
-          const subItems = item.sections ?? item.tutorials ?? item.examples;
-          const _subItems =
-            _item?.sections ?? _item?.tutorials ?? _item?.examples;
+        const subItems = item.sections ?? item.tutorials ?? item.examples;
+        const _subItems =
+          _item?.sections ?? _item?.tutorials ?? _item?.examples;
 
-          const sections = subItems?.map(({ title, name }, i) => {
-            const done = !!_subItems?.find((s, _i) => _i === i);
+        const sections = subItems?.map(({ title, name }, i) => {
+          const done = !!_subItems?.find((s, _i) => _i === i);
 
-            nb++;
-            if (done) nbDone++;
+          nb++;
+          if (done) nbDone++;
 
-            return {
-              title: title ?? name,
-              done,
-            };
-          });
-          const sectionLines =
-            sections
-              ?.map(s => `      - [${s.done ? 'x' : ' '}] ${s.title}\n`)
-              .join('') ?? '';
+          return {
+            title: title ?? name,
+            done,
+          };
+        });
+        const sectionLines =
+          sections
+            ?.map(s => `      - [${s.done ? 'x' : ' '}] ${s.title}\n`)
+            .join('') ?? '';
 
-          const done = sections?.length
-            ? !!sections?.every(s => s.done)
-            : !!_item;
+        const done = sections?.length
+          ? !!sections?.every(s => s.done)
+          : !!_item;
 
-          if (!sections?.length) {
-            nb++;
-            if (done) nbDone++;
-          }
+        if (!sections?.length) {
+          nb++;
+          if (done) nbDone++;
+        }
 
-          return `${tabs} - [${done ? 'x' : ' '}] ${
-            item.file ?? item.name
-          }\n${sectionLines}`;
-        })
-        .join('');
+        return `${tabs} - [${done ? 'x' : ' '}] ${
+          item.file ?? item.name
+        }\n${sectionLines}`;
+      });
 
-      return `## ${name}\n${lines}`;
+      if (name === 'tutorial' || name === 'examples') {
+        lines.reverse();
+      }
+
+      return `## ${name}\n${lines.join('')}`;
     })
     .join('')
     .replaceAll('<', '\\<');

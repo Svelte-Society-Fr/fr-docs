@@ -75,76 +75,34 @@
       - [x] a11y-unknown-aria-attribute
       - [x] a11y-unknown-role
 ## examples
-   - [ ] Miscellaneous
-      - [ ] Hacker News
-      - [ ] Immutable data
-   - [ ] 7GUIs
-      - [ ] Counter
-      - [ ] Temperature Converter
-      - [ ] Flight booker
-      - [ ] Timer
-      - [ ] CRUD
-      - [ ] Circle Drawer
-   - [ ] Debugging
-      - [ ] The @debug tag
-   - [ ] Module context
-      - [ ] Named exports
-   - [ ] Special elements
-      - [ ] \<svelte:self>
-      - [ ] \<svelte:component>
-      - [ ] \<svelte:element>
-      - [ ] \<svelte:window>
-      - [ ] \<svelte:window> bindings
-      - [ ] \<svelte:body>
-      - [ ] \<svelte:head>
-   - [ ] Context API
-      - [ ] setContext and getContext
-   - [ ] Component composition
-      - [ ] Slots
-      - [ ] Slot fallbacks
-      - [ ] Named slots
-      - [ ] Slot props
-      - [ ] Conditional Slots
-      - [ ] Modal
-   - [ ] Classes
-      - [ ] The class directive
-      - [ ] Shorthand class directive
-   - [ ] Actions
-      - [ ] The use directive
-      - [ ] Adding parameters
-      - [ ] A more complex action
-   - [ ] SVG
-      - [ ] Clock
-      - [ ] Bar chart
-      - [ ] Area chart
-      - [ ] Scatterplot
-      - [ ] SVG transitions
-   - [ ] Easing
-      - [ ] Ease Visualiser
-   - [ ] Animations
-      - [ ] The animate directive
-   - [ ] Transitions
-      - [ ] The transition directive
-      - [ ] Adding parameters
-      - [ ] In and out
-      - [ ] Custom CSS transitions
-      - [ ] Custom JS transitions
-      - [ ] Transition events
-      - [ ] Deferred transitions
-   - [ ] Motion
-      - [ ] Tweened
-      - [ ] Spring
-   - [ ] Stores
-      - [ ] Writable stores
-      - [ ] Auto-subscriptions
-      - [ ] Readable stores
-      - [ ] Derived stores
-      - [ ] Custom stores
-   - [ ] Lifecycle
-      - [ ] onMount
-      - [ ] onDestroy
-      - [ ] beforeUpdate and afterUpdate
-      - [ ] tick
+   - [x] Introduction
+      - [x] Hello world
+      - [x] Dynamic attributes
+      - [x] Styling
+      - [x] Nested components
+      - [x] HTML tags
+   - [ ] Reactivity
+      - [ ] Reactive assignments
+      - [ ] Reactive declarations
+      - [ ] Reactive statements
+   - [ ] Props
+      - [ ] Declaring props
+      - [ ] Default values
+      - [ ] Spread props
+   - [ ] Logic
+      - [ ] If blocks
+      - [ ] Else blocks
+      - [ ] Else-if blocks
+      - [ ] Each blocks
+      - [ ] Keyed each blocks
+      - [ ] Await blocks
+   - [ ] Events
+      - [ ] DOM events
+      - [ ] Inline handlers
+      - [ ] Event modifiers
+      - [ ] Component events
+      - [ ] Event forwarding
+      - [ ] DOM event forwarding
    - [ ] Bindings
       - [ ] Text inputs
       - [ ] Numeric inputs
@@ -159,34 +117,76 @@
       - [ ] Dimensions
       - [ ] bind:this={canvas}
       - [ ] Component bindings
-   - [ ] Events
-      - [ ] DOM events
-      - [ ] Inline handlers
-      - [ ] Event modifiers
-      - [ ] Component events
-      - [ ] Event forwarding
-      - [ ] DOM event forwarding
-   - [ ] Logic
-      - [ ] If blocks
-      - [ ] Else blocks
-      - [ ] Else-if blocks
-      - [ ] Each blocks
-      - [ ] Keyed each blocks
-      - [ ] Await blocks
-   - [ ] Props
-      - [ ] Declaring props
-      - [ ] Default values
-      - [ ] Spread props
-   - [x] Reactivity
-      - [x] Reactive assignments
-      - [x] Reactive declarations
-      - [x] Reactive statements
-   - [x] Introduction
-      - [x] Hello world
-      - [x] Dynamic attributes
-      - [x] Styling
-      - [x] Nested components
-      - [x] HTML tags
+   - [ ] Lifecycle
+      - [ ] onMount
+      - [ ] onDestroy
+      - [ ] beforeUpdate and afterUpdate
+      - [ ] tick
+   - [ ] Stores
+      - [ ] Writable stores
+      - [ ] Auto-subscriptions
+      - [ ] Readable stores
+      - [ ] Derived stores
+      - [ ] Custom stores
+   - [ ] Motion
+      - [ ] Tweened
+      - [ ] Spring
+   - [ ] Transitions
+      - [ ] The transition directive
+      - [ ] Adding parameters
+      - [ ] In and out
+      - [ ] Custom CSS transitions
+      - [ ] Custom JS transitions
+      - [ ] Transition events
+      - [ ] Deferred transitions
+   - [ ] Animations
+      - [ ] The animate directive
+   - [ ] Easing
+      - [ ] Ease Visualiser
+   - [ ] SVG
+      - [ ] Clock
+      - [ ] Bar chart
+      - [ ] Area chart
+      - [ ] Scatterplot
+      - [ ] SVG transitions
+   - [ ] Actions
+      - [ ] The use directive
+      - [ ] Adding parameters
+      - [ ] A more complex action
+   - [ ] Classes
+      - [ ] The class directive
+      - [ ] Shorthand class directive
+   - [ ] Component composition
+      - [ ] Slots
+      - [ ] Slot fallbacks
+      - [ ] Named slots
+      - [ ] Slot props
+      - [ ] Conditional Slots
+      - [ ] Modal
+   - [ ] Context API
+      - [ ] setContext and getContext
+   - [ ] Special elements
+      - [ ] \<svelte:self>
+      - [ ] \<svelte:component>
+      - [ ] \<svelte:element>
+      - [ ] \<svelte:window>
+      - [ ] \<svelte:window> bindings
+      - [ ] \<svelte:body>
+      - [ ] \<svelte:head>
+   - [ ] Module context
+      - [ ] Named exports
+   - [ ] Debugging
+      - [ ] The @debug tag
+   - [ ] 7GUIs
+      - [ ] Counter
+      - [ ] Temperature Converter
+      - [ ] Flight booker
+      - [ ] Timer
+      - [ ] CRUD
+      - [ ] Circle Drawer
+   - [ ] Miscellaneous
+      - [ ] Hacker News
+      - [ ] Immutable data
 ## faq
    - [x] 100-im-new-to-svelte.md
    - [x] 110-where-can-i-get-support.md
@@ -202,66 +202,37 @@
    - [x] 800-how-do-i-test-svelte-apps.md
    - [x] 900-is-there-a-router.md
 ## tutorial
-   - [ ] Next steps
-      - [ ] Congratulations!
-   - [ ] Debugging
-      - [ ] The @debug tag
-   - [ ] Module context
-      - [ ] Sharing code
-      - [ ] Exports
-   - [ ] Special elements
-      - [ ] \<svelte:self>
-      - [ ] \<svelte:component>
-      - [ ] \<svelte:element>
-      - [ ] \<svelte:window>
-      - [ ] \<svelte:window> bindings
-      - [ ] \<svelte:body>
-      - [ ] \<svelte:head>
-      - [ ] \<svelte:options>
-      - [ ] \<svelte:fragment>
-   - [ ] Context API
-      - [ ] setContext and getContext
-   - [ ] Component composition
-      - [ ] Slots
-      - [ ] Slot fallbacks
-      - [ ] Named slots
-      - [ ] Checking for slot content
-      - [ ] Slot props
-   - [ ] Advanced styling
-      - [ ] The class directive
-      - [ ] Shorthand class directive
-      - [ ] Inline styles
-      - [ ] The style directive
-   - [ ] Actions
-      - [ ] The use directive
-      - [ ] Adding parameters
-   - [ ] Animations
-      - [ ] The animate directive
-   - [ ] Transitions
-      - [ ] The transition directive
-      - [ ] Adding parameters
-      - [ ] In and out
-      - [ ] Custom CSS transitions
-      - [ ] Custom JS transitions
-      - [ ] Transition events
-      - [ ] Local transitions
-      - [ ] Deferred transitions
-      - [ ] Key blocks
-   - [ ] Motion
-      - [ ] Tweened
-      - [ ] Spring
-   - [ ] Stores
-      - [ ] Writable stores
-      - [ ] Auto-subscriptions
-      - [ ] Readable stores
-      - [ ] Derived stores
-      - [ ] Custom stores
-      - [ ] Store bindings
-   - [ ] Lifecycle
-      - [ ] onMount
-      - [ ] onDestroy
-      - [ ] beforeUpdate and afterUpdate
-      - [ ] tick
+   - [x] Introduction
+      - [x] Basics
+      - [x] Adding data
+      - [x] Dynamic attributes
+      - [x] Styling
+      - [x] Nested components
+      - [x] HTML tags
+      - [x] Making an app
+   - [x] Reactivity
+      - [x] Assignments
+      - [x] Declarations
+      - [x] Statements
+      - [x] Updating arrays and objects
+   - [x] Props
+      - [x] Declaring props
+      - [x] Default values
+      - [x] Spread props
+   - [ ] Logic
+      - [ ] If blocks
+      - [ ] Else blocks
+      - [ ] Else-if blocks
+      - [ ] Each blocks
+      - [ ] Keyed each blocks
+      - [ ] Await blocks
+   - [ ] Events
+      - [ ] DOM events
+      - [ ] Inline handlers
+      - [ ] Event modifiers
+      - [ ] Component events
+      - [ ] Event forwarding
+      - [ ] DOM event forwarding
    - [ ] Bindings
       - [ ] Text inputs
       - [ ] Numeric inputs
@@ -277,35 +248,64 @@
       - [ ] This
       - [ ] Component bindings
       - [ ] Binding to component instances
-   - [ ] Events
-      - [ ] DOM events
-      - [ ] Inline handlers
-      - [ ] Event modifiers
-      - [ ] Component events
-      - [ ] Event forwarding
-      - [ ] DOM event forwarding
-   - [ ] Logic
-      - [ ] If blocks
-      - [ ] Else blocks
-      - [ ] Else-if blocks
-      - [ ] Each blocks
-      - [ ] Keyed each blocks
-      - [ ] Await blocks
-   - [x] Props
-      - [x] Declaring props
-      - [x] Default values
-      - [x] Spread props
-   - [x] Reactivity
-      - [x] Assignments
-      - [x] Declarations
-      - [x] Statements
-      - [x] Updating arrays and objects
-   - [x] Introduction
-      - [x] Basics
-      - [x] Adding data
-      - [x] Dynamic attributes
-      - [x] Styling
-      - [x] Nested components
-      - [x] HTML tags
-      - [x] Making an app
+   - [ ] Lifecycle
+      - [ ] onMount
+      - [ ] onDestroy
+      - [ ] beforeUpdate and afterUpdate
+      - [ ] tick
+   - [ ] Stores
+      - [ ] Writable stores
+      - [ ] Auto-subscriptions
+      - [ ] Readable stores
+      - [ ] Derived stores
+      - [ ] Custom stores
+      - [ ] Store bindings
+   - [ ] Motion
+      - [ ] Tweened
+      - [ ] Spring
+   - [ ] Transitions
+      - [ ] The transition directive
+      - [ ] Adding parameters
+      - [ ] In and out
+      - [ ] Custom CSS transitions
+      - [ ] Custom JS transitions
+      - [ ] Transition events
+      - [ ] Local transitions
+      - [ ] Deferred transitions
+      - [ ] Key blocks
+   - [ ] Animations
+      - [ ] The animate directive
+   - [ ] Actions
+      - [ ] The use directive
+      - [ ] Adding parameters
+   - [ ] Advanced styling
+      - [ ] The class directive
+      - [ ] Shorthand class directive
+      - [ ] Inline styles
+      - [ ] The style directive
+   - [ ] Component composition
+      - [ ] Slots
+      - [ ] Slot fallbacks
+      - [ ] Named slots
+      - [ ] Checking for slot content
+      - [ ] Slot props
+   - [ ] Context API
+      - [ ] setContext and getContext
+   - [ ] Special elements
+      - [ ] \<svelte:self>
+      - [ ] \<svelte:component>
+      - [ ] \<svelte:element>
+      - [ ] \<svelte:window>
+      - [ ] \<svelte:window> bindings
+      - [ ] \<svelte:body>
+      - [ ] \<svelte:head>
+      - [ ] \<svelte:options>
+      - [ ] \<svelte:fragment>
+   - [ ] Module context
+      - [ ] Sharing code
+      - [ ] Exports
+   - [ ] Debugging
+      - [ ] The @debug tag
+   - [ ] Next steps
+      - [ ] Congratulations!
 
