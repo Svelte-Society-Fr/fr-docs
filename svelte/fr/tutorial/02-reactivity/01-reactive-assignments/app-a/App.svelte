@@ -2,7 +2,7 @@
   let count = 0;
 
   function incrementCount() {
-    // le code de l'écoute d'évènement s'écrit ici
+    // le code de la fonction d'écoute d'évènement s'écrit ici
   }
 </script>
 
