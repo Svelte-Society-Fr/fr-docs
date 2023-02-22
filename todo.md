@@ -1,6 +1,6 @@
 # TODO
 
-91 / 256 (35.55 %)
+95 / 256 (37.11 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -295,11 +295,11 @@
       - [ ] Declaring props
       - [ ] Default values
       - [ ] Spread props
-   - [ ] Reactivity
-      - [ ] Assignments
-      - [ ] Declarations
-      - [ ] Statements
-      - [ ] Updating arrays and objects
+   - [x] Reactivity
+      - [x] Assignments
+      - [x] Declarations
+      - [x] Statements
+      - [x] Updating arrays and objects
    - [x] Introduction
       - [x] Basics
       - [x] Adding data
