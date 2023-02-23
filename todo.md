@@ -1,6 +1,6 @@
 # TODO
 
-101 / 256 (39.45 %)
+107 / 256 (41.80 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -219,13 +219,13 @@
       - [ ] Declaring props
       - [ ] Default values
       - [ ] Spread props
-   - [ ] Logic
-      - [ ] If blocks
-      - [ ] Else blocks
-      - [ ] Else-if blocks
-      - [ ] Each blocks
-      - [ ] Keyed each blocks
-      - [ ] Await blocks
+   - [x] Logic
+      - [x] If blocks
+      - [x] Else blocks
+      - [x] Else-if blocks
+      - [x] Each blocks
+      - [x] Keyed each blocks
+      - [x] Await blocks
    - [x] Events
       - [x] DOM events
       - [x] Inline handlers
