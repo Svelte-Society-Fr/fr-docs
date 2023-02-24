@@ -3,7 +3,6 @@ title: Blocs else-if
 ---
 
 Plusieurs conditions peuvent être "chaînées" entre elles avec `else if` :
-Multiple conditions can be 'chained' together with `else if`:
 
 ```html
 {#if x > 10}
