@@ -1,6 +1,6 @@
 # TODO
 
-95 / 256 (37.11 %)
+101 / 256 (39.45 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -226,13 +226,13 @@
       - [ ] Each blocks
       - [ ] Keyed each blocks
       - [ ] Await blocks
-   - [ ] Events
-      - [ ] DOM events
-      - [ ] Inline handlers
-      - [ ] Event modifiers
-      - [ ] Component events
-      - [ ] Event forwarding
-      - [ ] DOM event forwarding
+   - [x] Events
+      - [x] DOM events
+      - [x] Inline handlers
+      - [x] Event modifiers
+      - [x] Component events
+      - [x] Event forwarding
+      - [x] DOM event forwarding
    - [ ] Bindings
       - [ ] Text inputs
       - [ ] Numeric inputs
