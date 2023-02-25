@@ -2,7 +2,7 @@
 title: Modificateurs d'évènement
 ---
 
-Les gestionnaires d'évènements DOM peuvent utiliser des **modificateurs** qui changent leur comportement. Par exemple, un gestionnaire avec le modificateur `once` ne sera exécuté qu'une seule fois :
+Les gestionnaires d'évènements DOM peuvent utiliser des **modificateurs** qui changent leur comportement. Par exemple, un gestionnaire avec le modificateur `once` ne s'exécutera qu'une seule fois :
 
 ```html
 <script>
