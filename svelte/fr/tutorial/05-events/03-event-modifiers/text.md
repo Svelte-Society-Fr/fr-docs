@@ -27,4 +27,4 @@ La liste complète des modificateurs se trouve ici :
 * `self` — déclenche le gestionnaire uniquement si `event.target` est l'élément lui-même
 * `trusted` — déclenche le gestionnaire uniquement si `event.isTrusted` est `true`, c'est-à-dire si l'évènement est généré par une action de l'utilisateur
 
-Vous pouvez chaîner les modificateurs, par ex. `on:click|once|capture={...}`.
+Vous pouvez cumuler les modificateurs, par ex. `on:click|once|capture={...}`.
