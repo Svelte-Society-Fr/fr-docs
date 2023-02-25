@@ -18,7 +18,7 @@ Les gestionnaires d'évènements DOM peuvent utiliser des **modificateurs** qui 
 
 La liste complète des modificateurs se trouve ici :
 
-* `preventDefault` — appelle `event.preventDefault()` avant d'exécuter le gestionnaire. Pratique pour la gestion de formulaire côté client, par exemple.
+* `preventDefault` — appelle `event.preventDefault()` avant d'exécuter le gestionnaire. Utile, par exemple, pour la gestion de formulaire côté client.
 * `stopPropagation` — appelle `event.stopPropagation()`, et empêche ainsi l'évènement d'atteindre le prochain élément
 * `passive` — améliore la performance du défilement pour les évènements `touch`/`wheel` (Svelte l'ajoutera automatiquement aux endroits où ça ne pose pas de problème)
 * `nonpassive` — déclare explicitement `passive: false`
