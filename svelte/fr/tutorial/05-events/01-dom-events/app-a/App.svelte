@@ -8,7 +8,7 @@
 </script>
 
 <div>
-	La souris se trouve à la position ({m.x} ; {m.y})
+	Le curseur se trouve à la position ({m.x} ; {m.y})
 </div>
 
 <style>
