@@ -6,13 +6,13 @@ Si vous avez besoin de boucler sur une liste de données, vous pouvez utiliser u
 
 ```html
 <ul>
-	{#each cats as cat}
-		<li>
+  {#each cats as cat}
+    <li>
       <a target="_blank" href="https://www.youtube.com/watch?v={cat.id}" rel="noreferrer">
-			  {cat.name}
-		  </a>
+        {cat.name}
+      </a>
     </li>
-	{/each}
+  {/each}
 </ul>
 ```
 
@@ -22,10 +22,10 @@ Vous pouvez accéder à l'**indice** courant en deuxième argument, comme ceci :
 
 ```html
 {#each cats as cat, i}
-	<li>
+  <li>
     <a target="_blank" href="https://www.youtube.com/watch?v={cat.id}" rel="noreferrer">
-		  {i + 1}: {cat.name}
-	  </a>
+      {i + 1}: {cat.name}
+    </a>
   </li>
 {/each}
 ```
