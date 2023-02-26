@@ -2,9 +2,9 @@
 title: Déclarer des props
 ---
 
-Jusqu'à maintenant, nous avons exclusivement travaillés avec l'état interne d'un commposant, c'est à dire, des valeurs qui sont uniquement accessibles à l'intérieur du composant.
+Jusqu'à maintenant, nous avons exclusivement travaillé avec l'état interne d'un composant, c'est-à-dire des valeurs qui sont uniquement accessibles à l'intérieur du composant.
 
-Dans n'importe quelle application réelle, vous aurez besoin de passer des données depuis un composant parent vers ces enfants. Pour ça, nous devons déclarer des *propriétés*, générallement raccourcis en "<span class="vo">props</span>". En Svelte, nous faisons ça avec le mot clé `export`. Editez le composant `Nested.svelte` :
+Dans n'importe quelle application réelle, vous aurez besoin de passer des données depuis un composant parent vers ses enfants. Pour cela, nous devons déclarer des *propriétés*, généralement appelées "<span class='vo'>props</span>". En Svelte, nous les déclarons avec le mot clé `export`. Éditez le composant `Nested.svelte` :
 
 ```html
 <script>
@@ -12,4 +12,4 @@ Dans n'importe quelle application réelle, vous aurez besoin de passer des donn�
 </script>
 ```
 
-> Comme `$:`, cela peut parraitre étrange de prime abord. Ce n'est pas le fonctionnement habituel de `export` que l'on peut trouver avec les modules JavaScript ! Faites avec pour l'instant —  cela deviendra bientôt une seconde nature !
+> Comme `$:`, cela peut paraître étrange de prime abord. Ce n'est pas le fonctionnement habituel de `export` dans les modules JavaScript ! Faites avec pour l'instant — cela deviendra bientôt une seconde nature !

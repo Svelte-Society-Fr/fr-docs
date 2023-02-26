@@ -10,7 +10,7 @@ Nous pouvons facilement définir des valeurs par défaut pour les <span class="v
 </script>
 ```
 
-Si nous ajoutons maintenant un second appel au composant *sans* la <span class="vo">props</span> `answer`, il prendra la valeur par défaut :
+Si nous ajoutons maintenant un second appel au composant *sans* la <span class="vo">props</span> `answer`, celle-ci prendra la valeur par défaut :
 
 ```html
 <Nested answer={42}/>
