@@ -215,10 +215,10 @@
       - [x] Declarations
       - [x] Statements
       - [x] Updating arrays and objects
-   - [ ] Props
-      - [ ] Declaring props
-      - [ ] Default values
-      - [ ] Spread props
+   - [x] Props
+      - [x] Declaring props
+      - [x] Default values
+      - [x] Spread props
    - [x] Logic
       - [x] If blocks
       - [x] Else blocks
