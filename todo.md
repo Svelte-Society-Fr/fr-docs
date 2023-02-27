@@ -1,6 +1,6 @@
 # TODO
 
-124 / 256 (48.44 %)
+118 / 256 (46.09 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -233,7 +233,7 @@
       - [x] Component events
       - [x] Event forwarding
       - [x] DOM event forwarding
-   - [x] Bindings
+   - [ ] Bindings
       - [x] Text inputs
       - [x] Numeric inputs
       - [x] Checkbox inputs
@@ -242,12 +242,12 @@
       - [x] Select bindings
       - [x] Select multiple
       - [x] Contenteditable bindings
-      - [x] Each block bindings
-      - [x] Media elements
-      - [x] Dimensions
-      - [x] This
-      - [x] Component bindings
-      - [x] Binding to component instances
+      - [ ] Each block bindings
+      - [ ] Media elements
+      - [ ] Dimensions
+      - [ ] This
+      - [ ] Component bindings
+      - [ ] Binding to component instances
    - [ ] Lifecycle
       - [ ] onMount
       - [ ] onDestroy
