@@ -26,7 +26,7 @@
 	}
 
 	// nous ne pouvons pas nous fier à l'évènement clic natif, parce qu'il
-	// il est déclenché après avoir fait glisser (drag) la souris
+	// est déclenché après avoir fait glisser (drag) la souris
 	// — nous devons écouter les clics nous-mêmes
 	function handleMousedown(e) {
 		lastMouseDown = new Date();
