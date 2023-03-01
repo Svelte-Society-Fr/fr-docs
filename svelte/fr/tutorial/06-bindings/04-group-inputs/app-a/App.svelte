@@ -8,7 +8,7 @@
 	}
 </script>
 
-<h2>Taille</h2>
+<h2>Nombre de boules</h2>
 
 <label>
 	<input type=radio group={scoops} name="scoops" value={1}>
