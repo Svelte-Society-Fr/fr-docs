@@ -10,7 +10,7 @@ Ajoutez `bind:group` à chaque input :
 <input type=radio bind:group={scoops} name="scoops" value={1}>
 ```
 
-Dans ce cas, nous pourrions simplifier le code en déplaçant les `<input type=checkbox>` dans un bloc `{#each}`. D'abord, ajoutez une variable `menu` au bloc `<script>`...
+Dans ce cas, nous pourrions simplifier le code en déplaçant les `<input type=checkbox>` dans un bloc `each`. D'abord, ajoutez une variable `menu` au bloc `<script>`...
 
 
 ```ts
