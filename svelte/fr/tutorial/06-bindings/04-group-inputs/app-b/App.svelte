@@ -14,7 +14,7 @@
 	}
 </script>
 
-<h2>Size</h2>
+<h2>Nombre de boules</h2>
 
 <label>
 	<input type=radio bind:group={scoops} name="scoops" value={1}>
