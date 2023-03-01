@@ -1,5 +1,5 @@
 ---
-title: Selection multiple
+title: Sélection multiple
 ---
 
 Un élément `<select>` peut avoir un attribute `multiple`. Dans ce cas, la liaison va remplir un tableau plutôt que sélectionner une valeur unique.

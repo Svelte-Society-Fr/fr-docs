@@ -1,5 +1,5 @@
 ---
-title: Liaison de bloc each
+title: Liaisons de bloc each
 ---
 
 Vous pouvez aussi mettre en place des liaisons sur les propriétés à l'intérieur d'un bloc `each`.

@@ -1,5 +1,5 @@
 ---
-title: Liaison de composant
+title: Liaisons de composant
 ---
 
 De la même façon que vous pouvez créer des liaisons avec les propriétés des éléments <span class="vo">_DOM_</span>, vous pouvez créer des liaisons avec les <span class="vo">_props_</span> des composants. Par exemple, nous pouvons créer une liaison avec la <span class="vo">_prop_</span> de ce composant `<Keypad>` comme si c'était un élément de formulaire :
