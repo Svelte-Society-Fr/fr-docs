@@ -14,7 +14,7 @@
 	}
 </script>
 
-<h2>Questions dangereuses</h2>
+<h2>Questions de non-sécurité</h2>
 
 <form on:submit|preventDefault={handleSubmit}>
 	<select value={selected} on:change="{() => answer = ''}">

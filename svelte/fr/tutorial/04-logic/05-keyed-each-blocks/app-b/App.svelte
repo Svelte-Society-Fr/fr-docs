@@ -2,11 +2,11 @@
 	import Thing from './Thing.svelte';
 
 	let things = [
-		{ id: 1, name: 'pomme' },
-		{ id: 2, name: 'banane' },
-		{ id: 3, name: 'carotte' },
-		{ id: 4, name: 'donut' },
-		{ id: 5, name: 'oeuf' },
+		{ id: 1, color: 'darkblue' },
+		{ id: 2, color: 'indigo' },
+		{ id: 3, color: 'deeppink' },
+		{ id: 4, color: 'salmon' },
+		{ id: 5, color: 'gold' }
 	];
 
 	function handleClick() {
@@ -18,6 +18,18 @@
 	Supprimer le premier élément
 </button>
 
-{#each things as thing (thing.id)}
-	<Thing name={thing.name}/>
-{/each}
+<div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 1em">
+	<div>
+		<h2>Avec clé</h2>
+		{#each things as thing (thing.id)}
+			<Thing current={thing.color}/>
+		{/each}
+	</div>
+
+	<div>
+		<h2>Sans clé</h2>
+		{#each things as thing}
+			<Thing current={thing.color}/>
+		{/each}
+	</div>
+</div>

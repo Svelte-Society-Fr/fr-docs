@@ -19,7 +19,7 @@ Lorsque l'on construit des applications web, il est important de s'assurer que c
 Dans ce cas, il manque à notre image l'attribut `alt` qui décrit l'image pour les personnes utilisant des liseuses d'écran, ou pour les personnes ne pouvant pas télécharger l'image en raison d'une mauvaise connection internet. Rectifions cela :
 
 ```html
-<img src={src} alt="Un homme danse.">
+<img src={src} alt="Un homme danse">
 ```
 
 Nous pouvons utiliser des accolades **à l'intérieur** des attributs. Essayez de changer l'attribut `alt` en `"{name} danse."` — n'oubliez pas de déclarer une variable `name` dans le bloc `<script>`.
@@ -29,5 +29,5 @@ Nous pouvons utiliser des accolades **à l'intérieur** des attributs. Essayez d
 Il est courant d'avoir un attribut ayant le même nom que la variable qu'on lui fournit, comme `src={src}`. Dans ce cas, Svelte nous donne accès à un raccourci pratique :
 
 ```html
-<img {src} alt="Un homme danse.">
+<img {src} alt="Un homme danse">
 ```

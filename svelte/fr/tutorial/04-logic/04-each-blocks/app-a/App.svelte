@@ -11,13 +11,9 @@
 <ul>
   <!-- ouvrez un bloc each -->
   <li>
-    <a
-      target="_blank"
-      href="https://www.youtube.com/watch?v={cat.id}"
-      rel="noreferrer"
-    >
-      {cat.name}
-    </a>
+		<a target="_blank" href="https://www.youtube.com/watch?v={cat.id}" rel="noreferrer">
+			{cat.name}
+		</a>
   </li>
   <!-- fermez un bloc each -->
 </ul>
