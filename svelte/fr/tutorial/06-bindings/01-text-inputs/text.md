@@ -7,7 +7,6 @@ De manière générale, la donnée dans une application Svelte circule **de haut
 Néanmoins, il est parfois pratique de contourner cette règle. Prenez le cas d'un élément `<input>` dans ce composant — nous **pourrions** ajouter un gestionnaire d'évènement `on:input` qui assignerait la valeur de `name` à `event.target.value`, mais cette méthode rend le code un peu... compliqué. Et c'est encore pire avec les autres éléments de formulaire, vous verrez.
 
 À la place, nous pouvons utiliser la directive `bind:value` :
-
 Instead, we can use the `bind:value` directive:
 
 ```html
