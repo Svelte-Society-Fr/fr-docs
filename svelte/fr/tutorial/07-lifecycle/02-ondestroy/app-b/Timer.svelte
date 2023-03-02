@@ -9,7 +9,7 @@
 
 <p>
 	Ce composant exécute une fonction toutes les
-	{interval} milliseconde{interval === 1 ? '' : 's'}
+	{interval} milliseconde{interval > 1 ? 's' : ''}
 </p>
 
 <style>
