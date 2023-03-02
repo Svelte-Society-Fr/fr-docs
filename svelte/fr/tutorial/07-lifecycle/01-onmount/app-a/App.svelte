@@ -12,7 +12,7 @@
 		</figure>
 	{:else}
 		<!-- ce bloc est affiché lorque photos.length === 0 -->
-		<p>loading...</p>
+		<p>chargement...</p>
 	{/each}
 </div>
 
