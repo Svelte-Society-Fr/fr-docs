@@ -12,7 +12,7 @@
 	<button on:click={toggle}>{open ? 'Fermer' : 'Ouvrir'} le Timer</button>
 	<p>
 		Le composant Timer est ouvert depuis
-		{seconds} {seconds === 1 ? 'seconde' : 'secondes'}
+		{seconds} {seconds > 1 ? 'secondes' : 'seconde'}
 	</p>
 	{#if open}
 	<Timer callback={handleTick} />
