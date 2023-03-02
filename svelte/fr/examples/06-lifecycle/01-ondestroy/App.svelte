@@ -7,5 +7,5 @@
 
 <p>
 	La page est ouverte depuis
-	{seconds} {seconds === 1 ? 'seconde' : 'secondes'}
+	{seconds} {seconds > 1 ? 'secondes' : 'seconde'}
 </p>
