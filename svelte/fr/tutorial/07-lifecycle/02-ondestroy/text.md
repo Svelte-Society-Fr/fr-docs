@@ -4,7 +4,7 @@ title: onDestroy
 
 Pour exécuter du code lorsque votre instance est détruite, utilisez `onDestroy`.
 
-Par exemple, nous pouvons ajouter une fonction `setInterval` lorsque notre composant s'instancie, et nettoyer l'intervalle lorsqu'il n'est plus pertinent. Cela permet d'éviter des fuites de mémoire.
+Par exemple, nous pouvons ajouter une fonction `setInterval` lorsque notre composant s'instancie, et supprimer l'intervalle lorsqu'il n'est plus pertinent. Cela permet d'éviter des fuites de mémoire.
 
 ```html
 <script>
