@@ -2,7 +2,7 @@
 title: beforeUpdate and afterUpdate
 ---
 
-La fonction `beforeUpdate` prévoit une mise-à-jour à effectuer juste avant la mise-à-jour du <span class="vo">_DOM_</span>. `afterUpdate` est son alter-ego, utile pour exécuter du code une fois que le DOM est synchronisé avec votre donnée.
+La fonction `beforeUpdate` permet de prévoir une fonction à exécuter juste avant la mise à jour du <span class="vo">_DOM_</span>. `afterUpdate` est son alter-ego, utile pour exécuter du code une fois que le DOM est synchronisé avec votre donnée.
 
 Ensemble, elles permettent d'effectuer des actions de manière impérative, notamment des actions qu'il serait difficile de réaliser avec des méthodes se basant uniquement sur l'état, comme mettre à jour la position de défilement d'un élément.
 
