@@ -24,4 +24,4 @@ Nous allons ajouter un gestionnaire `onMount` qui va charger de la donnée sur l
 
 Les fonctions de cycle de vie doivent être appelées pendant que l'instantiation du composant, de sorte que la fonction de rappel (<span class="vo">_callback_</span>) soit liée à l'instance — pas (par ex.) dans un `setTimeout`.
 
-Si le <span class="vo">_callback_</span> de `onMount` retourne une fonction, celle-ci sera exécutée à la destruction de l'instance..
+Si le <span class="vo">_callback_</span> de `onMount` retourne une fonction, celle-ci sera exécutée à la destruction de l'instance.
