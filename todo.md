@@ -1,6 +1,6 @@
 # TODO
 
-124 / 256 (48.44 %)
+132 / 256 (51.56 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -117,11 +117,11 @@
       - [ ] Dimensions
       - [ ] bind:this={canvas}
       - [ ] Component bindings
-   - [ ] Lifecycle
-      - [ ] onMount
-      - [ ] onDestroy
-      - [ ] beforeUpdate and afterUpdate
-      - [ ] tick
+   - [x] Lifecycle
+      - [x] onMount
+      - [x] onDestroy
+      - [x] beforeUpdate and afterUpdate
+      - [x] tick
    - [ ] Stores
       - [ ] Writable stores
       - [ ] Auto-subscriptions
@@ -248,11 +248,11 @@
       - [x] This
       - [x] Component bindings
       - [x] Binding to component instances
-   - [ ] Lifecycle
-      - [ ] onMount
-      - [ ] onDestroy
-      - [ ] beforeUpdate and afterUpdate
-      - [ ] tick
+   - [x] Lifecycle
+      - [x] onMount
+      - [x] onDestroy
+      - [x] beforeUpdate and afterUpdate
+      - [x] tick
    - [ ] Stores
       - [ ] Writable stores
       - [ ] Auto-subscriptions
