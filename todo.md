@@ -1,6 +1,6 @@
 # TODO
 
-160 / 256 (62.50 %)
+163 / 256 (63.67 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -81,10 +81,10 @@
       - [x] Styling
       - [x] Nested components
       - [x] HTML tags
-   - [ ] Reactivity
-      - [ ] Reactive assignments
-      - [ ] Reactive declarations
-      - [ ] Reactive statements
+   - [x] Reactivity
+      - [x] Reactive assignments
+      - [x] Reactive declarations
+      - [x] Reactive statements
    - [x] Props
       - [x] Declaring props
       - [x] Default values
