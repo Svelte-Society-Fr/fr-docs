@@ -2,11 +2,11 @@
 	import Thing from './Thing.svelte';
 
 	let things = [
-		{ id: 1, color: 'darkblue' },
-		{ id: 2, color: 'indigo' },
-		{ id: 3, color: 'deeppink' },
-		{ id: 4, color: 'salmon' },
-		{ id: 5, color: 'gold' }
+		{ id: 1, name: 'pomme' },
+		{ id: 2, name: 'banane' },
+		{ id: 3, name: 'carotte' },
+		{ id: 4, name: 'donut' },
+		{ id: 5, name: 'oeuf' },
 	];
 
 	function handleClick() {

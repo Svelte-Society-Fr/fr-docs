@@ -8,7 +8,7 @@
 
 <p>
 	<span style="background-color: {initial}">initial</span>
-	<span style="background-color: {current}">current</span>
+	<span style="background-color: {current}">actuel</span>
 </p>
 
 <style>
