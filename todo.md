@@ -1,6 +1,6 @@
 # TODO
 
-163 / 256 (63.67 %)
+174 / 256 (67.97 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -122,12 +122,12 @@
       - [x] onDestroy
       - [x] beforeUpdate and afterUpdate
       - [x] tick
-   - [ ] Stores
-      - [ ] Writable stores
-      - [ ] Auto-subscriptions
-      - [ ] Readable stores
-      - [ ] Derived stores
-      - [ ] Custom stores
+   - [x] Stores
+      - [x] Writable stores
+      - [x] Auto-subscriptions
+      - [x] Readable stores
+      - [x] Derived stores
+      - [x] Custom stores
    - [ ] Motion
       - [ ] Tweened
       - [ ] Spring
@@ -253,13 +253,13 @@
       - [x] onDestroy
       - [x] beforeUpdate and afterUpdate
       - [x] tick
-   - [ ] Stores
-      - [ ] Writable stores
-      - [ ] Auto-subscriptions
-      - [ ] Readable stores
-      - [ ] Derived stores
-      - [ ] Custom stores
-      - [ ] Store bindings
+   - [x] Stores
+      - [x] Writable stores
+      - [x] Auto-subscriptions
+      - [x] Readable stores
+      - [x] Derived stores
+      - [x] Custom stores
+      - [x] Store bindings
    - [ ] Motion
       - [ ] Tweened
       - [ ] Spring
