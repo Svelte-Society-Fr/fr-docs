@@ -18,6 +18,18 @@
 	Supprimer le premier élément
 </button>
 
-{#each things as thing (thing.id)}
-	<Thing name={thing.name}/>
-{/each}
+<div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 1em">
+	<div>
+		<h2>Avec clé</h2>
+		{#each things as thing (thing.id)}
+			<Thing current={thing.color}/>
+		{/each}
+	</div>
+
+	<div>
+		<h2>Sans clé</h2>
+		{#each things as thing}
+			<Thing current={thing.color}/>
+		{/each}
+	</div>
+</div>

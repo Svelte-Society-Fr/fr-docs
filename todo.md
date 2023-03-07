@@ -1,6 +1,6 @@
 # TODO
 
-132 / 256 (51.56 %)
+163 / 256 (63.67 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -81,42 +81,42 @@
       - [x] Styling
       - [x] Nested components
       - [x] HTML tags
-   - [ ] Reactivity
-      - [ ] Reactive assignments
-      - [ ] Reactive declarations
-      - [ ] Reactive statements
-   - [ ] Props
-      - [ ] Declaring props
-      - [ ] Default values
-      - [ ] Spread props
-   - [ ] Logic
-      - [ ] If blocks
-      - [ ] Else blocks
-      - [ ] Else-if blocks
-      - [ ] Each blocks
-      - [ ] Keyed each blocks
-      - [ ] Await blocks
-   - [ ] Events
-      - [ ] DOM events
-      - [ ] Inline handlers
-      - [ ] Event modifiers
-      - [ ] Component events
-      - [ ] Event forwarding
-      - [ ] DOM event forwarding
-   - [ ] Bindings
-      - [ ] Text inputs
-      - [ ] Numeric inputs
-      - [ ] Checkbox inputs
-      - [ ] Group inputs
-      - [ ] Textarea inputs
-      - [ ] File inputs
-      - [ ] Select bindings
-      - [ ] Select multiple
-      - [ ] Each block bindings
-      - [ ] Media elements
-      - [ ] Dimensions
-      - [ ] bind:this={canvas}
-      - [ ] Component bindings
+   - [x] Reactivity
+      - [x] Reactive assignments
+      - [x] Reactive declarations
+      - [x] Reactive statements
+   - [x] Props
+      - [x] Declaring props
+      - [x] Default values
+      - [x] Spread props
+   - [x] Logic
+      - [x] If blocks
+      - [x] Else blocks
+      - [x] Else-if blocks
+      - [x] Each blocks
+      - [x] Keyed each blocks
+      - [x] Await blocks
+   - [x] Events
+      - [x] DOM events
+      - [x] Inline handlers
+      - [x] Event modifiers
+      - [x] Component events
+      - [x] Event forwarding
+      - [x] DOM event forwarding
+   - [x] Bindings
+      - [x] Text inputs
+      - [x] Numeric inputs
+      - [x] Checkbox inputs
+      - [x] Group inputs
+      - [x] Textarea inputs
+      - [x] File inputs
+      - [x] Select bindings
+      - [x] Select multiple
+      - [x] Each block bindings
+      - [x] Media elements
+      - [x] Dimensions
+      - [x] bind:this={canvas}
+      - [x] Component bindings
    - [x] Lifecycle
       - [x] onMount
       - [x] onDestroy
