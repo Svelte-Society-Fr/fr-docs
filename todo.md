@@ -1,6 +1,6 @@
 # TODO
 
-174 / 256 (67.97 %)
+178 / 256 (69.53 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -128,9 +128,9 @@
       - [x] Readable stores
       - [x] Derived stores
       - [x] Custom stores
-   - [ ] Motion
-      - [ ] Tweened
-      - [ ] Spring
+   - [x] Motion
+      - [x] Tweened
+      - [x] Spring
    - [ ] Transitions
       - [ ] The transition directive
       - [ ] Adding parameters
@@ -260,9 +260,9 @@
       - [x] Derived stores
       - [x] Custom stores
       - [x] Store bindings
-   - [ ] Motion
-      - [ ] Tweened
-      - [ ] Spring
+   - [x] Motion
+      - [x] Tweened
+      - [x] Spring
    - [ ] Transitions
       - [ ] The transition directive
       - [ ] Adding parameters
