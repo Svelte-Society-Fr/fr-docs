@@ -60,7 +60,7 @@
 	>
 
 	<div class='left'>
-		<h2>todo</h2>
+		<h2>à faire</h2>
 		{#each todos.filter(t => !t.done) as todo (todo.id)}
 			<label
 				in:receive="{{key: todo.id}}"
