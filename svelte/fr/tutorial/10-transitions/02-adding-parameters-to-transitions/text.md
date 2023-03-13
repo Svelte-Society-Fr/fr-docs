@@ -2,7 +2,7 @@
 title: Ajout de paramètres
 ---
 
-Les fonctions de transition acceptent des arguments. Remplacez la transition `fade` avec `fly`...
+Les fonctions de transition acceptent des arguments. Remplacez la transition `fade` par `fly`...
 
 ```html
 <script>
