@@ -26,7 +26,7 @@ Des exemples de comportements inacceptables incluent:
 
 ## Responsabilités
 
-Les gérant•e•s de la communauté sont garant•e•s de la clarification et l'application de nos standards de comportement acceptable, et prendront les mesures juste et nécessaires en réponse à tout comportement qu'ils jugent inapproprié, menaçant, aggressif ou blessant.
+Les gérant•e•s de la communauté sont garant•e•s de la clarification et l'application de nos standards de comportement acceptable, et prendront les mesures justes et nécessaires en réponse à tout comportement qu'ils jugent inapproprié, menaçant, aggressif ou blessant.
 
 Les gérant•e•s de la communauté ont le droit et la responsabilité de supprimer, modifier, rejeter les commentaires, commits, code, éditions de wiki, issues, et autres contributions qui ne sont pas alignées avec ce Code de Conduite, et communiqueront les raisons des décisions de modération lorsqu'approprié.
 
