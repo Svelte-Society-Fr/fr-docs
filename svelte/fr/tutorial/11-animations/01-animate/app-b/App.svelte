@@ -56,7 +56,7 @@
 
 <div class='board'>
 	<input
-		placeholder="what needs to be done?"
+		placeholder="que dois-je faire ?"
 		on:keydown={e => e.key === 'Enter' && add(e.target)}
 	>
 
