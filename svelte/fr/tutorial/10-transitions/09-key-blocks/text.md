@@ -1,8 +1,8 @@
 ---
-title: Les blocs clé
+title: Les blocs key
 ---
 
-Les blocs clé détruisent et recréent leur contenu lorsque la valeur d'une expression change.
+Les blocs `key` détruisent et recréent leur contenu lorsque la valeur d'une expression change.
 
 ```html
 {#key value}

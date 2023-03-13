@@ -364,7 +364,7 @@ De manière similaire, si vous voulez uniquement afficher l'état d'erreur, vous
 {#key expression}...{/key}
 ```
 
-Les bloc `key` détruisent et reconstruisent leur contenu quand la valeur de leur expression change.
+Les blocs `key` détruisent et reconstruisent leur contenu quand la valeur de leur expression change.
 
 ---
 
