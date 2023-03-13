@@ -1,6 +1,6 @@
 # TODO
 
-194 / 256 (75.78 %)
+202 / 256 (78.91 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -139,16 +139,16 @@
       - [x] Custom JS transitions
       - [x] Transition events
       - [x] Deferred transitions
-   - [ ] Animations
-      - [ ] The animate directive
-   - [ ] Easing
-      - [ ] Ease Visualiser
-   - [ ] SVG
-      - [ ] Clock
-      - [ ] Bar chart
-      - [ ] Area chart
-      - [ ] Scatterplot
-      - [ ] SVG transitions
+   - [x] Animations
+      - [x] The animate directive
+   - [x] Easing
+      - [x] Ease Visualiser
+   - [x] SVG
+      - [x] Clock
+      - [x] Bar chart
+      - [x] Area chart
+      - [x] Scatterplot
+      - [x] SVG transitions
    - [ ] Actions
       - [ ] The use directive
       - [ ] Adding parameters
@@ -273,8 +273,8 @@
       - [x] Local transitions
       - [x] Deferred transitions
       - [x] Key blocks
-   - [ ] Animations
-      - [ ] The animate directive
+   - [x] Animations
+      - [x] The animate directive
    - [ ] Actions
       - [ ] The use directive
       - [ ] Adding parameters
