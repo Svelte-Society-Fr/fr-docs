@@ -1,6 +1,6 @@
 # TODO
 
-178 / 256 (69.53 %)
+194 / 256 (75.78 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -131,14 +131,14 @@
    - [x] Motion
       - [x] Tweened
       - [x] Spring
-   - [ ] Transitions
-      - [ ] The transition directive
-      - [ ] Adding parameters
-      - [ ] In and out
-      - [ ] Custom CSS transitions
-      - [ ] Custom JS transitions
-      - [ ] Transition events
-      - [ ] Deferred transitions
+   - [x] Transitions
+      - [x] The transition directive
+      - [x] Adding parameters
+      - [x] In and out
+      - [x] Custom CSS transitions
+      - [x] Custom JS transitions
+      - [x] Transition events
+      - [x] Deferred transitions
    - [ ] Animations
       - [ ] The animate directive
    - [ ] Easing
@@ -263,16 +263,16 @@
    - [x] Motion
       - [x] Tweened
       - [x] Spring
-   - [ ] Transitions
-      - [ ] The transition directive
-      - [ ] Adding parameters
-      - [ ] In and out
-      - [ ] Custom CSS transitions
-      - [ ] Custom JS transitions
-      - [ ] Transition events
-      - [ ] Local transitions
-      - [ ] Deferred transitions
-      - [ ] Key blocks
+   - [x] Transitions
+      - [x] The transition directive
+      - [x] Adding parameters
+      - [x] In and out
+      - [x] Custom CSS transitions
+      - [x] Custom JS transitions
+      - [x] Transition events
+      - [x] Local transitions
+      - [x] Deferred transitions
+      - [x] Key blocks
    - [ ] Animations
       - [ ] The animate directive
    - [ ] Actions
