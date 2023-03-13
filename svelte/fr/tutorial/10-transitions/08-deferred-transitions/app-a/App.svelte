@@ -71,7 +71,7 @@
 	</div>
 
 	<div class='right'>
-		<h2>done</h2>
+		<h2>fait</h2>
 		{#each todos.filter(t => t.done) as todo (todo.id)}
 			<label class="done">
 				<input type=checkbox checked on:change={() => mark(todo, false)}>
