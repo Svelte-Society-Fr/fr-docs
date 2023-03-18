@@ -1,6 +1,6 @@
 # TODO
 
-207 / 256 (80.86 %)
+213 / 256 (83.20 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -153,9 +153,9 @@
       - [x] The use directive
       - [x] Adding parameters
       - [x] A more complex action
-   - [ ] Classes
-      - [ ] The class directive
-      - [ ] Shorthand class directive
+   - [x] Classes
+      - [x] The class directive
+      - [x] Shorthand class directive
    - [ ] Component composition
       - [ ] Slots
       - [ ] Slot fallbacks
@@ -278,11 +278,11 @@
    - [x] Actions
       - [x] The use directive
       - [x] Adding parameters
-   - [ ] Advanced styling
-      - [ ] The class directive
-      - [ ] Shorthand class directive
-      - [ ] Inline styles
-      - [ ] The style directive
+   - [x] Advanced styling
+      - [x] The class directive
+      - [x] Shorthand class directive
+      - [x] Inline styles
+      - [x] The style directive
    - [ ] Component composition
       - [ ] Slots
       - [ ] Slot fallbacks
