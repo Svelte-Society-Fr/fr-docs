@@ -1,6 +1,6 @@
 # TODO
 
-202 / 256 (78.91 %)
+213 / 256 (83.20 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -149,13 +149,13 @@
       - [x] Area chart
       - [x] Scatterplot
       - [x] SVG transitions
-   - [ ] Actions
-      - [ ] The use directive
-      - [ ] Adding parameters
-      - [ ] A more complex action
-   - [ ] Classes
-      - [ ] The class directive
-      - [ ] Shorthand class directive
+   - [x] Actions
+      - [x] The use directive
+      - [x] Adding parameters
+      - [x] A more complex action
+   - [x] Classes
+      - [x] The class directive
+      - [x] Shorthand class directive
    - [ ] Component composition
       - [ ] Slots
       - [ ] Slot fallbacks
@@ -275,14 +275,14 @@
       - [x] Key blocks
    - [x] Animations
       - [x] The animate directive
-   - [ ] Actions
-      - [ ] The use directive
-      - [ ] Adding parameters
-   - [ ] Advanced styling
-      - [ ] The class directive
-      - [ ] Shorthand class directive
-      - [ ] Inline styles
-      - [ ] The style directive
+   - [x] Actions
+      - [x] The use directive
+      - [x] Adding parameters
+   - [x] Advanced styling
+      - [x] The class directive
+      - [x] Shorthand class directive
+      - [x] Inline styles
+      - [x] The style directive
    - [ ] Component composition
       - [ ] Slots
       - [ ] Slot fallbacks
