@@ -2,7 +2,7 @@
 title: La directive use
 ---
 
-Les actions sont des fonctions de cycle de vie pour les éléments <span class="vo">_DOM_</span>.
+Les actions sont des fonctions de cycle de vie pour les éléments du <span class="vo">_DOM_</span>.
 Elles sont utiles dans différents cas, par exemple :
 
 - s'interfacer avec des librairies tierces
