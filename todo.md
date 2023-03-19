@@ -1,6 +1,6 @@
 # TODO
 
-213 / 256 (83.20 %)
+224 / 256 (87.50 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -156,13 +156,13 @@
    - [x] Classes
       - [x] The class directive
       - [x] Shorthand class directive
-   - [ ] Component composition
-      - [ ] Slots
-      - [ ] Slot fallbacks
-      - [ ] Named slots
-      - [ ] Slot props
-      - [ ] Conditional Slots
-      - [ ] Modal
+   - [x] Component composition
+      - [x] Slots
+      - [x] Slot fallbacks
+      - [x] Named slots
+      - [x] Slot props
+      - [x] Conditional Slots
+      - [x] Modal
    - [ ] Context API
       - [ ] setContext and getContext
    - [ ] Special elements
@@ -283,12 +283,12 @@
       - [x] Shorthand class directive
       - [x] Inline styles
       - [x] The style directive
-   - [ ] Component composition
-      - [ ] Slots
-      - [ ] Slot fallbacks
-      - [ ] Named slots
-      - [ ] Checking for slot content
-      - [ ] Slot props
+   - [x] Component composition
+      - [x] Slots
+      - [x] Slot fallbacks
+      - [x] Named slots
+      - [x] Checking for slot content
+      - [x] Slot props
    - [ ] Context API
       - [ ] setContext and getContext
    - [ ] Special elements

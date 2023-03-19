@@ -10,7 +10,7 @@ Elles sont utiles dans différents cas, par exemple :
 - créer des info-bulles (<span class="vo">_tooltips_</span>)
 - ajouter des gestionnaires d'évènements personnalisés
 
-Dans cette application, nous voulons fermer la modale orange lorsque l'on clique à l'extérieur de celle-ci. Nous aimerions pouvoir écouter l'évènement `outclick`, mais cet évènement n'existe pas nativement dans le DOM. Nous devons donc le générer nous-mêmes.
+Dans cette application, nous voulons fermer la modale orange lorsque l'on clique à l'extérieur de celle-ci. Nous aimerions pouvoir écouter l'évènement `outclick`, mais cet évènement n'existe pas nativement dans le <span class="vo">_DOM_</span>. Nous devons donc le générer nous-mêmes.
 
 Tout d'abord, importez la fonction `clickOutside`...
 
