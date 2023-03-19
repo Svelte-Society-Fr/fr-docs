@@ -2,7 +2,7 @@
 title: Ajouter des paramètres
 ---
 
-À l'instar des transitions et des animations, une action peut prendre un argument de paramètres ; la fonction d'action sera alors appelée avec deux arguments: l'élément sur lequel cette fonction est appliquée (comme vu précédemment), et l'argument de paramètres.
+À l'instar des transitions et des animations, une action peut prendre un argument de paramètres ; la fonction d'action sera alors appelée avec deux arguments : l'élément sur lequel cette fonction est appliquée (comme vu précédemment), et l'argument de paramètres.
 
 Ici nous utilisons une action `longpress` qui déclenche un évènement du même nom lorsque l'on clique et que l'on maintient appuyé le bouton pour une certaine durée. Pour le moment, si vous allez voir le fichier `longpress.js`, vous verrez que cette durée est définie "en dur" à 500ms.
 
