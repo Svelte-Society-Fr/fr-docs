@@ -5,9 +5,9 @@
 <Hoverable let:hovering={active}>
 	<div class:active>
 		{#if active}
-			<p>I am being hovered upon.</p>
+			<p>On me survole.</p>
 		{:else}
-			<p>Hover over me!</p>
+			<p>Survolez-moi !</p>
 		{/if}
 	</div>
 </Hoverable>
@@ -15,9 +15,9 @@
 <Hoverable let:hovering={active}>
 	<div class:active>
 		{#if active}
-			<p>I am being hovered upon.</p>
+			<p>On me survole.</p>
 		{:else}
-			<p>Hover over me!</p>
+			<p>Survolez-moi !</p>
 		{/if}
 	</div>
 </Hoverable>
@@ -25,9 +25,9 @@
 <Hoverable let:hovering={active}>
 	<div class:active>
 		{#if active}
-			<p>I am being hovered upon.</p>
+			<p>On me survole.</p>
 		{:else}
-			<p>Hover over me!</p>
+			<p>Survolez-moi !</p>
 		{/if}
 	</div>
 </Hoverable>
@@ -43,7 +43,7 @@
 		background-color: #ff3e00;
 		color: white;
 	}
-	
+
 	p {
 		pointer-events: none;
 	}
