@@ -7,7 +7,7 @@ L'<span class="vo">_API_</span> de contexte fournit un mécanisme permettant aux
 
 Prenez l'exemple de cette application qui utilise une carte [Mapbox GL](https://docs.mapbox.com/mapbox-gl-js/overview/). Nous aimerions afficher les marqueurs en utilisant le composant `<MapMarker>`, mais nous ne voulons pas avoir à passer une référence à l'instance Mapbox sous-jacente en tant que props pour chaque instance de marqueur.
 
-L'<span class="vo">_API_</span> de contexte se compose de deux morceaux — `setContext` et `getContext`. Si un composant exécute `setContent(key, context)`, alors **tout composant enfant** peut récupérer le contexte avec `const context = getContext(key)`.
+L'<span class="vo">_API_</span> de contexte se compose de deux parties — `setContext` et `getContext`. Si un composant exécute `setContent(key, context)`, alors **tout composant enfant** peut récupérer le contexte avec `const context = getContext(key)`.
 
 Commençons par déclarer le contexte. Dans `Map.svelte`, importez `setContext` depuis `svelte` et `key` depuis `mapbox.js`, puis appelez `setContext` :
 
