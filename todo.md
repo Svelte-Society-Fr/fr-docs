@@ -1,6 +1,6 @@
 # TODO
 
-224 / 256 (87.50 %)
+226 / 256 (88.28 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -163,8 +163,8 @@
       - [x] Slot props
       - [x] Conditional Slots
       - [x] Modal
-   - [ ] Context API
-      - [ ] setContext and getContext
+   - [x] Context API
+      - [x] setContext and getContext
    - [ ] Special elements
       - [ ] \<svelte:self>
       - [ ] \<svelte:component>
@@ -289,8 +289,8 @@
       - [x] Named slots
       - [x] Checking for slot content
       - [x] Slot props
-   - [ ] Context API
-      - [ ] setContext and getContext
+   - [x] Context API
+      - [x] setContext and getContext
    - [ ] Special elements
       - [ ] \<svelte:self>
       - [ ] \<svelte:component>
