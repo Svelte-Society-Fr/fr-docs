@@ -50,7 +50,7 @@ Techniquement, nous pouvons utiliser n'importe quelle valeur comme clé — nous
 
 Les contextes et les <span class="vo">_stores_</span> sont des concepts similaires. Ils se distinguent toutefois dans le fait que les <span class="vo">_stores_</span> sont accessibles depuis **n'importe quelle partie** de l'application, tandis qu'un contexte ne s'applique que sur **un composant et ses descendants**. Cela peut être utile si vous souhaitez utiliser plusieurs instances d'un composant sans que l'état de l'une vienne interférer avec celui des autres.
 
-Vous pourriez même utiliser les deux concepts ensemble. Puisque le contexte n'est pas réactive, les valeurs qui vont évoluer dans le temps devraient être représentées par des <span class="vo">_stores_</span>.
+Vous pourriez même utiliser les deux concepts ensemble. Puisque le contexte n'est pas réactif, les valeurs qui vont évoluer dans le temps devraient être représentées par des <span class="vo">_stores_</span>.
 
 ```ts
 const { these, are, stores } = getContext(...);
