@@ -53,5 +53,5 @@ Les contextes et les <span class="vo">_stores_</span> sont des concepts similair
 Vous pourriez même utiliser les deux concepts ensemble. Puisque le contexte n'est pas réactif, les valeurs qui vont évoluer dans le temps devraient être représentées par des <span class="vo">_stores_</span>.
 
 ```ts
-const { these, are, stores } = getContext(...);
+const { ce, sont, des, stores } = getContext(...);
 ```
