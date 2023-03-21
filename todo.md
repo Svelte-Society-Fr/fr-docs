@@ -1,6 +1,6 @@
 # TODO
 
-226 / 256 (88.28 %)
+242 / 256 (94.53 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -165,14 +165,14 @@
       - [x] Modal
    - [x] Context API
       - [x] setContext and getContext
-   - [ ] Special elements
-      - [ ] \<svelte:self>
-      - [ ] \<svelte:component>
-      - [ ] \<svelte:element>
-      - [ ] \<svelte:window>
-      - [ ] \<svelte:window> bindings
-      - [ ] \<svelte:body>
-      - [ ] \<svelte:head>
+   - [x] Special elements
+      - [x] \<svelte:self>
+      - [x] \<svelte:component>
+      - [x] \<svelte:element>
+      - [x] \<svelte:window>
+      - [x] \<svelte:window> bindings
+      - [x] \<svelte:body>
+      - [x] \<svelte:head>
    - [ ] Module context
       - [ ] Named exports
    - [ ] Debugging
@@ -291,16 +291,16 @@
       - [x] Slot props
    - [x] Context API
       - [x] setContext and getContext
-   - [ ] Special elements
-      - [ ] \<svelte:self>
-      - [ ] \<svelte:component>
-      - [ ] \<svelte:element>
-      - [ ] \<svelte:window>
-      - [ ] \<svelte:window> bindings
-      - [ ] \<svelte:body>
-      - [ ] \<svelte:head>
-      - [ ] \<svelte:options>
-      - [ ] \<svelte:fragment>
+   - [x] Special elements
+      - [x] \<svelte:self>
+      - [x] \<svelte:component>
+      - [x] \<svelte:element>
+      - [x] \<svelte:window>
+      - [x] \<svelte:window> bindings
+      - [x] \<svelte:body>
+      - [x] \<svelte:head>
+      - [x] \<svelte:options>
+      - [x] \<svelte:fragment>
    - [ ] Module context
       - [ ] Sharing code
       - [ ] Exports
