@@ -1,6 +1,6 @@
 # TODO
 
-242 / 256 (94.53 %)
+256 / 256 (100.00 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -173,20 +173,20 @@
       - [x] \<svelte:window> bindings
       - [x] \<svelte:body>
       - [x] \<svelte:head>
-   - [ ] Module context
-      - [ ] Named exports
-   - [ ] Debugging
-      - [ ] The @debug tag
-   - [ ] 7GUIs
-      - [ ] Counter
-      - [ ] Temperature Converter
-      - [ ] Flight booker
-      - [ ] Timer
-      - [ ] CRUD
-      - [ ] Circle Drawer
-   - [ ] Miscellaneous
-      - [ ] Hacker News
-      - [ ] Immutable data
+   - [x] Module context
+      - [x] Named exports
+   - [x] Debugging
+      - [x] The @debug tag
+   - [x] 7GUIs
+      - [x] Counter
+      - [x] Temperature Converter
+      - [x] Flight booker
+      - [x] Timer
+      - [x] CRUD
+      - [x] Circle Drawer
+   - [x] Miscellaneous
+      - [x] Hacker News
+      - [x] Immutable data
 ## faq
    - [x] 100-im-new-to-svelte.md
    - [x] 110-where-can-i-get-support.md
@@ -301,11 +301,11 @@
       - [x] \<svelte:head>
       - [x] \<svelte:options>
       - [x] \<svelte:fragment>
-   - [ ] Module context
-      - [ ] Sharing code
-      - [ ] Exports
-   - [ ] Debugging
-      - [ ] The @debug tag
-   - [ ] Next steps
-      - [ ] Congratulations!
+   - [x] Module context
+      - [x] Sharing code
+      - [x] Exports
+   - [x] Debugging
+      - [x] The @debug tag
+   - [x] Next steps
+      - [x] Congratulations!
 
