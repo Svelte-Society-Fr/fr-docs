@@ -14,5 +14,5 @@
 {:else if selected === 'h3'}
 	<h3>Je suis une balise h3</h3>
 {:else if selected === 'p'}
-	<p>Je suis une balise tag</p>
+	<p>Je suis une balise p</p>
 {/if}
