@@ -18,7 +18,7 @@
 
 <div class="text">
 	<span style="opacity: {1 - Math.max(0, y / 40)}">
-		Faites défilez vers le bas
+		Faites défiler vers le bas
 	</span>
 
 	<div class="foreground">
