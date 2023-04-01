@@ -38,4 +38,4 @@
 	<input type="range" bind:value={duration} min="1" max="20000">
 </label>
 
-<button on:click="{() => elapsed = 0}">reset</button>
+<button on:click="{() => elapsed = 0}">réinitialiser</button>
