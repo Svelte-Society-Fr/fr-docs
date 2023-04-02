@@ -11,7 +11,7 @@
 		},
 		{
 			type: 'folder',
-			name: "GIFs d'animaux",
+			name: "GIF d'animaux",
 			files: [
 				{
 					type: 'folder',
