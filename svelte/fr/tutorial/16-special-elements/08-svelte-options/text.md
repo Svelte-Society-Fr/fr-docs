@@ -21,7 +21,7 @@ Ajoutez ceci en haut du fichier `Todo.svelte` :
 Les options possibles sont :
 
 * `immutable={true}` — vous n'utilisez jamais de données mutable, le compilateur peut donc se contenter de vérifier l'égalité de valeur par référence pour déterminer si les valeurs ont changé
-* `immutable={false}` — par défaut. Svelt sera conservatif pour vérifier si les objets mutables ont changé ou non
+* `immutable={false}` — par défaut. Svelte sera conservatif pour vérifier si les objets mutables ont changé ou non
 * `accessors={true}` — ajoute des <span class="vo">_getters_</span> et des <span class="vo">_setters_</span> aux props du composant
 * `accessors={false}` — par défaut
 * `namespace="..."` — le <span class="vo">_namespace_</span> dans lequel le composant sera utilisé, le plus souvent `"svg"`
