@@ -4,7 +4,7 @@ title: <svelte:options>
 
 L'élément `<svelte:options>` vous permet de préciser des options de compilateur.
 
-Ici nous prenons l'option `immutable` comme exemple. Dans cette application, les instances `<Todo>` clignotent lorsqu'elles recoivent une nouvelle donnée. Le clic sur un des éléments de la liste active ou désactive son état `done` en créant un nouveau tableau `todos` avec des données à jour. Cela entraîne le clignotement des **autres** `<Todo>`, même si au final aucun changement de <span class="vo">_DOM_</span> ne les concerne.
+Ici nous prenons l'option `immutable` comme exemple. Dans cette application, les instances `<Todo>` clignotent lorsqu'elles reçoivent une nouvelle donnée. Le clic sur un des éléments de la liste active ou désactive son état `done` en créant un nouveau tableau `todos` avec des données à jour. Cela entraîne le clignotement des **autres** `<Todo>`, même si au final aucun changement de <span class="vo">_DOM_</span> ne les concerne.
 
 Nous pouvons améliorer ce comportement en disant au composant `Todo` d'attendre de la donnée **immutable**. Cela signifie que nous nous engageons à ne **jamais muter** la prop `todo`, mais à la place nous créerons des nouveaux objets `todo` dès que quelque chose changera.
 
