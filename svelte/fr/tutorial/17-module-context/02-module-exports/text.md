@@ -24,7 +24,7 @@ Tout ce qui est exporté par un bloc `<script context="module">` devient un expo
 </script>
 ```
 
-...et nous en servir dans un gestionnaire d'évènement :
+...et nous en servir dans un gestionnaire d'évènements :
 
 ```html
 <button on:click={stopAll}>
