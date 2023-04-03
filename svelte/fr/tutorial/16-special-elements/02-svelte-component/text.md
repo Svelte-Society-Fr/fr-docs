@@ -20,4 +20,4 @@ Un composant peut changer de catégorie en utilisant `<svelte:component>`. À la
 <svelte:component this={selected.component}/>
 ```
 
-La valeur `this` peut être n'importe quel constructor de composant, ou une valeur <span class="vo">_falsy_</span> — si la valeur est <span class="vo">_falsy_</span>, aucun composant n'est rendu.
+La valeur `this` peut être n'importe quel constructeur de composant, ou une valeur <span class="vo">_falsy_</span> — si la valeur est <span class="vo">_falsy_</span>, aucun composant n'est rendu.
