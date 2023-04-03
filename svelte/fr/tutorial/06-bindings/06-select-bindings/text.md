@@ -1,5 +1,5 @@
 ---
-title: Liaisons de selection
+title: Liaisons de sélection
 ---
 
 Nous pouvons également utiliser `bind:value` avec les éléments `<select>`. Changez la ligne 20 :

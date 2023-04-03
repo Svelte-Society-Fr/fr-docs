@@ -1,5 +1,5 @@
 ---
-title: Slot par défaut
+title: Slots par défaut
 ---
 
 Un composant peut définir un contenu par défaut pour tout <span class="vo">_slot_</span> qui n'a pas été rempli, simplement en mettant du contenu dans l'élément `<slot>` :
