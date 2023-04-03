@@ -1,6 +1,6 @@
 # TODO
 
-226 / 256 (88.28 %)
+256 / 256 (100.00 %)
 
 ## docs
    - [x] 00-introduction.md
@@ -165,28 +165,28 @@
       - [x] Modal
    - [x] Context API
       - [x] setContext and getContext
-   - [ ] Special elements
-      - [ ] \<svelte:self>
-      - [ ] \<svelte:component>
-      - [ ] \<svelte:element>
-      - [ ] \<svelte:window>
-      - [ ] \<svelte:window> bindings
-      - [ ] \<svelte:body>
-      - [ ] \<svelte:head>
-   - [ ] Module context
-      - [ ] Named exports
-   - [ ] Debugging
-      - [ ] The @debug tag
-   - [ ] 7GUIs
-      - [ ] Counter
-      - [ ] Temperature Converter
-      - [ ] Flight booker
-      - [ ] Timer
-      - [ ] CRUD
-      - [ ] Circle Drawer
-   - [ ] Miscellaneous
-      - [ ] Hacker News
-      - [ ] Immutable data
+   - [x] Special elements
+      - [x] \<svelte:self>
+      - [x] \<svelte:component>
+      - [x] \<svelte:element>
+      - [x] \<svelte:window>
+      - [x] \<svelte:window> bindings
+      - [x] \<svelte:body>
+      - [x] \<svelte:head>
+   - [x] Module context
+      - [x] Named exports
+   - [x] Debugging
+      - [x] The @debug tag
+   - [x] 7GUIs
+      - [x] Counter
+      - [x] Temperature Converter
+      - [x] Flight booker
+      - [x] Timer
+      - [x] CRUD
+      - [x] Circle Drawer
+   - [x] Miscellaneous
+      - [x] Hacker News
+      - [x] Immutable data
 ## faq
    - [x] 100-im-new-to-svelte.md
    - [x] 110-where-can-i-get-support.md
@@ -291,21 +291,21 @@
       - [x] Slot props
    - [x] Context API
       - [x] setContext and getContext
-   - [ ] Special elements
-      - [ ] \<svelte:self>
-      - [ ] \<svelte:component>
-      - [ ] \<svelte:element>
-      - [ ] \<svelte:window>
-      - [ ] \<svelte:window> bindings
-      - [ ] \<svelte:body>
-      - [ ] \<svelte:head>
-      - [ ] \<svelte:options>
-      - [ ] \<svelte:fragment>
-   - [ ] Module context
-      - [ ] Sharing code
-      - [ ] Exports
-   - [ ] Debugging
-      - [ ] The @debug tag
-   - [ ] Next steps
-      - [ ] Congratulations!
+   - [x] Special elements
+      - [x] \<svelte:self>
+      - [x] \<svelte:component>
+      - [x] \<svelte:element>
+      - [x] \<svelte:window>
+      - [x] \<svelte:window> bindings
+      - [x] \<svelte:body>
+      - [x] \<svelte:head>
+      - [x] \<svelte:options>
+      - [x] \<svelte:fragment>
+   - [x] Module context
+      - [x] Sharing code
+      - [x] Exports
+   - [x] Debugging
+      - [x] The @debug tag
+   - [x] Next steps
+      - [x] Congratulations!
 
