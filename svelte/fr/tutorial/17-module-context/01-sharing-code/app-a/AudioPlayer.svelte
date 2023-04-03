@@ -8,7 +8,7 @@
 	let paused = true;
 
 	function stopOthers() {
-		// À FAIRE: implémenter stopOther
+		// À FAIRE: implémenter stopOthers
 	}
 </script>
 
