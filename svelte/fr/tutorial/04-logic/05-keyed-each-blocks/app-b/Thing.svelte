@@ -1,4 +1,6 @@
 <script>
+	import { onDestroy } from 'svelte';
+
 	const emojis = {
         pomme: "🍎",
         banane: "🍌",
@@ -12,6 +14,11 @@
 
 	// ...mais la variable "emoji" est fixée au moment de l'instantiation du composant
 	const emoji = emojis[name];
+
+	// observez dans la console ce qui a été détruit
+	onDestroy(() => {
+		console.log('chose détruite : ' + name)
+	});
 </script>
 
 <p>

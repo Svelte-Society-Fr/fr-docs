@@ -151,7 +151,7 @@ Toute expression à la racine du composant (i.e. ni dans un bloc ni dans une fon
 ```sv
 <script>
 	export let title;
-	export let person
+	export let person;
 
 	// ceci met à jour `document.title` lorsque
 	// la prop `title` change

@@ -698,7 +698,7 @@ out:fly={params}
 
 ---
 
-Anime les positions x, y et l'opacité d'un élément. Les transitions entrantes (`in`) permettent d'animer les propriétés depuis les valeurs courantes vers les valeurs spécifiées, passées en tant que paramètres. Les transitions sortantes (`out`) permettent quant à elles d'animer depuis les valeurs spécifiées vers les valeurs par défaut de l'élément.
+Anime les positions x, y et l'opacité d'un élément. Les transitions entrantes (`in`) permettent d'animer les propriétés depuis les valeurs spécifiées, passées en tant que paramètres, vers les valeurs par défaut. Les transitions sortantes (`out`) permettent quant à elles d'animer depuis les valeurs par défaut de l'élément vers les valeurs spécifiées.
 
 Les paramètres suivants peuvent être utilisés avec `fly` :
 
