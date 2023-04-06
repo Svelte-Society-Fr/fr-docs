@@ -1,5 +1,5 @@
 ---
-title: Relais d'évènement DOM
+title: Relais d'évènements DOM
 ---
 
 Le relais d'évènement fonctionne également pour les évènements DOM.
