@@ -20,17 +20,16 @@ jobs:
         owner: sveltejs
         repo: svelte
         dir: site/content
-  track-kit:
-    runs-on: ubuntu-latest
-    name: Checking Kit
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Kit docs new commits
-      uses: AlexxNB/track-commits-to-issue@master
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        owner: sveltejs
-        repo: kit
-        dir: documentation
-        hours: 24
+  # track-kit:
+  #   runs-on: ubuntu-latest
+  #   name: Checking Kit
+  #   steps:
+  #   - name: Checkout code
+  #     uses: actions/checkout@v3
+  #   - name: Kit docs new commits
+  #     uses: AlexxNB/track-commits-to-issue@master
+  #     with:
+  #       token: ${{ secrets.GITHUB_TOKEN }}
+  #       owner: sveltejs
+  #       repo: kit
+  #       dir: documentation
