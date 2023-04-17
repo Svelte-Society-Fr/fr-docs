@@ -19,6 +19,16 @@ Assure de ne pas utiliser l'attribut `accesskey` sur des éléments. L'attribu
 
 ---
 
+### `a11y-aria-activedescendant-has-tabindex`
+
+Un élément avec `aria-activedescendant`  doit pouvoir être navigable en utilisant la touche "Tabulation", il doit donc avoir un `tabindex` intrinsèque, ou déclarer `tabindex` comme attribut.
+
+```sv
+<!-- A11y: Les éléments avec l'attribut aria-activedescendant devraient avoir un tabindex -->
+<div aria-activedescendant="some-id" />
+
+---
+
 ### `a11y-aria-attributes`
 
 Certains éléments DOM spéciaux ne prennent pas en charge les rôles, états et propriétés ARIA. C'est souvent parce qu'ils ne sont pas visibles, comme `meta`, `html`, `script`, `style`. Cette règle garantit que ces éléments DOM ne contiennent pas des `aria-*` accessoires.

@@ -4,21 +4,23 @@
 
 	export let todo;
 
-	let div;
+	let button;
 
 	afterUpdate(() => {
-		flash(div);
+		flash(button);
 	});
 </script>
 
 <!-- le texte clignote en rouge quand
      l'objet `todo` change -->
-<div bind:this={div} on:click>
+<button bind:this={button} type="button" on:click>
 	{todo.done ? '👍': ''} {todo.text}
-</div>
+</button>
 
 <style>
-	div {
+	button {
+		all: unset;
+		display: block;
 		cursor: pointer;
 		line-height: 1.5;
 	}
