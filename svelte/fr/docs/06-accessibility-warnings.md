@@ -53,7 +53,7 @@ Interdire l’usage d'`autofocus` sur les éléments. Le focus automatique d'él
 
 ### `a11y-click-events-have-key-events`
 
-Assure que `on:click` soit accompagné d'au moins l'un des éléments suivants: `onKeyUp`, `onKeyDown`, `onKeyPress`. Penser à l'usage au clavier est important pour les utilisateurs avec des handicaps physiques qui ne peuvent pas utiliser de souris, pour les utilisateurs de liseuses d'écran, ainsi que pour la compatibilité AT.
+Assure que `on:click` soit accompagné d'au moins l'un des éléments suivants: `on:keyup`, `on:keydown`, `on:keypress`. Penser à l'usage au clavier est important pour les utilisateurs avec des handicaps physiques qui ne peuvent pas utiliser de souris, pour les utilisateurs de liseuses d'écran, ainsi que pour la compatibilité AT.
 
 Cela ne s'applique pas aux éléments interactifs ou cachés.
 
@@ -61,6 +61,8 @@ Cela ne s'applique pas aux éléments interactifs ou cachés.
 <!-- A11y: les éléments visibles et non interactifs avec un événement on:click doivent être accompagnés d'un événement on:keydown, on:keyup ou on:keypress. -->
 <div on:click={() => {}} />
 ```
+
+Notez que l'évènement `keypress` est maintenant déprécié, il est donc officiellement recommandé d'utiliser à la place les évènements `keyup` ou `keydown`, selon les besoins.
 
 ---
 
