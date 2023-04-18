@@ -764,6 +764,7 @@ Les paramètres suivants peuvent être utilisés avec `slide` :
 * `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
 * `duration` (`number`, par défaut 400) - durée de la transition en millisecondes
 * `easing` (`function`, par défaut `cubicOut`) — une [fonction de lissage (`easing function`)](/docs#run-time-svelte-easing)
+* `axis` (`x` | `y`, par défaut `y`) — l'axe de déplacement utilisé pour la transition
 
 ```sv
 <script>
@@ -772,8 +773,8 @@ Les paramètres suivants peuvent être utilisés avec `slide` :
 </script>
 
 {#if condition}
-	<div transition:slide="{{delay: 250, duration: 300, easing: quintOut }}">
-		Apparaît et disparaît en glissant
+	<div transition:slide="{{delay: 250, duration: 300, easing: quintOut, axis: 'x' }}">
+		Apparaît et disparaît en glissant horizontalement
 	</div>
 {/if}
 ```
