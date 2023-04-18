@@ -2,7 +2,7 @@
 title: Inputs de zone de texte
 ---
 
-En Svelte, l'élément `<textarea>` se comporte de manière similaire à un `<input>` de texte — vous pouvez utiliser `bind:value` :
+En Svelte, l'élément `<textarea>` se comporte de manière similaire à un `<input>` de texte — vous pouvez utiliser `bind:value` pour créer une liaison bi-latérale entre le contenu du `<textarea>` et la variable `value` :
 
 ```html
 <textarea bind:value={value}></textarea>

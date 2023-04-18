@@ -452,6 +452,25 @@ import { get } from 'svelte/store';
 const value = get(store);
 ```
 
+#### `readonly`
+
+```js
+readableStore = readonly(writableStore);
+```
+
+---
+
+Cette fonction utilitaire permet de faire de n'importe quel <span class='vo'>_store_</span> un <span class='vo'>_store_</span> en lecture seule. Vous pouvez toujours vous abonner aux changements du <span class='vo'>_store_</span> original en vous abonnant à ce nouveau <span class='vo'>_store_</span> en lecture seule.
+
+
+```js
+import { readonly } from 'svelte/store';
+const writableStore = writable(1);
+const readableStore = readonly(writableStore);
+readableStore.subscribe(console.log);
+writableStore.set(2); // console: 2
+readableStore.set(2); // ERROR
+```
 
 ### `svelte/motion`
 
@@ -698,7 +717,7 @@ out:fly={params}
 
 ---
 
-Anime les positions x, y et l'opacité d'un élément. Les transitions entrantes (`in`) permettent d'animer les propriétés depuis les valeurs courantes vers les valeurs spécifiées, passées en tant que paramètres. Les transitions sortantes (`out`) permettent quant à elles d'animer depuis les valeurs spécifiées vers les valeurs par défaut de l'élément.
+Anime les positions x, y et l'opacité d'un élément. Les transitions entrantes (`in`) permettent d'animer les propriétés depuis les valeurs spécifiées, passées en tant que paramètres, vers les valeurs par défaut. Les transitions sortantes (`out`) permettent quant à elles d'animer depuis les valeurs par défaut de l'élément vers les valeurs spécifiées.
 
 Les paramètres suivants peuvent être utilisés avec `fly` :
 

@@ -204,6 +204,8 @@ Des conditions supplémentaires peuvent être ajoutées avec `{:else if expressi
 {/if}
 ```
 
+(Les blocs n'ont pas besoin d'entourer des éléments, ils peuvent aussi entourer du texte au sein d'éléments !)
+
 ### {#each ...}
 
 ```sv
@@ -655,7 +657,7 @@ Une liaison sur un `<select>` correspond à la propriété `value` de l'`<option
 
 ---
 
-Un élément `<select multiple>` se comporte de manière similaire à un groupe de checkbox.
+Un élément `<select multiple>` se comporte de manière similaire à un groupe de checkbox. La variable liée est un tableau avec un élément correspondant à la propriété `value` de chaque `<option>` sélectionnée.
 
 ```sv
 <select multiple bind:value={fillings}>
@@ -1297,14 +1299,12 @@ Une fonction d'animation personnalisée peut aussi renvoyer une fonction `tick`,
 		const d = Math.sqrt(dx * dx + dy * dy);
 
 		return {
-		delay: 0,
-		duration: Math.sqrt(d) * 120,
-		easing: cubicOut,
-		tick: (t, u) =>
-			Object.assign(node.style, {
-				color: t > 0.5 ? 'Pink' : 'Blue'
-			});
-	};
+			delay: 0,
+			duration: Math.sqrt(d) * 120,
+			easing: cubicOut,
+			tick: (t, u) =>
+				Object.assign(node.style, { color: t > 0.5 ? 'Pink' : 'Blue' });
+		};
 	}
 </script>
 
@@ -1567,7 +1567,7 @@ Notez que passer explicitement un slot nommés vide ajoutera le nom de ce slot �
 
 ---
 
-Les slors peuvent être rendus zéro ou plusieurs fois, et peuvent passer des valeurs *en retour* au parent en utilisant des props. Le parent expose ces valeurs au *template* de slot avec la directive `let:`.
+Les <span class='vo'>slots</span> peuvent être rendus zéro ou plusieurs fois, et peuvent passer des valeurs *en retour* au parent en utilisant des props. Le parent expose ces valeurs au *template* de <span class='vo'>slot</span> avec la directive `let:`.
 
 Il est possible d'utiliser la syntaxe raccourcie usuelle — `let:item` est équivalent à `let:item={item}`, et `<slot {item}>` est équivalent à `<slot item={item}>`.
 
@@ -1663,7 +1663,7 @@ Le seul type de liaison (*binding*) possible dans ce cas est `bind:this`, puisqu
 
 Si `this` a une valeur *nullish* (`null` ou `undefined`), l'élément et ses enfants ne seront pas rendus.
 
-Si `this` a pour valeur le nom d'une balise vide (comme `br`), et des enfants ont été fournis à `<svelte:element>`, une erreur d'exécution sera levée en mode développement.
+Si `this` a pour valeur le nom d'une [balise vide](https://developer.mozilla.org/fr/docs/Glossary/Void_element) (comme `br`), et des enfants ont été fournis à `<svelte:element>`, une erreur d'exécution sera levée en mode développement.
 
 ```sv
 <script>
@@ -1709,7 +1709,7 @@ Vous pouvez aussi lier (avec `bind:`) les propriétés suivantes :
 * `outerHeight`
 * `scrollX`
 * `scrollY`
-* `online` — alias de window.navigator.onLine
+* `online` — alias de `window.navigator.onLine`
 
 Toutes ces propriétés sont en lecture seule, à l'exception de `scrollX` and `scrollY`.
 
