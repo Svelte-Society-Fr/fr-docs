@@ -530,14 +530,15 @@ Ajoutez des *modificateurs* aux évènements DOM avec le caractère `|`.
 
 Les modificateurs suivants sont disponibles:
 
-* `preventDefault` — appelle `event.preventDefault()` avant d'exécuter la fonction d'écoute
+* `preventDefault` — appelle `event.preventDefault()` avant d'exécuter le gestionnaire d'évènement
 * `stopPropagation` — appelle `event.stopPropagation()`, empêchant l'évènement d'atteindre le prochain élément
+* `stopImmediatePropagation` - appelle `event.stopImmediatePropagation()`, empêchant d'autres gestionnaires du même évènement d'être exécutés
 * `passive` — améliore la performance du défilement pour les évènements touch/wheel (Svelte l'ajoutera automatiquement lorsque qu'il détecte que ce n'est pas problématique)
 * `nonpassive` — déclare explicitement l'évènement avec `passive: false`
-* `capture` — déclenche la fonction d'écoute pendant la phase de *capture* plutôt que pendant la phase de *bubbling*
-* `once` — supprime la fonction d'écoute après sa première exécution
-* `self` — ne déclenche la fonction d'écoute que si `event.target` est l'élément lui-même
-* `trusted` — ne déclenche la fonction d'écoute que si `event.isTrusted` est `true`. C'est-à-dire si l'évènement est déclenché par une action utilisateur.
+* `capture` — déclenche le gestionnaire d'évènement pendant la phase de *capture* plutôt que pendant la phase de *bubbling*
+* `once` — supprime le gestionnaire d'évènement après sa première exécution
+* `self` — ne déclenche le gestionnaire d'évènement que si `event.target` est l'élément lui-même
+* `trusted` — ne déclenche le gestionnaire d'évènement que si `event.isTrusted` est `true`. C'est-à-dire si l'évènement est déclenché par une action utilisateur.
 
 Vous pouvez chaîner les modificateurs, par ex. `on:click|once|capture={...}`.
 
@@ -706,14 +707,15 @@ Les éléments `<details>` permettent les liaisons avec la propriété `open`.
 
 ---
 
-Les éléments media (`<audio>` et `<video>`) ont leurs propres liaisons — au nombre de 6 et en *lecture seule* ...
+Les éléments media (`<audio>` et `<video>`) ont leurs propres liaisons — au nombre de 7 et en *lecture seule* ...
 
-* `duration` (readonly) — durée totale de la vidéo, en secondes
-* `buffered` (readonly) — tableau d'objets `{start, end}`
-* `played` (readonly) — idem
-* `seekable` (readonly) — idem
-* `seeking` (readonly) — booléen
-* `ended` (readonly) — booléen
+* `duration` (lecture seule) — durée totale de la vidéo, en secondes
+* `buffered` (lecture seule) — tableau d'objets `{start, end}`
+* `played` (lecture seule) — idem
+* `seekable` (lecture seule) — idem
+* `seeking` (lecture seule) — booléen
+* `ended` (lecture seule) — booléen
+* `readyState` (lecture seule) — nombre entre 0 (inclus) et 4 (inclus)
 
 ... et 5 liaisons *bi-latérales* :
 
@@ -734,6 +736,7 @@ Les vidéos ont de plus des liaisons en lecture seule pour les attributs `videoW
 	bind:seekable
 	bind:seeking
 	bind:ended
+	bind:readyState
 	bind:currentTime
 	bind:playbackRate
 	bind:paused
