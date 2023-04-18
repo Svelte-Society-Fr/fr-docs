@@ -1511,6 +1511,7 @@ Le contenu est exposé dans le composant enfant avec l'élément `<slot>`, qui p
 </Widget>
 ```
 
+Note: Si vous souhaitez afficher un élément HTML de type `<slot>`, vous pouvez utiliser `<svelte:element this="slot" />`.
 
 #### `<slot name="`*name*`">`
 
