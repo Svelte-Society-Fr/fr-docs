@@ -744,6 +744,23 @@ Les vidéos ont de plus des liaisons en lecture seule pour les attributs `videoW
 ></video>
 ```
 
+##### Liaisons des éléments image
+
+---
+
+Les éléments d'image (`<img>`) ont deux liaisons en lecture seule :
+
+* `naturalWidth` (lecture seule) — la largeur d'origine de l'image, disponible après le chargement de l'image
+* `naturalHeight` (lecture seule) — la hauteur d'origine de l'image, disponible après le chargement de l'image
+
+```sv
+<img
+	bind:naturalWidth
+	bind:naturalHeight
+></img>
+```
+
+
 ##### Liaisons des éléments de type `block`
 
 ---
