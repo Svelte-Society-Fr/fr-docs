@@ -134,6 +134,17 @@ Assure que les attributs importants pour l'accessibilité aient une valeur valid
 
 ---
 
+### `a11y-interactive-supports-focus`
+
+Assure que les éléments avec un rôle interactif et des gestionnaires d'évènements interactifs (de souris ou de clavier) soient focalisables ou accessibles avec la touche Tab.
+
+```sv
+<!-- A11y: Les éléments avec le rôle interactif 'button' doivent avoir une valeur pour l'attribut "tabindex". -->
+<div role="button" on:keypress={() => {}} />
+```
+
+---
+
 ### `a11y-label-has-associated-control`
 
 Assure qu'un élément `label` ait une étiquette de texte et un contrôle associé.
