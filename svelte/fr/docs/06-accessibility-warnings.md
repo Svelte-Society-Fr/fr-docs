@@ -274,6 +274,18 @@ Les rôles [WAI-ARIA](https://www.w3.org/TR/wai-aria-1.1/#usage_intro) ne devrai
 
 ---
 
+### `a11y-no-noninteractive-element-to-interactive-role`
+
+
+Les rôles [WAI-ARIA](https://www.w3.org/TR/wai-aria-1.1/#usage_intro) ne devraient pas être utilisés pour convertir un élément non interactif en élément interactif. Les rôles ARIA interactifs incluent `button`, `link`, `checkbox`, `menuitem`, `menuitemcheckbox`, `menuitemradio`, `option`, `radio`, `searchbox`, `switch` et `textbox`.
+
+```sv
+<!-- A11y: Les éléments non interactifs <h3> ne devraient pas avoir le rôle interactif 'searchbox' -->
+<h3 role="searchbox">Bouton</h3>
+```
+
+---
+
 ### `a11y-no-noninteractive-tabindex`
 
 La navigation à l'aide de la touche Tab doit être limitée aux éléments de la page avec lesquels il est possible d'interagir.
