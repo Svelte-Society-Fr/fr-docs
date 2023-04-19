@@ -291,7 +291,7 @@ Vous ne pouvez pas `export default`, puisque l'export par défaut est le composa
 <script context="module">
 	let totalComponents = 0;
 
-	// cela permet d'écrire dans un parent (par exemple)
+	// le mot clé "export" permet à cette fonction d'être importée ailleurs, par ex.
 	// `import Example, { alertTotal } from './Example.svelte'`
 	export function alertTotal() {
 		alert(totalComponents);
