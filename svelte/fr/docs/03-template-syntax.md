@@ -1740,6 +1740,24 @@ Toutes ces propriétés sont en lecture seule, à l'exception de `scrollX` and `
 
 > Notez que la page ne défilera pas à la valeur fournie initialement pour des raisons d'accessibilité. Seuls les changements ultérieurs liés aux variables `scrollX` et `scrollY` déclencheront le défilement. Cependant, si un défilement initial est tout de même nécessaire, vous pouvez utiliser `scrollTo()` dans `onMount()`.
 
+### `<svelte:document>`
+
+```sv
+<svelte:document on:event={handler}/>
+```
+
+---
+
+À l'instar de `<svelte:window>`, cet élément vous permet d'ajouter des gestionnaires d'évènement sur `document`, comme `visibilitychange`, qui ne sera pas déclenché sur `window`. Cet élément vous permet aussi d'utiliser des [actions](/docs#template-syntax-element-directives-use-action) sur `document`.
+
+Comme pour `<svelte:window>`, cet élément peut uniquement être utilisé à la racine du markup de votre composant, et ne doit jamais être à l'intérieur d'un bloc de compilation ou d'un élément.
+
+```sv
+<svelte:document
+	on:visibilitychange={handleVisibilityChange}
+	use:someAction
+/>
+```
 
 ### `<svelte:body>`
 
@@ -1752,7 +1770,7 @@ Toutes ces propriétés sont en lecture seule, à l'exception de `scrollX` and `
 À l'instar de `<svelte:window>`, cet élément vous permet d'ajouter des fonctions d'écoute pour les évènements se produisant sur le `document.body`, comme `mouseenter` et `mouseleave`, qui ne se déclenchent pas sur `window`. Cela permet également d'utiliser des [actions](/docs#template-syntax-element-directives-use-action) sur l'élément `<body>`.
 
 
-Comme pour `<svelte:window>`, cet élément peut uniquement être placé à la racine du markup d'un composant, et ne doit jamais être à l'intérieur d'un bloc de compilation ou d'un élément.
+Comme pour `<svelte:window>` et `<svelte:document>`, cet élément peut uniquement être placé à la racine du markup d'un composant, et ne doit jamais être à l'intérieur d'un bloc de compilation ou d'un élément.
 
 ```sv
 <svelte:body
@@ -1773,7 +1791,7 @@ Comme pour `<svelte:window>`, cet élément peut uniquement être placé à la r
 
 Cet élément rend possible l'insertion d'éléments dans `document.head`. Lors d'un rendu côté serveur, le contenu de `head` est exposé séparément du contenu `html`.
 
-Comme pour `<svelte:window>` et `<svelte:body>`, cet élément peut uniquement être placé à la racine du markup d'un composant, et ne doit jamais être à l'intérieur d'un bloc de compilation ou d'un élément.
+Comme pour `<svelte:window>`, `<svelte:document>` et `<svelte:body>`, cet élément peut uniquement être placé à la racine du markup d'un composant, et ne doit jamais être à l'intérieur d'un bloc de compilation ou d'un élément.
 
 ```sv
 <svelte:head>

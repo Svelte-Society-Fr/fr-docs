@@ -689,7 +689,7 @@ Les paramètres suivants peuvent être utilisés avec `blur` :
 * `duration` (`number`, par défaut 400) - durée de la transition en millisecondes
 * `easing` (`function`, par défaut `cubicInOut`) — une [fonction de lissage (`easing function`)](/docs#run-time-svelte-easing)
 * `opacity` (`number`, par défaut 0) - opacité cible de l'animation
-* `amount` (`number`, par défaut 5) - La taille du flou en pixel
+* `amount` (`number | string`, par défaut 5) - la taille du flou. Supporte les unités CSS (par exemple : `"4rem"`). L'unité par défaut est `px`.
 
 ```sv
 <script>
@@ -724,9 +724,11 @@ Les paramètres suivants peuvent être utilisés avec `fly` :
 * `delay` (`number`, par défaut 0) - millisecondes avant le démarrage
 * `duration` (`number`, par défaut 400) - durée de la transition en millisecondes
 * `easing` (`function`, par défaut `cubicOut`) — une [fonction de lissage (`easing function`)](/docs#run-time-svelte-easing)
-* `x` (`number`, par défaut 0) - décalage horizontal de l'animation
-* `y` (`number`, par défaut 0) - décalage vertical de l'animation
+* `x` (`number | string`, par défaut 0) - décalage horizontal de l'animation
+* `y` (`number | string`, par défaut 0) - décalage vertical de l'animation
 * `opacity` (`number`, par défaut 0) - opacité cible de l'animation
+
+x et y utilisent `px` par défaut mais supportent les unités CSS, par exemple `x: '100vw'` ou `y: '50%'`.
 
 Un exemple de transition de type `fly` est présenté dans le [tutoriel relatif aux transitions](/tutorial/adding-parameters-to-transitions).
 
