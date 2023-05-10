@@ -1753,7 +1753,7 @@ Toutes ces propriétés sont en lecture seule, à l'exception de `scrollX` and `
 
 ---
 
-À l'instar de `<svelte:window>`, cet élément vous permet d'ajouter des gestionnaires d'évènement sur `document`, comme `visibilitychange`, qui ne sera pas déclenché sur `window`. Cet élément vous permet aussi d'utiliser des [actions](/docs#template-syntax-element-directives-use-action) sur `document`.
+À l'instar de `<svelte:window>`, cet élément vous permet d'ajouter des gestionnaires d'évènement sur `document`, comme `visibilitychange`, qui n'est pas déclenché sur `window`. Cet élément vous permet aussi d'utiliser des [actions](/docs#template-syntax-element-directives-use-action) sur `document`.
 
 Comme pour `<svelte:window>`, cet élément peut uniquement être utilisé à la racine du markup de votre composant, et ne doit jamais être à l'intérieur d'un bloc de compilation ou d'un élément.
 
