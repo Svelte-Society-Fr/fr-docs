@@ -1754,6 +1754,10 @@ Toutes ces propriétés sont en lecture seule, à l'exception de `scrollX` and `
 <svelte:document on:event={handler}/>
 ```
 
+```sv
+<svelte:document bind:prop={value}/>
+```
+
 ---
 
 À l'instar de `<svelte:window>`, cet élément vous permet d'ajouter des gestionnaires d'évènement sur `document`, comme `visibilitychange`, qui n'est pas déclenché sur `window`. Cet élément vous permet aussi d'utiliser des [actions](/docs#template-syntax-element-directives-use-action) sur `document`.
@@ -1766,6 +1770,15 @@ Comme pour `<svelte:window>`, cet élément peut uniquement être utilisé à la
 	use:someAction
 />
 ```
+
+---
+
+Vous pouvez aussi créer une liaison avec les propriétés suivantes:
+
+* `fullscreenElement`
+* `visibilityState`
+
+Elles sont toutes en lecture seule.
 
 ### `<svelte:body>`
 
