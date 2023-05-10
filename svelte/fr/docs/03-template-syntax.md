@@ -817,6 +817,8 @@ Les inputs qui fonctionnent ensemble peuvent utiliser `bind:group`.
 <input type="checkbox" bind:group={fillings} value="Guacamole (supplément)">
 ```
 
+> `bind:group` ne fonctionne que si les `<input>` sont dans le même composant Svelte.
+
 #### bind:this
 
 ```sv
@@ -1736,6 +1738,7 @@ Vous pouvez aussi lier (avec `bind:`) les propriétés suivantes :
 * `scrollX`
 * `scrollY`
 * `online` — alias de `window.navigator.onLine`
+* `devicePixelRatio`
 
 Toutes ces propriétés sont en lecture seule, à l'exception de `scrollX` and `scrollY`.
 
