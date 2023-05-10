@@ -530,14 +530,15 @@ Ajoutez des *modificateurs* aux évènements DOM avec le caractère `|`.
 
 Les modificateurs suivants sont disponibles:
 
-* `preventDefault` — appelle `event.preventDefault()` avant d'exécuter la fonction d'écoute
+* `preventDefault` — appelle `event.preventDefault()` avant d'exécuter le gestionnaire d'évènement
 * `stopPropagation` — appelle `event.stopPropagation()`, empêchant l'évènement d'atteindre le prochain élément
+* `stopImmediatePropagation` - appelle `event.stopImmediatePropagation()`, empêchant d'autres gestionnaires du même évènement d'être exécutés
 * `passive` — améliore la performance du défilement pour les évènements touch/wheel (Svelte l'ajoutera automatiquement lorsque qu'il détecte que ce n'est pas problématique)
 * `nonpassive` — déclare explicitement l'évènement avec `passive: false`
-* `capture` — déclenche la fonction d'écoute pendant la phase de *capture* plutôt que pendant la phase de *bubbling*
-* `once` — supprime la fonction d'écoute après sa première exécution
-* `self` — ne déclenche la fonction d'écoute que si `event.target` est l'élément lui-même
-* `trusted` — ne déclenche la fonction d'écoute que si `event.isTrusted` est `true`. C'est-à-dire si l'évènement est déclenché par une action utilisateur.
+* `capture` — déclenche le gestionnaire d'évènement pendant la phase de *capture* plutôt que pendant la phase de *bubbling*
+* `once` — supprime le gestionnaire d'évènement après sa première exécution
+* `self` — ne déclenche le gestionnaire d'évènement que si `event.target` est l'élément lui-même
+* `trusted` — ne déclenche le gestionnaire d'évènement que si `event.isTrusted` est `true`. C'est-à-dire si l'évènement est déclenché par une action utilisateur.
 
 Vous pouvez chaîner les modificateurs, par ex. `on:click|once|capture={...}`.
 
@@ -683,7 +684,12 @@ Quand la valeur d'une `<option>` correspond à son contenu texte, l'attribut peu
 
 ---
 
-Les éléments avec l'attribut `contenteditable` permettent les liaisons avec `innerHTML` et `textContent`.
+Les éléments avec l'attribut `contenteditable` permettent les liaisons suivantes:
+- [`innerHTML`](https://developer.mozilla.org/fr/docs/Web/API/Element/innerHTML)
+- [`innerText`](https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/innerText)
+- [`textContent`](https://developer.mozilla.org/fr/docs/Web/API/Node/textContent)
+
+Il y a de légères différences entre ces différentes liaisons, apprenez-en plus [ici](https://developer.mozilla.org/fr/docs/Web/API/Node/textContent#Differences_from_innerText).
 
 ```sv
 <div contenteditable="true" bind:innerHTML={html}></div>
@@ -706,14 +712,15 @@ Les éléments `<details>` permettent les liaisons avec la propriété `open`.
 
 ---
 
-Les éléments media (`<audio>` et `<video>`) ont leurs propres liaisons — au nombre de 6 et en *lecture seule* ...
+Les éléments media (`<audio>` et `<video>`) ont leurs propres liaisons — au nombre de 7 et en *lecture seule* ...
 
-* `duration` (readonly) — durée totale de la vidéo, en secondes
-* `buffered` (readonly) — tableau d'objets `{start, end}`
-* `played` (readonly) — idem
-* `seekable` (readonly) — idem
-* `seeking` (readonly) — booléen
-* `ended` (readonly) — booléen
+* `duration` (lecture seule) — durée totale de la vidéo, en secondes
+* `buffered` (lecture seule) — tableau d'objets `{start, end}`
+* `played` (lecture seule) — idem
+* `seekable` (lecture seule) — idem
+* `seeking` (lecture seule) — booléen
+* `ended` (lecture seule) — booléen
+* `readyState` (lecture seule) — nombre entre 0 (inclus) et 4 (inclus)
 
 ... et 5 liaisons *bi-latérales* :
 
@@ -734,6 +741,7 @@ Les vidéos ont de plus des liaisons en lecture seule pour les attributs `videoW
 	bind:seekable
 	bind:seeking
 	bind:ended
+	bind:readyState
 	bind:currentTime
 	bind:playbackRate
 	bind:paused
@@ -743,6 +751,23 @@ Les vidéos ont de plus des liaisons en lecture seule pour les attributs `videoW
 	bind:videoHeight
 ></video>
 ```
+
+##### Liaisons des éléments image
+
+---
+
+Les éléments d'image (`<img>`) ont deux liaisons en lecture seule :
+
+* `naturalWidth` (lecture seule) — la largeur d'origine de l'image, disponible après le chargement de l'image
+* `naturalHeight` (lecture seule) — la hauteur d'origine de l'image, disponible après le chargement de l'image
+
+```sv
+<img
+	bind:naturalWidth
+	bind:naturalHeight
+></img>
+```
+
 
 ##### Liaisons des éléments de type `block`
 
@@ -791,6 +816,8 @@ Les inputs qui fonctionnent ensemble peuvent utiliser `bind:group`.
 <input type="checkbox" bind:group={fillings} value="Fromage">
 <input type="checkbox" bind:group={fillings} value="Guacamole (supplément)">
 ```
+
+> `bind:group` ne fonctionne que si les `<input>` sont dans le même composant Svelte.
 
 #### bind:this
 
@@ -1494,6 +1521,7 @@ Le contenu est exposé dans le composant enfant avec l'élément `<slot>`, qui p
 </Widget>
 ```
 
+Note: Si vous souhaitez afficher [un élément HTML de type `<slot>`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/slot), vous pouvez utiliser `<svelte:element this="slot" />`.
 
 #### `<slot name="`*name*`">`
 
@@ -1710,6 +1738,7 @@ Vous pouvez aussi lier (avec `bind:`) les propriétés suivantes :
 * `scrollX`
 * `scrollY`
 * `online` — alias de `window.navigator.onLine`
+* `devicePixelRatio`
 
 Toutes ces propriétés sont en lecture seule, à l'exception de `scrollX` and `scrollY`.
 
@@ -1719,6 +1748,37 @@ Toutes ces propriétés sont en lecture seule, à l'exception de `scrollX` and `
 
 > Notez que la page ne défilera pas à la valeur fournie initialement pour des raisons d'accessibilité. Seuls les changements ultérieurs liés aux variables `scrollX` et `scrollY` déclencheront le défilement. Cependant, si un défilement initial est tout de même nécessaire, vous pouvez utiliser `scrollTo()` dans `onMount()`.
 
+### `<svelte:document>`
+
+```sv
+<svelte:document on:event={handler}/>
+```
+
+```sv
+<svelte:document bind:prop={value}/>
+```
+
+---
+
+À l'instar de `<svelte:window>`, cet élément vous permet d'ajouter des gestionnaires d'évènement sur `document`, comme `visibilitychange`, qui n'est pas déclenché sur `window`. Cet élément vous permet aussi d'utiliser des [actions](/docs#template-syntax-element-directives-use-action) sur `document`.
+
+Comme pour `<svelte:window>`, cet élément peut uniquement être utilisé à la racine du markup de votre composant, et ne doit jamais être à l'intérieur d'un bloc de compilation ou d'un élément.
+
+```sv
+<svelte:document
+	on:visibilitychange={handleVisibilityChange}
+	use:someAction
+/>
+```
+
+---
+
+Vous pouvez aussi créer une liaison avec les propriétés suivantes:
+
+* `fullscreenElement`
+* `visibilityState`
+
+Elles sont toutes en lecture seule.
 
 ### `<svelte:body>`
 
@@ -1731,7 +1791,7 @@ Toutes ces propriétés sont en lecture seule, à l'exception de `scrollX` and `
 À l'instar de `<svelte:window>`, cet élément vous permet d'ajouter des fonctions d'écoute pour les évènements se produisant sur le `document.body`, comme `mouseenter` et `mouseleave`, qui ne se déclenchent pas sur `window`. Cela permet également d'utiliser des [actions](/docs#template-syntax-element-directives-use-action) sur l'élément `<body>`.
 
 
-Comme pour `<svelte:window>`, cet élément peut uniquement être placé à la racine du markup d'un composant, et ne doit jamais être à l'intérieur d'un bloc de compilation ou d'un élément.
+Comme pour `<svelte:window>` et `<svelte:document>`, cet élément peut uniquement être placé à la racine du markup d'un composant, et ne doit jamais être à l'intérieur d'un bloc de compilation ou d'un élément.
 
 ```sv
 <svelte:body
@@ -1752,7 +1812,7 @@ Comme pour `<svelte:window>`, cet élément peut uniquement être placé à la r
 
 Cet élément rend possible l'insertion d'éléments dans `document.head`. Lors d'un rendu côté serveur, le contenu de `head` est exposé séparément du contenu `html`.
 
-Comme pour `<svelte:window>` et `<svelte:body>`, cet élément peut uniquement être placé à la racine du markup d'un composant, et ne doit jamais être à l'intérieur d'un bloc de compilation ou d'un élément.
+Comme pour `<svelte:window>`, `<svelte:document>` et `<svelte:body>`, cet élément peut uniquement être placé à la racine du markup d'un composant, et ne doit jamais être à l'intérieur d'un bloc de compilation ou d'un élément.
 
 ```sv
 <svelte:head>

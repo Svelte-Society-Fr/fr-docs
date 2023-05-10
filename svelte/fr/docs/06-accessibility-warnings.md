@@ -13,7 +13,7 @@ Voici la liste des vérifications d'accessibilité que Svelte fera pour vous.
 Assure de ne pas utiliser l'attribut `accesskey` sur des éléments. L'attribut HTML `accesskey` permet aux développeurs web d'attribuer des raccourcis clavier aux éléments. Les incohérences entre les raccourcis clavier et les commandes clavier utilisées par le lecteur d'écran et les utilisateurs du clavier créent des complications d'accessibilité. Pour éviter les complications, les touches d'accès ne doivent pas être utilisées.
 
 ```sv
-<!-- A11y: ne pas utiliser accessKey -->
+<!-- A11y: Avoid using accesskey -->
 <div accessKey='z'></div>
 ```
 
@@ -24,7 +24,8 @@ Assure de ne pas utiliser l'attribut `accesskey` sur des éléments. L'attribu
 Un élément avec `aria-activedescendant`  doit pouvoir être navigable en utilisant la touche "Tabulation", il doit donc avoir un `tabindex` intrinsèque, ou déclarer `tabindex` comme attribut.
 
 ```sv
-<!-- A11y: Les éléments avec l'attribut aria-activedescendant devraient avoir un tabindex -->
+
+<!-- A11y: Elements with attribute aria-activedescendant should have tabindex value -->
 <div aria-activedescendant="some-id" />
 
 ---
@@ -34,7 +35,7 @@ Un élément avec `aria-activedescendant`  doit pouvoir être navigable en utili
 Certains éléments DOM spéciaux ne prennent pas en charge les rôles, états et propriétés ARIA. C'est souvent parce qu'ils ne sont pas visibles, comme `meta`, `html`, `script`, `style`. Cette règle garantit que ces éléments DOM ne contiennent pas des `aria-*` accessoires.
 
 ```sv
-<!-- A11y: <meta> ne devrait pas avoir d'attribut aria-* -->
+<!-- A11y: <meta> should not have aria-* attributes -->
 <meta aria-hidden="false">
 ```
 
@@ -42,10 +43,10 @@ Certains éléments DOM spéciaux ne prennent pas en charge les rôles, états e
 
 ### `a11y-autofocus`
 
-Interdire l’usage d'`autofocus` sur les éléments. Le focus automatique d'éléments peut entraîner des problèmes d'usage pour les utilisateurs, qu'ils soient malvoyants, non voyants ou avec une vue parfaite.
+Interdit l’usage d'`autofocus` sur les éléments. Le focus automatique d'éléments peut entraîner des problèmes d'usage pour les utilisateurs, qu'ils soient malvoyants, non voyants ou avec une vue parfaite.
 
 ```sv
-<!-- A11y: ne pas utiliser autofocus -->
+<!-- A11y: Avoid using autofocus -->
 <input autofocus>
 ```
 
@@ -53,14 +54,16 @@ Interdire l’usage d'`autofocus` sur les éléments. Le focus automatique d'él
 
 ### `a11y-click-events-have-key-events`
 
-Assure que `on:click` soit accompagné d'au moins l'un des éléments suivants: `onKeyUp`, `onKeyDown`, `onKeyPress`. Penser à l'usage au clavier est important pour les utilisateurs avec des handicaps physiques qui ne peuvent pas utiliser de souris, pour les utilisateurs de liseuses d'écran, ainsi que pour la compatibilité AT.
+Assure que `on:click` soit accompagné d'au moins l'un des éléments suivants: `on:keyup`, `on:keydown`, `on:keypress`. Penser à l'usage au clavier est important pour les utilisateurs avec des handicaps physiques qui ne peuvent pas utiliser de souris, pour les utilisateurs de liseuses d'écran, ainsi que pour la compatibilité AT.
 
 Cela ne s'applique pas aux éléments interactifs ou cachés.
 
 ```sv
-<!-- A11y: les éléments visibles et non interactifs avec un événement on:click doivent être accompagnés d'un événement on:keydown, on:keyup ou on:keypress. -->
+<!-- A11y: visible, non-interactive elements with an on:click event must be accompanied by an on:keydown, on:keyup, or on:keypress event. -->
 <div on:click={() => {}} />
 ```
+
+Notez que l'évènement `keypress` est maintenant déprécié, il est donc officiellement recommandé d'utiliser à la place les évènements `keyup` ou `keydown`, selon les besoins.
 
 ---
 
@@ -71,7 +74,7 @@ Assure qu'aucun élément distrayant ne soit utilisé. Les éléments distrayant
 Les éléments suivants sont visuellement distrayants: `<marquee>` et `<blink>`.
 
 ```sv
-<!-- A11y: éviter les éléments <marquee> -->
+<!-- A11y: Avoid <marquee> elements -->
 <marquee />
 ```
 
@@ -82,7 +85,7 @@ Les éléments suivants sont visuellement distrayants: `<marquee>` et `<blink
 Certains éléments DOM sont utiles pour la navigation avec lecteur d'écran et ne doivent pas être cachés.
 
 ```sv
-<!-- A11y: l'élément <h2> ne doit pas être caché -->
+<!-- A11y: <h2> element should not be hidden -->
 <h2 aria-hidden="true">en-tête invisible</h2>
 ```
 
@@ -95,16 +98,16 @@ Assure que l'attribut `alt` des balises `img` ne contienne pas le mot "image" ou
 ```sv
 <img src="foo" alt="Foo mange un sandwich." />
 
-<!-- aria-hidden, ne sera pas annoncé par le lecteur d'écran-->
+<!-- A11y: aria-hidden, won't be announced by screen reader -->
 <img src="bar" aria-hidden="true" alt="Photo de moi prenant une photo d'une image" />
 
-<!-- A11y: Les lecteurs d'écran annoncent déjà les éléments <img> comme une image. -->
+<!-- A11y: Screen readers already announce <img> elements as an image. -->
 <img src="foo" alt="Photo de foo bizarre." />
 
-<!-- A11y: Les lecteurs d'écran annoncent déjà les éléments <img> comme une image. -->
+<!-- A11y: Screen readers already announce <img> elements as an image. -->
 <img src="bar" alt="Photo de moi dans un bar !" />
 
-<!-- A11y: Les lecteurs d'écran annoncent déjà les éléments <img> comme une image. -->
+<!-- A11y: Screen readers already announce <img> elements as an image. -->
 <img src="foo" alt="Image de baz corrigeant un bug." />
 ```
 
@@ -115,7 +118,7 @@ Assure que l'attribut `alt` des balises `img` ne contienne pas le mot "image" ou
 Assure que le bon type de valeur soit utilisé pour les attributs `aria`. Par exemple, `aria-hidden` ne devrait recevoir qu'un booléen.
 
 ```sv
-<!-- A11y: la valeur de 'aria-hidden' doit être exactement `true` ou `false` -->
+<!-- A11y: The value of 'aria-hidden' must be exactly one of true or false -->
 <div aria-hidden="yes"/>
 ```
 
@@ -126,8 +129,19 @@ Assure que le bon type de valeur soit utilisé pour les attributs `aria`. Par ex
 Assure que les attributs importants pour l'accessibilité aient une valeur valide. Par exemple, `href` ne devrait pas être vide, `'#'` ou `javascript:`.
 
 ```sv
-<!-- A11y: '' n'est pas un attribut href valide -->
+<!-- A11y: '' is not a valid href attribute -->
 <a href=''>invalide</a>
+```
+
+---
+
+### `a11y-interactive-supports-focus`
+
+Assure que les éléments avec un rôle interactif et des gestionnaires d'évènements interactifs (de souris ou de clavier) soient focalisables ou accessibles avec la touche Tab.
+
+```sv
+<!-- A11y: Elements with the 'button' interactive role must have a tabindex value. -->
+<div role="button" on:keypress={() => {}} />
 ```
 
 ---
@@ -146,7 +160,7 @@ Il existe deux méthodes prises en charge pour associer une étiquette à un con
 
 <label>C <input type="text" /></label>
 
-<!-- A11y: Une étiquette de formulaire doit être associée à un contrôle. -->
+<!-- A11y: A form label must be associated with a control. -->
 <label>A</label>
 ```
 
@@ -163,10 +177,10 @@ Les sous-titres doivent contenir toutes les informations importantes et pertinen
 
 <audio muted></audio>
 
-<!-- A11y: Les éléments média doivent avoir une <track kind=\"captions\"> -->
+<!-- A11y: Media elements must have a <track kind=\"captions\"> -->
 <video></video>
 
-<!-- A11y: Les éléments média doivent avoir une <track kind=\"captions\"> -->
+<!-- A11y: Media elements must have a <track kind=\"captions\"> -->
 <video><track /></video>
 ```
 
@@ -177,7 +191,7 @@ Les sous-titres doivent contenir toutes les informations importantes et pertinen
 Certains éléments DOM réservés ne prennent pas en charge les rôles, états et propriétés ARIA. Cela est souvent dû à leur invisibilité, par exemple `meta`, `html`, `script`, `style`. Cette règle impose que ces éléments DOM ne contiennent pas l'attribut `role`.
 
 ```sv
-<!-- A11y: <meta> ne devrait pas avoir l'attribut role -->
+<!-- A11y: <meta> should not have role attribute -->
 <meta role="tooltip">
 ```
 
@@ -188,7 +202,7 @@ Certains éléments DOM réservés ne prennent pas en charge les rôles, états 
 L'attribut `scope` ne devrait être utilisé que sur les éléments `<th>`.
 
 ```sv
-<!-- A11y: L'attribut `scope` doit seulement être utilisé avec les élements <th> -->
+<!-- A11y: The scope attribute should only be used with <th> elements -->
 <div scope="row" />
 ```
 
@@ -207,13 +221,13 @@ Assure que les attributs requis pour l'accessibilité soient présents sur un é
 - `<input type="image">` devrait avoir alt, aria-label ou aria-labelledby
 
 ```sv
-<!-- A11y: L'élément <input type=\"image\"> devrait avoir un attribut alt, aria-label ou aria-labelledby -->
+<!-- A11y: <input type=\"image\"> element should have an alt, aria-label or aria-labelledby attribute -->
 <input type="image">
 
-<!-- A11y: <html> L'élément <html> devrait avoir un attribut lang -->
+<!-- A11y: <html> element should have a lang attribute -->
 <html></html>
 
-<!-- A11y: L'élément <a> devrait avoir un attribut href -->
+<!-- A11y: <a> element should have an href attribute -->
 <a>text</a>
 ```
 
@@ -224,10 +238,10 @@ Assure que les attributs requis pour l'accessibilité soient présents sur un é
 Assure que les éléments d'en-tête (`h1`, `h2`, etc.) et les ancres aient un contenu, et que ce contenu soit accessible aux lecteurs d'écran.
 
 ```sv
-<!-- A11y: L'élément <a> doit avoir un contenu enfant -->
+<!-- A11y: <a> element should have child content -->
 <a href='/foo'></a>
 
-<!-- A11y: L'élément <h1> doit avoir un contenu enfant -->
+<!-- A11y: <h1> element should have child content -->
 <h1></h1>
 ```
 
@@ -238,10 +252,10 @@ Assure que les éléments d'en-tête (`h1`, `h2`, etc.) et les ancres aient un c
 Assure que `on:mouseover` and `on:mouseout` soient accompagnés de `on:focus` et `on:blur`, respectivement. Cela aide à garantir que toutes les fonctionnalités déclenchées par ces événements de souris soient également accessibles aux utilisateurs du clavier.
 
 ```sv
-<!-- A11y: on:mouseover doit être accompagné de on:focus -->
+<!-- A11y: on:mouseover must be accompanied by on:focus -->
 <div on:mouseover={handleMouseover} />
 
-<!-- A11y: on:mouseout doit être accompagné de on:blur -->
+<!-- A11y: on:mouseout must be accompanied by on:blur -->
 <div on:mouseout={handleMouseout} />
 ```
 
@@ -252,10 +266,10 @@ Assure que `on:mouseover` and `on:mouseout` soient accompagnés de `on:focus` et
 Certains éléments HTML ont des rôles ARIA par défaut. Donner à ces éléments un rôle ARIA déjà défini par le navigateur n'a aucun effet et est redondant.
 
 ```sv
-<!-- A11y: rôle redondant 'button' -->
+<!-- A11y: Redundant role 'button' -->
 <button role="button" />
 
-<!-- A11y: rôle redondant 'img' -->
+<!-- A11y: Redundant role 'img' -->
 <img role="img" src="foo.jpg" />
 ```
 
@@ -266,8 +280,20 @@ Certains éléments HTML ont des rôles ARIA par défaut. Donner à ces élémen
 Les rôles [WAI-ARIA](https://www.w3.org/TR/wai-aria-1.1/#usage_intro) ne devraient pas être utilisés pour convertir un élément interactif en un élément non interactif. Les rôles ARIA non interactifs incluent `article`, `banner`, `complementary`, `img`, `listitem`, `main`, `region` et `tooltip`.
 
 ```sv
-<!-- A11y: <textarea> ne peut pas avoir le rôle 'listitem' -->
+<!-- A11y: <textarea> cannot have role 'listitem' -->
 <textarea role="listitem" />
+```
+
+---
+
+### `a11y-no-noninteractive-element-to-interactive-role`
+
+
+Les rôles [WAI-ARIA](https://www.w3.org/TR/wai-aria-1.1/#usage_intro) ne devraient pas être utilisés pour convertir un élément non interactif en élément interactif. Les rôles ARIA interactifs incluent `button`, `link`, `checkbox`, `menuitem`, `menuitemcheckbox`, `menuitemradio`, `option`, `radio`, `searchbox`, `switch` et `textbox`.
+
+```sv
+<!-- A11y: Non-interactive element <h3> cannot have interactive role 'searchbox' -->
+<h3 role="searchbox">Bouton</h3>
 ```
 
 ---
@@ -277,7 +303,7 @@ Les rôles [WAI-ARIA](https://www.w3.org/TR/wai-aria-1.1/#usage_intro) ne devrai
 La navigation à l'aide de la touche Tab doit être limitée aux éléments de la page avec lesquels il est possible d'interagir.
 
 ```sv
-<!-- A11y: un élément non interactif ne peut pas avoir une valeur de tabIndex non négative -->
+<!-- A11y: noninteractive element cannot have nonnegative tabIndex value -->
 <div tabindex='0' />
 ```
 
@@ -288,7 +314,7 @@ La navigation à l'aide de la touche Tab doit être limitée aux éléments de l
 Évitez les valeurs positives pour la propriété `tabindex`. Cela positionnera des éléments en dehors de l'ordre de tabulation attendu, ce qui créera une expérience confuse pour les utilisateurs du clavier.
 
 ```sv
-<!-- A11y: évitez les valeurs de tabindex supérieures à zéro -->
+<!-- A11y: avoid tabindex values above zero -->
 <div tabindex='1'/>
 ```
 
@@ -299,8 +325,21 @@ La navigation à l'aide de la touche Tab doit être limitée aux éléments de l
 Les éléments avec des rôles ARIA doivent avoir tous les attributs requis pour ce rôle.
 
 ```sv
-<!-- A11y: les éléments avec le rôle ARIA "checkbox" doivent avoir les attributs suivants définis: "aria-checked" -->
+<!-- A11y: A11y: Elements with the ARIA role "checkbox" must have the following attributes defined: "aria-checked" -->
 <span role="checkbox" aria-labelledby="foo" tabindex="0"></span>
+```
+
+---
+
+### `a11y-role-supports-aria-props`
+
+Les éléments avec un rôle explicite ou implicite doivent contenir uniquement des propriétés `aria-*` prévues pour ce rôles.
+
+```sv
+<!-- A11y: The attribute 'aria-multiline' is not supported by the role 'link'. -->
+<div role="link" aria-multiline />
+<!-- A11y: The attribute 'aria-required' is not supported by the role 'listitem'. This role is implicit on the element <li>. -->
+<li aria-required />
 ```
 
 ---
@@ -310,7 +349,7 @@ Les éléments avec des rôles ARIA doivent avoir tous les attributs requis pour
 Assure que certains éléments DOM aient la bonne structure.
 
 ```sv
-<!-- A11y: <figcaption> doit être un enfant immédiat de <figure> -->
+<!-- A11y: <figcaption> must be an immediate child of <figure> -->
 <div>
 	<figcaption>Légende de l'image</figcaption>
 </div>
@@ -323,7 +362,7 @@ Assure que certains éléments DOM aient la bonne structure.
 Assure que seuls les attributs ARIA connus soient utilisés. Cela est basé sur la spécification [WAI-ARIA States and Properties](https://www.w3.org/WAI/PF/aria-1.1/states_and_properties).
 
 ```sv
-<!-- A11y: Attribut aria inconnu 'aria-labeledby' (vouliez-vous dire 'labelledby'?) -->
+<!-- A11y: Unknown aria attribute 'aria-labeledby' (did you mean 'labelledby'?) -->
 <input type="image" aria-labeledby="foo">
 ```
 
@@ -334,6 +373,6 @@ Assure que seuls les attributs ARIA connus soient utilisés. Cela est basé sur 
 Les éléments avec des rôles ARIA doivent utiliser un rôle ARIA valide et non abstrait. Une référence aux définitions de rôle peut être trouvée sur le site [WAI-ARIA](https://www.w3.org/TR/wai-aria/#role_definitions).
 
 ```sv
-<!-- A11y: Rôle inconnu 'toooltip' (vouliez-vous dire 'tooltip'?) -->
+<!-- A11y: Unknown role 'toooltip' (did you mean 'tooltip'?) -->
 <div role="toooltip"></div>
 ```

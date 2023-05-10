@@ -43,7 +43,7 @@ Svelte utilise le mot-clé `export` pour déclarer une variable en tant que *pro
 
 ---
 
-Vous pouvez spécifier une valeur initiale par défaut d'une prop. Elle sera utilisée si la prop n'est pas fournie au composant par le parent lors de l'instanciation du composant (ou si la valeur fournie est `undefined`). Notez que dès qu'une prop est supprimée par le parent, sa valeur est mise à `undefined` plutôt qu'à sa valeur initiale.
+Vous pouvez spécifier une valeur initiale par défaut d'une prop. Elle sera utilisée si la prop n'est pas fournie au composant par le parent lors de l'instanciation du composant (ou si la valeur fournie est `undefined`). Notez que si les valeurs des props sont mises à jour a posteriori, n'importe quelle valeur de prop non spécifiée sera mise à `undefined` (plutôt qu'à sa valeur initiale).
 
 En mode développement (voir les [options de compilation](/docs#compile-time-svelte-compile)), un warning sera affiché si aucune valeur initiale par défaut n'est fournie et que le parent ne précise pas de valeur. Pour museler ce warning, assurez-vous qu'une valeur initiale par défaut est définie, même si celle-ci est `undefined`.
 
@@ -291,7 +291,7 @@ Vous ne pouvez pas `export default`, puisque l'export par défaut est le composa
 <script context="module">
 	let totalComponents = 0;
 
-	// cela permet d'écrire dans un parent (par exemple)
+	// le mot clé "export" permet à cette fonction d'être importée ailleurs, par ex.
 	// `import Example, { alertTotal } from './Example.svelte'`
 	export function alertTotal() {
 		alert(totalComponents);
